@@ -176,55 +176,53 @@
                                     <!-- end table-responsive-->
                                     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
                                     <script src="{{ asset('static/js/jquery.dataTables.min.js') }}"></script>
-                                    <script type="text/javascript" src="http://127.0.0.1:8000/static/js/ck/dataTables.buttons.min.js"></script>
-                                    <script type="text/javascript" src="http://127.0.0.1:8000/static/js/ck/pdfmake.min.js"></script>
-                                    
+                                  
 
                                     <script type="text/javascript">
-                        $(document).ready(function() {
-                     
-                          $("#emptableid").DataTable({
-                                  serverSide: true,
-                                  ajax: {
-                                      url: '{{url('chequesajax')}}',
-                                      data: function (data) {
-                                          data.params = {
-                                              sac: "helo"
-                                          }
-                                      }
+                                        $(document).ready(function() {
+                                    
+                                        $("#emptableid").DataTable({
+                                                serverSide: true,
+                                                ajax: {
+                                                    url: '{{url('chequesajax')}}',
+                                                    data: function (data) {
+                                                        data.params = {
+                                                            sac: "helo"
+                                                        }
+                                                    }
 
-                                  },
-                                  buttons: true,
-                                  searching: true,
-                                  scrollY: 500,
-                                  scrollX: false,
-                                  scrollCollapse: true,
-                                  dom: 'Bfrtip',
-                                  buttons: ['copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'],
-                                  columns: [
-                                      {data: "date_cheque", className: 'date_cheque'},
-                                      {data: "type_op", className: 'type_op'},
-                                      {data: "designation", className: 'designation'},
-                                      {data: "verse_par", className: 'verse_par'},
-                                      {data: "n_marche", className: 'n_marche'},
-                                      {data: "realise_par", className: 'realise_par'},
-                                      {data: "debit", className: 'debit'},
-                                      {data: "credit", className: 'credit'},
-                                      {data: "created_at", className: 'created_at'},
-                                      {
-                                    data: 'action', 
-                                    name: 'action', 
-                                    orderable: true, 
-                                    searchable: true
-                                },
-                                   
-                                  ]  
-                            });
-                     
-                        });
+                                                },
+                                                buttons: true,
+                                                searching: true,
+                                                scrollY: 500,
+                                                scrollX: false,
+                                                scrollCollapse: true,
+                                                dom: 'Bfrtip',
+                                                buttons: ['copyHtml5',
+                                                'excelHtml5',
+                                                'csvHtml5',
+                                                'pdfHtml5'],
+                                                    columns: [
+                                                    {data: "date_cheque", className: 'date_cheque'},
+                                                    {data: "type_op", className: 'type_op'},
+                                                    {data: "designation", className: 'designation'},
+                                                    {data: "verse_par", className: 'verse_par'},
+                                                    {data: "n_marche", className: 'n_marche'},
+                                                    {data: "realise_par", className: 'realise_par'},
+                                                    {data: "debit", className: 'debit'},
+                                                    {data: "credit", className: 'credit'},
+                                                    {data: "created_at", className: 'created_at'},
+                                                    {
+                                                    data: 'action', 
+                                                    name: 'action', 
+                                                    orderable: true, 
+                                                    searchable: true
+                                                },
+                                                
+                                                ]  
+                                            });
+                                    
+                                        });
                      
                             </script>
                             @else
