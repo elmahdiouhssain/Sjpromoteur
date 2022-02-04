@@ -135,7 +135,7 @@ class ChequesController extends Controller
     public function destroyCheque($id) {
         $pack = ChequesImg::find($id);
         $pack->delete();
-         return back()->with('success', 'Document est Scan supprimé avec succée');
+         return back()->with('success', 'Document est supprimé avec succée');
 
 }
 

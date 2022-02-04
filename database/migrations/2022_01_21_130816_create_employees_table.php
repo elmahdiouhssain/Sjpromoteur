@@ -15,13 +15,13 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_complete')->nullable();
+            $table->string('nom_complete');
             $table->string('n_dossier')->nullable();
             $table->string('cnss')->nullable();
             $table->string('cin')->nullable();
             $table->string('n_telephone')->nullable();
             $table->string('fonction')->nullable();
-            $table->string('n_banquer')->nullable();
+            $table->string('n_banaire')->nullable();
             $table->dateTime('date_debut')->nullable();
             $table->text('addr1')->nullable();
             $table->text('addr2')->nullable();
@@ -31,7 +31,7 @@ class CreateEmployeesTable extends Migration
             $table->boolean('on_conge')->default(False);
             $table->bigInteger('n_jours')->nullable();
             $table->bigInteger('prix_jour')->nullable();
-            $table->bigInteger('salaire_total')->nullable();
+            //$table->bigInteger('salaire_total')->nullable();
             $table->string('realise_par');
             $table->string('contract')->nullable();
             $table->timestamps();

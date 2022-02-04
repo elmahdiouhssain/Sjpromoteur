@@ -32,7 +32,6 @@
             </div>
             <nav class="navbar-custom">
                 <ul class="list-inline float-right mb-0">
-
                     <li class="list-inline-item dropdown notif">
                         <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
                             <img src="{{ asset('static/images/avatars/admin.png') }}" alt="Profile image" class="avatar-rounded">
@@ -44,7 +43,6 @@
                                     <small>{{Auth::user()->name}}</small>
                                 </h5>
                             </div>
-
                             <!-- item-->
                             <a href="/profile" class="dropdown-item notify-item">
                                 <i class="fas fa-user"></i>
@@ -80,12 +78,7 @@
             <div class="sidebar-inner leftscroll">
                 <div id="sidebar-menu">
                     <ul>
-                        <li class="submenu">
-                            <a class="active" href="{{ route('dashboard.index') }}">
-                                <i class="fas fa-bars"></i>
-                                <span> Tableau de bord  </span>
-                            </a>
-                        </li>
+                        <center style="color: white;"><hr>----SITUATIONS----<hr></center>
                         <li class="submenu">
                             <a href="{{ route('adherants.index') }}">
                                 <i class="fas fa-clipboard-list"></i>
@@ -99,17 +92,45 @@
                             </a>
                         </li>
                         <li class="submenu">
-                            <a href="{{ route('certificats.index') }}">
-                                <i class="fas fa-file-word"></i>
-                                <span> Certificats </span>
+                            <a href="{{ route('emps.index') }}">
+                                <i class="fas fa-dolly"></i>
+                                <span> Employeés </span>
+                            </a>
+                        </li>
+                        <center style="color: white;"><hr>----ACHATS----<hr></center>
+                        <li class="submenu">
+                            <a href="">
+                            <i class="fas fa-boxes"></i>
+                                <span> Fournisseurs </span>
+                            </a>
+                        </li>
+                        
+                        <li class="submenu">
+                            <a href="">
+                                <i class="fas fa-file-invoice"></i>
+                                <span> BC </span>
                             </a>
                         </li>
                         <li class="submenu">
-                            <a href="{{ route('statistiques.index') }}">
-                                <i class="fas fa-chart-pie"></i>
-                                <span> Statistiques </span>
+                            <a href="">
+                                <i class="fas fa-file-invoice"></i>
+                                <span> BL </span>
                             </a>
                         </li>
+                        <li class="submenu">
+                            <a href="{{ route('factures.index') }}">
+                                <i class="fas fa-file-invoice"></i>
+                                <span> Factures </span>
+                            </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="">
+                                <i class="fas fa-file-invoice"></i>
+                                <span> BR </span>
+                            </a>
+                        </li>
+
+                        <center style="color: white;"><hr>----Projects----<hr></center>
                         <li class="submenu">
                             <a href="{{ route('amicals.index') }}">
                                 <i class="fas fa-toolbox"></i>
@@ -122,19 +143,13 @@
                                 <span> Sociète </span>
                             </a>
                         </li>
+
+                        <center style="color: white;"><hr>----Administration----<hr></center>
                         <li class="submenu">
-                            <a href="{{ route('factures.index') }}">
-                                <i class="fas fa-file-invoice"></i>
-                                <span> Factures </span>
+                            <a href="{{ route('statistiques.index') }}">
+                                <i class="fas fa-chart-pie"></i>
+                                <span> Statistiques </span>
                             </a>
-                            
-                        </li>
-                        <li class="submenu">
-                            <a href="{{ route('emps.index') }}">
-                                <i class="fas fa-dolly"></i>
-                                <span> Employeés </span>
-                            </a>
-                            
                         </li>
                          <li class="submenu">
                             <a href="{{ route('roles.index') }}">
@@ -146,6 +161,12 @@
                             <a href="{{ route('users.index') }}">
                                 <i class="fas fa-users"></i>
                                 <span>Utilisateurs </span>
+                            </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="{{ route('certificats.index') }}">
+                                <i class="fas fa-file-word"></i>
+                                <span> Certificats </span>
                             </a>
                         </li>
                     </ul>

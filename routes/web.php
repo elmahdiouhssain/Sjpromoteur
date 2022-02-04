@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -12,13 +11,11 @@ use App\Http\Controllers\AdherantController;
 use App\Http\Controllers\SocieteController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CertificatController;
-
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\StatistiquesController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\EmployeesController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/statistiques', StatistiquesController::class);
     Route::resource('/factures', FactureController::class);
     Route::resource('/emps', EmployeesController::class);
+    Route::resource('/fournisseurs', EmployeesController::class);
 
     ///////Tranche for any adherant/////////////
     Route::post('/adherants/inserttranch', [AdherantController::class, 'InsertTranch'])->name('tranch.add');

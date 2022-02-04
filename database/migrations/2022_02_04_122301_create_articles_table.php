@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSettingTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateSettingTable extends Migration
      */
     public function up()
     {
-        Schema::create('setting', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('raison_social')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('description')->nullable();
+            $table->string('nom')->nullable();
+            $table->string('unitaire')->nullable();
+            $table->decimal('prix')->nullable();
+            $table->text('desc')->nullable();
+            $table->text('observations')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateSettingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setting');
+        Schema::dropIfExists('articles');
     }
 }

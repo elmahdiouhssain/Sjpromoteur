@@ -5,24 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Fournisseur extends Model
 {
     use HasFactory;
-    protected $table = 'companys';
+    protected $table = 'fournisseurs';
     public $timestamps = true;
     protected $fillable = [
-        'raison_social',
-        'logo',
-        'details',
-        'raison_social_ar',
-        'rib',
+        'boncommande_id',
+        'raison_s',
+        'ice',
+        'addr1',
+        'n_telephone',
+        'email',
+        'c_bancaire',
+        'observations',
     ];
 
-    // company has many bonscommandes
+
+    // fournisseur has many bonscommandes
     public function bonscommandes()
     {
         return $this->hasMany('App\Models\Boncommande', 'boncommande_id');
     } 
-
     
 }
