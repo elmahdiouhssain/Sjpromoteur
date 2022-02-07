@@ -99,7 +99,7 @@
                         </li>
                         <center style="color: white;"><hr>----ACHATS----<hr></center>
                         <li class="submenu">
-                            <a href="">
+                            <a href="{{ route('fournisseurs.index') }}">
                             <i class="fas fa-boxes"></i>
                                 <span> Fournisseurs </span>
                             </a>
@@ -108,13 +108,13 @@
                         <li class="submenu">
                             <a href="">
                                 <i class="fas fa-file-invoice"></i>
-                                <span> BC </span>
+                                <span> B-commandes </span>
                             </a>
                         </li>
                         <li class="submenu">
                             <a href="">
                                 <i class="fas fa-file-invoice"></i>
-                                <span> BL </span>
+                                <span> B-livraisons </span>
                             </a>
                         </li>
                         <li class="submenu">
@@ -126,7 +126,7 @@
                         <li class="submenu">
                             <a href="">
                                 <i class="fas fa-file-invoice"></i>
-                                <span> BR </span>
+                                <span> B-retour</span>
                             </a>
                         </li>
 

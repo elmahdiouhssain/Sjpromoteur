@@ -95,7 +95,6 @@ class AdherantController extends Controller
         //dd($ads->tranches);
         $data['ads'] = Adherant::find($id);
         $data['tranches'] =  $data['ads']->tranches;
-        //$data['certs'] = Certificat::all();
         /////calculation du montant immobilier///
         $data['m_imm'] = $data['ads']->pm2 * $data['ads']->m2;
         /////calculation du montant tranches///
@@ -201,7 +200,6 @@ class AdherantController extends Controller
     public function update(Request $request,$id) {
         $this->validate($request, [
             'nom_complete' => 'required',
-            
             'societe_id' => 'required',
             'montant_verse' => 'required',
         ]);

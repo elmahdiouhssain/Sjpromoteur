@@ -365,7 +365,7 @@ a {
 }
 
 .headerbar .headerbar-left {
-    background: #2a3542;
+    background: #dc3545;
     float: left;
     text-align: center;
     height: 50px;
@@ -423,7 +423,7 @@ a {
     top: 50px;
     width: 250px;
     z-index: 1000;
-    background: #2a3542;
+    background: #495057;
     bottom: 70px;
     margin-bottom: -70px;
     margin-top: 0;

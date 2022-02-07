@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/statistiques', StatistiquesController::class);
     Route::resource('/factures', FactureController::class);
     Route::resource('/emps', EmployeesController::class);
+    Route::resource('/fournisseurs', FournisseursController::class);
 
     ///////Tranche for any adherant/////////////
     Route::post('/adherants/inserttranch', [AdherantController::class, 'InsertTranch'])->name('tranch.add');
@@ -114,6 +115,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     ///////////////////this just for employees ajax ////////////////
     Route::get('/employeesajax', [EmployeesController::class, 'Employeeslistajax'])->name('employees.ajax');
+
+    ///////////////////this just for Fournisseurs ajax ////////////////
+    Route::get('/fournisseursajax', [FournisseursController::class, 'FournisseurAjax'])->name('fournisseursajax');
 
     /////Destroy company ///////
     Route::get('/companys/del/{id}', [CompanyController::class, 'destroy'])->name('dell.company');

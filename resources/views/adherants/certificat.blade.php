@@ -7,7 +7,6 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -21,15 +20,11 @@
                                     //dd($getdata);    
                                     ?>
                                     <h3 style="color:green;"><i class="fas fa-file-word"></i> Generèr une demande d'authorisation  : <i1 style="color:red;">Mr : {{ $data['adherant']->nom_complete }} </i1> || <ex id="so_details" name="so_details">( {{ $getdata[0]->raison_social }} )</ex></h3>
-
                                     <input type="hidden" name="so_details" value="{{ $data['adherant']->societe }}" id="so_details">
                                    
                                 </div>
-
-
                                 <div class="card-body">
                                     <div class="row">
-                                  
                                     <div class="col">
                                       
                                         <form action="/generer/certificat/authorization/<?php echo$data['adherant']->id; ?>" method="POST">
@@ -45,8 +40,7 @@
                                                             @endif
                                                 </div>
                                         <div class="form-group">
-                                                    <label class="pull-right">: الواجهة </label>
-
+                                                <label class="pull-right">: الواجهة </label>
                                                     <select class="form-control pull-right" id="ar_facade" name="ar_facade">
                                                     <option selected><?php echo$data['adherant']->ar_facade; ?></option>
                                                     <option class="pull-right"></option>
@@ -55,8 +49,7 @@
                                                     <option class="pull-right">بالواجهة الغربية</option>
                                                     <option class="pull-right">بالواجهة الشمالية</option>
                                                     <option class="pull-right">بالواجهة الجنوبية</option>
-
-                                              </select>
+                                                </select>
                                                     @if ($errors->has('ar_facade'))
                                                             <span style="color: red;">{{ $errors->first('ar_facade') }}</span>
                                                             @endif
@@ -102,7 +95,6 @@
                                                     <option class="pull-right">مكتب على الشارع</option>
                                                     <option class="pull-right">محل تجاري</option>
                                                     <option class="pull-right">شقة سكنية</option>
-                                                    
                                                     <option class="pull-right">شقة على الشارع</option>
                                                     <option class="pull-right">شقة داخلية</option>
                                                     </select>
@@ -113,13 +105,10 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="pull-right">:  المرأب تحت ارضي</label>
-                                                    
                                                     <select class="form-control pull-right" id="sous_sol" name="sous_sol">
                                                     <option class="pull-right" style="color: green;" value="1">Active sous sole</option>
                                                     <option class="pull-right" style="color: red;" value="0">Desactive sous sole</option>
-
                                                     </select>
-
                                                     @if ($errors->has('sous_sol'))
                                                             <span style="color: red;">{{ $errors->first('sous_sol') }}</span>
                                                             @endif

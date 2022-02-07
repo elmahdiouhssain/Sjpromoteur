@@ -19,6 +19,7 @@ class Fournisseur extends Model
         'email',
         'c_bancaire',
         'observations',
+        'realise_par',
     ];
 
 

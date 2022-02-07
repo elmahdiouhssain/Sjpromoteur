@@ -50,12 +50,9 @@
                                                         <span aria-hidden="true">×</span>
                                                     </button>
                                                 </div>
-                               <div class="modal-body">
-                                                     
-                                                   
+                            <div class="modal-body">
                              {!! Form::open(array('route' => 'stats-cheques.store','method'=>'POST')) !!}
                               @csrf
-                                                    
                                 <div class="form-group">
                                     <label for="name">Date chèque :</label>
                                     <input type="date" name="date_cheque" class="form-control" id="date_cheque"required="">
