@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Route::resource('/demandes', DemandeController::class);
     Route::resource('/statistiques', StatistiquesController::class);
     Route::resource('/factures', FactureController::class);
-    Route::resource('/emps', FournisseursController::class);
+    Route::resource('/emps', EmployeesController::class);
 
     ///////Tranche for any adherant/////////////
     Route::post('/adherants/inserttranch', [AdherantController::class, 'InsertTranch'])->name('tranch.add');
