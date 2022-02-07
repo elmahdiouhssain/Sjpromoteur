@@ -21,7 +21,7 @@ class CreateEmployeesTable extends Migration
             $table->string('cin')->nullable();
             $table->string('n_telephone')->nullable();
             $table->string('fonction')->nullable();
-            $table->string('n_banaire')->nullable();
+            $table->string('n_banquer')->nullable();
             $table->dateTime('date_debut')->nullable();
             $table->text('addr1')->nullable();
             $table->text('addr2')->nullable();

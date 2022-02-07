@@ -64,7 +64,7 @@ class EmployeesController extends Controller
         $data->cnss = $request->get('cnss');
         $data->n_telephone = $request->get('n_telephone');
         $data->fonction = $request->get('fonction'); 
-        $data->n_banaire = $request->get('n_banaire'); 
+        $data->n_banquer = $request->get('n_banquer'); 
         $data->n_dossier = $request->get('n_dossier');
         $data->date_debut = $request->get('date_debut');
         $data->addr1 = $request->get('addr1');
@@ -99,7 +99,7 @@ class EmployeesController extends Controller
         $cnss = $request->input('cnss');
         $n_telephone = $request->input('n_telephone');
         $fonction = $request->input('fonction');
-        $n_banaire = $request->input('n_banaire');
+        $n_banquer = $request->input('n_banquer');
         $n_dossier = $request->input('n_dossier');
         $date_debut = $request->input('date_debut');
         $addr1 = $request->input('addr1');
@@ -109,7 +109,7 @@ class EmployeesController extends Controller
         $prix_jour = $request->input('prix_jour');
         $salaire_total = $request->input('salaire_total');
 
-        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banaire=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,observation=?,n_jours=?,prix_jour=?,salaire_total=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banaire,$n_dossier,$date_debut,$addr1,$addr2,$observation,$n_jours,$prix_jour,$salaire_total,$id]);
+        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,observation=?,n_jours=?,prix_jour=?,salaire_total=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$observation,$n_jours,$prix_jour,$salaire_total,$id]);
 
     return redirect('/emps/'.$id)->with('success', 'Employeé modifié avec succée');
 
