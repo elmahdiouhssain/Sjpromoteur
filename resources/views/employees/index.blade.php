@@ -37,9 +37,7 @@
                                             </span>
                                         </a><br>
                                         @endcan
-                                
-                                  
-                                   
+
                                     <br>
                                     </center><br>
                                     <div class="container">

@@ -146,15 +146,15 @@
 
                         <center style="color: white;"><hr>----Administration----<hr></center>
                         <li class="submenu">
+                            <a href="{{ route('certificats.index') }}">
+                                <i class="fas fa-file-word"></i>
+                                <span> Certificats </span>
+                            </a>
+                        </li>
+                        <li class="submenu">
                             <a href="{{ route('statistiques.index') }}">
                                 <i class="fas fa-chart-pie"></i>
                                 <span> Statistiques </span>
-                            </a>
-                        </li>
-                         <li class="submenu">
-                            <a href="{{ route('roles.index') }}">
-                                <i class="fas fa-users-cog"></i>
-                                <span>Roles & Permissions </span>
                             </a>
                         </li>
                         <li class="submenu">
@@ -163,12 +163,13 @@
                                 <span>Utilisateurs </span>
                             </a>
                         </li>
-                        <li class="submenu">
-                            <a href="{{ route('certificats.index') }}">
-                                <i class="fas fa-file-word"></i>
-                                <span> Certificats </span>
+                         <li class="submenu">
+                            <a href="{{ route('roles.index') }}">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Roles & Permissions </span>
                             </a>
                         </li>
+                        
                     </ul>
                     <div class="clearfix"></div>
                 </div>
