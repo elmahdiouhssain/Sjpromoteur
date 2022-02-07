@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->decimal('prix')->nullable();
             $table->text('desc')->nullable();
             $table->text('observations')->nullable();
+            $table->string('realise_par')->nullable();
             $table->timestamps();
         });
     }

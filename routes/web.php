@@ -16,6 +16,8 @@ use App\Http\Controllers\StatistiquesController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\FournisseursController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,8 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Route::resource('/demandes', DemandeController::class);
     Route::resource('/statistiques', StatistiquesController::class);
     Route::resource('/factures', FactureController::class);
-    Route::resource('/emps', EmployeesController::class);
-    Route::resource('/fournisseurs', EmployeesController::class);
+    Route::resource('/emps', FournisseursController::class);
 
     ///////Tranche for any adherant/////////////
     Route::post('/adherants/inserttranch', [AdherantController::class, 'InsertTranch'])->name('tranch.add');

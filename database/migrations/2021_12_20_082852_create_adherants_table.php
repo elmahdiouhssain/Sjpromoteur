@@ -53,6 +53,10 @@ class CreateAdherantsTable extends Migration
             $table->string('project_place')->nullable();
             $table->string('sousol_prix')->nullable();
 
+            $table->boolean('balcon')->nullable();
+            $table->string('balcon_prix')->nullable();
+            $table->string('balcon_superficier')->nullable();
+
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateCompanysTable extends Migration
     {
         Schema::create('companys', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('boncommandes_id');
+            $table->unsignedBigInteger('boncommandes_id')->nullable();
             $table->foreign('boncommandes_id')->references('id')->on('boncommandes')->onDelete('cascade');
             $table->string('raison_social')->unique();
             $table->string('logo')->nullable();

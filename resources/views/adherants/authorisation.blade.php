@@ -50,7 +50,22 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
 <p dir="RTL" style="font-size:18px";><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- الفصل 8 من النظام الداخلي للودادية.</strong></p>
 <p dir="RTL" style="font-size:18px";><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- الفصل 9 من النظام الداخلي للودادية.</strong></p>
 <p dir="RTL" style="font-size:18px";>يشرفني أن أخبركم انه تمت الموافقة على الإذن بدفع جميع التزاماتك المالية تجاه الودادية في حسابها رقم&nbsp;:</p>
-<p dir="RTL" style="font-size:18px";><xc dir="LTR">{{ $getdata[0]->rib }}</xc>&nbsp;&nbsp;المفتوح لدى {{ $getdata[0]->details }}&nbsp;<strong>المتعلقة </strong><strong>ب{{$data['adherant']->ar_immtype}}&nbsp;بمساحة {{$data['adherant']->m2}}</strong>&nbsp;<strong>متر مربع تقريبا بثمن</strong><strong> {{$data['adherant']->pm2}} </strong><strong>درهم للمتر مربع الواحد للأشغال الكبرى {{$data['adherant']->etage}} {{$data['adherant']->ar_facade}}&nbsp;</strong>@if ($data['adherant']->sous_sol == 1)
+<p dir="RTL" style="font-size:18px";><xc dir="LTR">{{ $getdata[0]->rib }}</xc>&nbsp;&nbsp;المفتوح لدى {{ $getdata[0]->details }}&nbsp;<strong>المتعلقة </strong><strong>ب{{$data['adherant']->ar_immtype}}&nbsp; 
+
+@if ($data['adherant']->n_appartement == "")
+    @else
+    رقم  {{ $data['adherant']->n_appartement }}
+    @endif
+
+
+    بمساحة {{$data['adherant']->m2}}</strong>&nbsp;<strong>متر مربع تقريبا بثمن</strong><strong> {{$data['adherant']->pm2}} </strong><strong>درهم للمتر مربع الواحد بالشقة 
+
+@if ($data['adherant']->balcon == 1)
+<strong>و  {{$data['adherant']->balcon_superficier}} متر مربع تقريبا ب    {{$data['adherant']->balcon_prix}} درهم  للمتر  مربع بالشرفة    </strong>
+@else
+@endif
+
+    للأشغال الكبرى {{$data['adherant']->etage}} {{$data['adherant']->ar_facade}}&nbsp;</strong>@if ($data['adherant']->sous_sol == 1)
 <strong>مع مرأب تحت ارضي</strong>
 @else
 @endif

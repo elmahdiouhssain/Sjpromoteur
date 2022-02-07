@@ -128,8 +128,12 @@ class AdherantController extends Controller
         $ar_facade = $request->input('ar_facade');
         $ar_immtype = $request->input('ar_immtype');
         $sous_sol = $request->input('sous_sol');
+
+        $balcon = $request->input('balcon');
+        $balcon_prix = $request->input('balcon_prix');
+        $balcon_superficier = $request->input('balcon_superficier');
         
-        DB::update('update adherants set ar_name=?,id_national=?,ar_facade=?,ar_immtype=?,sous_sol=? where id = ?',[$ar_name,$id_national,$ar_facade,$ar_immtype,$sous_sol,$id]);
+        DB::update('update adherants set ar_name=?,id_national=?,ar_facade=?,ar_immtype=?,sous_sol=?,balcon=?,balcon_prix=?,balcon_superficier=? where id = ?',[$ar_name,$id_national,$ar_facade,$ar_immtype,$sous_sol,$balcon,$balcon_prix,$balcon_superficier,$id]);
 
     return redirect('/doc/authorisation/'.$id)->with('success', 'Authorisation du paiement generé avec succée');
 

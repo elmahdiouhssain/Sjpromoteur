@@ -15,7 +15,7 @@ class CreateFournisseursTable extends Migration
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('boncommande_id');
+            $table->unsignedBigInteger('boncommande_id')->nullable();
             $table->foreign('boncommande_id')->references('id')->on('boncommandes')->onDelete('cascade');
             $table->string('raison_s')->nullable();
             $table->string('ice')->nullable();
@@ -24,6 +24,7 @@ class CreateFournisseursTable extends Migration
             $table->string('email')->nullable();
             $table->string('c_bancaire')->nullable();
             $table->text('observations')->nullable();
+            $table->string('realise_par')->nullable();
             $table->timestamps();
         });
     }

@@ -67,7 +67,32 @@
                                                     @if ($errors->has('id_national'))
                                                             <span style="color: red;">{{ $errors->first('id_national') }}</span>
                                                             @endif
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                    <label class="pull-right">: الشرفة </label>
+                                                    <select class="form-control pull-right" id="balcon" name="balcon">
+                                                    <option class="pull-right" style="color: green;" value="1">تفعيل الشرفة</option>
+                                                    <option class="pull-right" style="color: red;" value="0">الغاء الشرفة</option>
+
+                                                    </select>
+                                                    @if ($errors->has('balcon'))
+                                                            <span style="color: red;">{{ $errors->first('balcon') }}</span>
+                                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                                    <label class="pull-right">: ثمن الشرفة </label>
+                                                    <input type="balcon_prix" name="balcon_prix" class="form-control" id="balcon_prix" value="<?php echo$data['adherant']->balcon_prix; ?>">
+                                                    @if ($errors->has('balcon_prix'))
+                                                            <span style="color: red;">{{ $errors->first('balcon_prix') }}</span>
+                                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                                    <label class="pull-right">: مساحة الشرفة </label>
+                                                    <input type="text" name="balcon_superficier" class="form-control" id="balcon_superficier" value="<?php echo$data['adherant']->balcon_superficier; ?>">
+                                                    @if ($errors->has('balcon_superficier'))
+                                                            <span style="color: red;">{{ $errors->first('balcon_superficier') }}</span>
+                                                            @endif
+                                        </div>
                                         <div class="form-group">
                                                     <label class="pull-right">: نوع العقار </label>
                                                     
