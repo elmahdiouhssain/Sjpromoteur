@@ -30,7 +30,7 @@
                                     <center>
                                        
                                     
-                                       <a role="button" href="{{ route('emps.create') }}" class="btn btn-success mb-2" >
+                                       <a role="button" href="{{ route('emps.create') }}" class="btn btn-dark mb-2" >
                                         Ajouter un fournisseur
                                              <span class="btn-label btn-label-right">
                                                 <i class="fas fa-dolly"></i>
@@ -110,12 +110,9 @@
                         });
                      
                       </script>
-                       @else
-                                    <center>
-                                        <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
-                                    <h2>Vous n'êtes pas autorisé à voir les employeés</h2>
-                                    </center>
-                                    @endcan
+                     
+                                    
+                                    
                                     </div>
                                 </div>
                                 <!-- end card-body-->
