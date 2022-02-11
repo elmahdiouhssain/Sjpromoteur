@@ -51,29 +51,17 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
 <p dir="RTL" style="font-size:18px";><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- الفصل 9 من النظام الداخلي للودادية.</strong></p>
 <p dir="RTL" style="font-size:18px";>يشرفني أن أخبركم انه تمت الموافقة على الإذن بدفع جميع التزاماتك المالية تجاه الودادية في حسابها رقم&nbsp;:</p>
 <p dir="RTL" style="font-size:18px";><xc dir="LTR">{{ $getdata[0]->rib }}</xc>&nbsp;&nbsp;المفتوح لدى {{ $getdata[0]->details }}&nbsp;<strong>المتعلقة </strong><strong>ب{{$data['adherant']->ar_immtype}}&nbsp; 
-
-@if ($data['adherant']->n_appartement == "")
-    @else
-    رقم  {{ $data['adherant']->n_appartement }}
-    @endif
-
-    بمساحة {{$data['adherant']->m2}}</strong>&nbsp;<strong>متر مربع تقريبا بثمن</strong><strong> {{$data['adherant']->pm2}} </strong><strong>درهم للمتر مربع الواحد  
-
+@if ($data['adherant']->n_appartement == "")@elseرقم  {{ $data['adherant']->n_appartement }}&nbsp;@endif
+بمساحة {{$data['adherant']->m2}}</strong>&nbsp;<strong>متر مربع تقريبا بثمن</strong><strong> {{$data['adherant']->pm2}} </strong><strong>درهم للمتر مربع الواحد  
 @if ($data['adherant']->balcon == 1)
-<strong>و  {{$data['adherant']->balcon_superficier}} متر مربع تقريبا ب    {{$data['adherant']->balcon_prix}} درهم  للمتر  مربع بالشرفة    </strong>
+<strong>و  {{$data['adherant']->balcon_superficier}} متر مربع تقريبا ب {{$data['adherant']->balcon_prix}} درهم  للمتر  مربع بالشرفة  </strong>
 @else
 @endif
-
-    للأشغال الكبرى {{$data['adherant']->etage}} {{$data['adherant']->ar_facade}}&nbsp;</strong>@if ($data['adherant']->sous_sol == 1)
+للأشغال الكبرى {{$data['adherant']->etage}} {{$data['adherant']->ar_facade}}&nbsp;</strong>@if ($data['adherant']->sous_sol == 1)
 <strong>مع مرأب تحت ارضي</strong>
 @else
 @endif
-
-@if ($data['adherant']->bloc == "")
-    @else
-     {{ $data['adherant']->bloc}}
-    @endif
-
+@if ($data['adherant']->bloc == "")@else<strong>{{ $data['adherant']->bloc}}&nbsp;</strong>@endif
 المشروع المزمع إنجازه و المسمى {{ $getdata[0]->raison_social_ar }}&nbsp;التي ترغبون في الاستفادة منها .</p>
 <p dir="RTL" style="font-size:18px";>&nbsp;</p>
 <p dir="RTL" style="text-align:center"><strong>و السلام</strong><strong>&nbsp;&nbsp;</strong></p><br><br><br>
