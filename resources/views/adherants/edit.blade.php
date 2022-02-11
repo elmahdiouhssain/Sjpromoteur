@@ -275,18 +275,19 @@
                                             </div>
                                        
                                         <div class="form-group">
-                                              <label for="sel1">Bloc:</label>
+                                        <label for="sel1">N°IMM:</label>
                                               <select class="form-control" id="bloc" name="bloc">
                                                 <option selected>{{ $ads->bloc }}</option>
-                                                <option>A</option>
-                                                <option>B</option>
-                                                <option>C</option>
-                                                <option>D</option>
-                                                <option>E</option>
-                                                <option>F</option>
-                                                <option>G</option>
-                                                <option>H</option>
-                                                <option>I</option>
+                                                <option></option>
+                                                <option>في العمارة 01</option>
+                                                <option>في العمارة 02</option>
+                                                <option>في العمارة 03</option>
+                                                <option>في العمارة 04</option>
+                                                <option>في العمارة 05</option>
+                                                <option>في العمارة 06</option>
+                                                <option>في العمارة 07</option>
+                                                <option>في العمارة 08</option>
+                                                <option>في العمارة 09</option>
                                               </select>
                                             </div>
                                              <div class="form-group">

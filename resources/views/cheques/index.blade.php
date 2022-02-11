@@ -1,12 +1,10 @@
 @extends('layouts.layout')
 @section('content')
- <div class="content-page">
 
+ <div class="content-page">
             <!-- Start content -->
             <div class="content">
-
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">

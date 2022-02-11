@@ -57,8 +57,7 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
     رقم  {{ $data['adherant']->n_appartement }}
     @endif
 
-
-    بمساحة {{$data['adherant']->m2}}</strong>&nbsp;<strong>متر مربع تقريبا بثمن</strong><strong> {{$data['adherant']->pm2}} </strong><strong>درهم للمتر مربع الواحد بالشقة 
+    بمساحة {{$data['adherant']->m2}}</strong>&nbsp;<strong>متر مربع تقريبا بثمن</strong><strong> {{$data['adherant']->pm2}} </strong><strong>درهم للمتر مربع الواحد  
 
 @if ($data['adherant']->balcon == 1)
 <strong>و  {{$data['adherant']->balcon_superficier}} متر مربع تقريبا ب    {{$data['adherant']->balcon_prix}} درهم  للمتر  مربع بالشرفة    </strong>
@@ -69,6 +68,12 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
 <strong>مع مرأب تحت ارضي</strong>
 @else
 @endif
+
+@if ($data['adherant']->bloc == "")
+    @else
+     {{ $data['adherant']->bloc}}
+    @endif
+
 المشروع المزمع إنجازه و المسمى {{ $getdata[0]->raison_social_ar }}&nbsp;التي ترغبون في الاستفادة منها .</p>
 <p dir="RTL" style="font-size:18px";>&nbsp;</p>
 <p dir="RTL" style="text-align:center"><strong>و السلام</strong><strong>&nbsp;&nbsp;</strong></p><br><br><br>

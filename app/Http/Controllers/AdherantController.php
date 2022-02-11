@@ -131,6 +131,8 @@ class AdherantController extends Controller
         $balcon = $request->input('balcon');
         $balcon_prix = $request->input('balcon_prix');
         $balcon_superficier = $request->input('balcon_superficier');
+
+        //$bloc_active = $request->input('bloc');
         
         DB::update('update adherants set ar_name=?,id_national=?,ar_facade=?,ar_immtype=?,sous_sol=?,balcon=?,balcon_prix=?,balcon_superficier=? where id = ?',[$ar_name,$id_national,$ar_facade,$ar_immtype,$sous_sol,$balcon,$balcon_prix,$balcon_superficier,$id]);
 

@@ -22,7 +22,6 @@ class DashboardController extends Controller
         /////adherants/////
         $data['adherants'] = Adherant::all()->count();
         $data['adherants_day'] = DB::table('adherants')->orderBy('id', 'DESC')->first();
-
         /////cheques////////
         $data['cheques'] = Cheque::all()->count();
         $data['cheques_day'] = DB::table('cheques')->orderBy('id', 'DESC')->first();
