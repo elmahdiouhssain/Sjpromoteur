@@ -96,7 +96,7 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
 <strong>مع مرأب تحت ارضي</strong>
 @else
 @endif
-,المشروع المزمع إنجازه والمسمى الإقامة السكنية {{ $getdata[0]->raison_social_ar }}, التي ترغبون في الاستفادة منها.</p>
+المشروع المزمع إنجازه والمسمى الإقامة السكنية {{ $getdata[0]->raison_social_ar }}, التي ترغبون في الاستفادة منها.</p>
 <p dir="RTL" style="font-size:18px";>&nbsp;</p>
 <p dir="RTL" style="text-align:center"><strong>و السلام</strong><strong>&nbsp;&nbsp;</strong></p><br><br><br>
 <p dir="RTL" style="font-size:18px";><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong><strong>إمضاء الرئيس</strong></p>
@@ -157,7 +157,7 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
 <strong>ب{{ $data['adherant']->ar_immtype }} بمساحة {{ $data['adherant']->m2 }} متر مربع تقريبا ب {{ $data['adherant']->pm2 }}درهم للمتر مربع الواحد للأشغال الكبرى {{ $data['adherant']->etage }} @if ($data['adherant']->sous_sol == 1)
 مع مرأب تحت ارضي
 @else
-@endif , المشروع المزمع إنجازه و المسمى {{ $getdata[0]->raison_social_ar }}&nbsp;التي ترغبون في الاستفادة منها .</p>
+@endif  المشروع المزمع إنجازه و المسمى {{ $getdata[0]->raison_social_ar }}&nbsp;التي ترغبون في الاستفادة منها .</p>
 
 </strong></p>
 
