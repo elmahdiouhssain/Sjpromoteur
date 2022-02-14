@@ -18,7 +18,7 @@ class CreateTranchesTable extends Migration
             $table->unsignedBigInteger('adherant_id');
             $table->foreign('adherant_id')->references('id')->on('adherants')->onDelete('cascade');
             $table->string('observation');
-            $table->bigInteger('montant_verse');
+            $table->decimal('montant_verse');
             $table->timestamps();
         });
     }

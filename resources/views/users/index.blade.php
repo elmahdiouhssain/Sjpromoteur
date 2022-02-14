@@ -71,7 +71,6 @@
 
                                     <script type="text/javascript">
                         $(document).ready(function() {
-                     
                           $("#emptableid").DataTable({
                                   serverSide: true,
                                   ajax: {

@@ -111,7 +111,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Montant versé : (DHS)</label>
-                                                    {!! Form::number('montant_verse', null, array('placeholder' => '300 000','class' => 'form-control')) !!}
+                                                    {!! Form::number('montant_verse', null, array('placeholder' => '300 000','class' => 'form-control', 'step' => 'any')) !!}
                                                     @if ($errors->has('montant_verse'))
                                                             <span style="color: red;">{{ $errors->first('montant_verse') }}</span>
                                                             @endif

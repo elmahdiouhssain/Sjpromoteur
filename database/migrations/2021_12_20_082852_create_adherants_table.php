@@ -20,7 +20,7 @@ class CreateAdherantsTable extends Migration
             $table->string('n_dossier')->nullable()->unique();
             $table->string('ville')->nullable();
             $table->string('gsm')->nullable();
-            $table->bigInteger('montant_verse');
+            $table->decimal('montant_verse');
             $table->string('facade')->nullable();
             $table->string('cote')->nullable();
             $table->string('bloc')->nullable();
@@ -37,7 +37,7 @@ class CreateAdherantsTable extends Migration
             //$table->string('societe');
             $table->integer('societe_id');
             $table->string('imm_type')->nullable();
-            $table->string('m_total')->nullable();
+            $table->decimal('m_total')->nullable();
 
             ////Adherant Infos///////
             $table->text('addresse')->nullable();
@@ -51,10 +51,10 @@ class CreateAdherantsTable extends Migration
 
             /////Project place ///////
             $table->string('project_place')->nullable();
-            $table->string('sousol_prix')->nullable();
+            $table->decimal('sousol_prix')->nullable();
 
             $table->boolean('balcon')->nullable();
-            $table->string('balcon_prix')->nullable();
+            $table->decimal('balcon_prix')->nullable();
             $table->string('balcon_superficier')->nullable();
 
             $table->timestamps();
