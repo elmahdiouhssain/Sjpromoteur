@@ -135,7 +135,7 @@ class AdherantController extends Controller
 
         //$bloc_active = $request->input('bloc');
         
-        DB::update('update adherants set ar_name=?,id_national=?,ar_facade=?,ar_immtype=?,sous_sol=?,sousol_prix=?,balcon=?,balcon_prix=?,balcon_superficier=? where id = ?',[$ar_name,$id_national,$ar_facade,$ar_immtype,$sous_sol,$balcon,$balcon_prix,$balcon_superficier,$id]);
+        DB::update('update adherants set ar_name=?,id_national=?,ar_facade=?,ar_immtype=?,sous_sol=?,sousol_prix=?,balcon=?,balcon_prix=?,balcon_superficier=? where id = ?',[$ar_name,$id_national,$ar_facade,$ar_immtype,$sous_sol,$sousol_prix,$balcon,$balcon_prix,$balcon_superficier,$id]);
 
     return redirect('/doc/authorisation/'.$id)->with('success', 'Authorisation du paiement generé avec succée');
 
