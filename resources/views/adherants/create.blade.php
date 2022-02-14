@@ -122,7 +122,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Prix Mètre Carré (DHS)</label>
-                                                    {!! Form::number('pm2', null, array('placeholder' => 'PM2','class' => 'form-control')) !!}
+                                                    {!! Form::number('pm2', null, array('placeholder' => 'PM2','class' => 'form-control', 'step' => 'any')) !!}
                                                     @if ($errors->has('pm2'))
                                                             <span style="color: red;">{{ $errors->first('pm2') }}</span>
                                                             @endif

@@ -26,7 +26,7 @@ class CreateAdherantsTable extends Migration
             $table->string('bloc')->nullable();
             $table->string('etage')->nullable();
             $table->string('m2')->nullable();
-            $table->string('pm2')->nullable();
+            $table->decimal('pm2')->nullable();
             $table->boolean('sous_sol')->nullable();
             $table->text('observation')->nullable();
             $table->string('commerciale')->nullable();
