@@ -65,9 +65,9 @@
                                                     <label class="pull-right">: الشرفة </label>
                                                     <select class="form-control pull-right" id="balcon" name="balcon">
                                                     @if ($data['adherant']->balcon) === 1)
-                                                    <option selected value="1">مفعل</option>
+                                                    <option selected value="1" style="color: green;">مفعل</option>
                                                     @else
-                                                    <option selected value="0">غير مفعل</option>
+                                                    <option selected value="0" style="color: red;">غير مفعل</option>
                                                     @endif
                                                   
                                                     <option class="pull-right" style="color: green;" value="1">تفعيل الشرفة</option>
@@ -113,11 +113,11 @@
                                                     <label class="pull-right">:  المرأب تحت ارضي</label>
                                                     <select class="form-control pull-right" id="sous_sol" name="sous_sol">
                                                     @if ($data['adherant']->sous_sol) === 1)
-                                                    <option selected value="1">مفعل</option>
+                                                    <option selected value="1" style="color: green;">مفعل</option>
                                                     @else
-                                                    <option selected value="0">غير مفعل</option>
+                                                    <option selected value="0" style="color: red;">غير مفعل</option>
                                                     @endif
-                                                    <option selected><?php echo$data['adherant']->sous_sol; ?></option>
+                                                    
                                                     <option class="pull-right" style="color: green;" value="1">Active sous sole</option>
                                                     <option class="pull-right" style="color: red;" value="0">Desactive sous sole</option>
                                                     </select>
