@@ -64,6 +64,7 @@
                                         <div class="form-group">
                                                     <label class="pull-right">: الشرفة </label>
                                                     <select class="form-control pull-right" id="balcon" name="balcon">
+                                                    <option selected><?php echo$data['adherant']->balcon; ?></option>
                                                     <option class="pull-right" style="color: green;" value="1">تفعيل الشرفة</option>
                                                     <option class="pull-right" style="color: red;" value="0">الغاء الشرفة</option>
 
@@ -106,6 +107,7 @@
                                                 <div class="form-group">
                                                     <label class="pull-right">:  المرأب تحت ارضي</label>
                                                     <select class="form-control pull-right" id="sous_sol" name="sous_sol">
+                                                    <option selected><?php echo$data['adherant']->sous_sol; ?></option>
                                                     <option class="pull-right" style="color: green;" value="1">Active sous sole</option>
                                                     <option class="pull-right" style="color: red;" value="0">Desactive sous sole</option>
                                                     </select>
