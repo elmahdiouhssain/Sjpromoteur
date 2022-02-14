@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="form-group">
                                                     <label class="pull-right">: ثمن الشرفة </label>
-                                                    <input type="balcon_prix" name="balcon_prix" class="form-control" id="balcon_prix" value="<?php echo$data['adherant']->balcon_prix; ?>">
+                                                    <input type=number step=any name="balcon_prix" class="form-control" id="balcon_prix" value="<?php echo$data['adherant']->balcon_prix; ?>">
                                                     @if ($errors->has('balcon_prix'))
                                                             <span style="color: red;">{{ $errors->first('balcon_prix') }}</span>
                                                             @endif
@@ -128,7 +128,7 @@
 
                                                 <div class="form-group">
                                                     <label class="pull-right">: ثمن المرأب تحت ارضي </label>
-                                                    <input type="sousol_prix" name="sousol_prix" class="form-control" id="sousol_prix" value="<?php echo$data['adherant']->sousol_prix; ?>">
+                                                    <input type=number step=any name="sousol_prix" class="form-control" id="sousol_prix" value="<?php echo$data['adherant']->sousol_prix; ?>">
                                                     @if ($errors->has('sousol_prix'))
                                                             <span style="color: red;">{{ $errors->first('sousol_prix') }}</span>
                                                             @endif
