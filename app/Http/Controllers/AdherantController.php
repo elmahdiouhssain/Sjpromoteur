@@ -281,7 +281,6 @@ class AdherantController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $actionBtn = "<a href='/adherants/$row->id/edit/' class='btn btn-dark btn-sm'><i class='fas fa-cog'></i></a> 
-
                     <a href='/adherants/$row->id/' class='delete btn btn-primary btn-sm'><i class='fas fa-eye'></i></a>";
                     return $actionBtn;
                 })

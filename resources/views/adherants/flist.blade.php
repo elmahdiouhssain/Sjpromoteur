@@ -38,6 +38,7 @@
                                                     <th>PM²</th>
                                                     <th>Total payé</th>
                                                     <th>Montant réste</th>
+                                                    <th>Percentage</th>
                                                     <th>Status</th>
 
                                                 </tr>
@@ -62,11 +63,9 @@
 												 	//var_dump($key->montant_verse);
                                            			$sum+= $key->montant_verse;
 												}
-												//dd($sum);
 												$t_paye = $m_v + $sum;
 												$t_m2 = $societe->pm2 * $societe->m2;
 												$t_rest = $t_m2 - $t_paye;
-
                                                 ?>
                                                 <td><?php echo($t_paye) ?> (DHS)</td>
 
@@ -75,7 +74,9 @@
                                                 @else
                                                 <td><?php echo($t_rest) ?> (DHS)</td>
                                                 @endif
-
+                                                
+                                                <?php $percent = ($t_paye * 100)/$t_m2 ?>
+                                                <td style="color:red;"><b><?php echo (floor($percent)) ?> %</b></td>
                                                 @if ($societe->is_canceled === 1)
                                                 <td style="color:red;"><i class="fas fa-times"></i> Abondonné</td>
                                                 @else
