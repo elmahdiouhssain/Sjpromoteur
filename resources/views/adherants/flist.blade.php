@@ -74,9 +74,14 @@
                                                 @else
                                                 <td><?php echo($t_rest) ?> (DHS)</td>
                                                 @endif
-                                                
-                                                <?php $percent = ($t_paye * 100)/$t_m2 ?>
+                                            
+                                                @if ($t_m2 != "0")
+                                                <?php  $percent = ($t_paye * 100)/$t_m2 ?>
                                                 <td style="color:red;"><b><?php echo (floor($percent)) ?> %</b></td>
+                                                @else
+                                                <td style="color:red;"><b>--no data-- %</b></td>
+                                                @endif
+                                     
                                                 @if ($societe->is_canceled === 1)
                                                 <td style="color:red;"><i class="fas fa-times"></i> Abondonné</td>
                                                 @else
