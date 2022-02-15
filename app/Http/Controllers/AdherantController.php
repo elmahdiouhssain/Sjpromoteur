@@ -45,6 +45,7 @@ class AdherantController extends Controller
     public function GetAll($id) {
         $data['title'] = "Amical full list";
         $data['adherants'] = DB::table('adherants')->where('societe_id',$id)->get();
+        
         return view('adherants.flist',compact('data'));
     }
    

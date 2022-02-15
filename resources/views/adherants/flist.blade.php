@@ -20,7 +20,6 @@
 	<meta name="theme-color" content="#dc3545">
 	<meta name="msapplication-navbutton-color" content="#dc3545">
 	</head>
-	
 		<center><h1>{{$data['title']}}</h1></center>
 						<div class="table-responsive">
                                         <table id="example" class="display" style="width:100%">
