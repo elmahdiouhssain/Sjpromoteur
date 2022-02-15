@@ -22,12 +22,10 @@
 	</head>
 	<div class="container">
 		<center><h1>{{$data['title']}}</h1></center>
-		
 						<div class="table-responsive">
                                         <table id="example" class="display" style="width:100%">
                                             <thead>
                                                 <tr>
-
                                                     <th>Nom & prénom</th>
                                                     <th>N telephone</th>
                                                     <th>Amical</th>
@@ -39,6 +37,7 @@
                                                     <th>Total payé</th>
                                                     <th>Montant réste</th>
                                                     <th>Percentage</th>
+                                                    <th>Imm.Total</th>
                                                     <th>Status</th>
 
                                                 </tr>
@@ -55,6 +54,7 @@
                                                 <td>{{ $societe->etage }}</td>
                                                 <td>{{ $societe->m2 }}m</td>
                                                 <td>{{ $societe->pm2 }} DHS</td>
+                                                
                                                 <?php 
                                                 $m_v = $societe->montant_verse;
                                                 $all_tranches = DB::select('select * from tranches where adherant_id ='.$societe->id);
@@ -77,19 +77,17 @@
                                             
                                                 @if ($t_m2 != "0")
                                                 <?php  $percent = ($t_paye * 100)/$t_m2 ?>
-                                                <td style="color:red;"><b><?php echo (floor($percent)) ?> %</b></td>
+                                                <td style="color:red;" class="text-center"><b><?php echo (floor($percent)) ?> %</b></td>
                                                 @else
                                                 <td style="color:red;"><b>--no data-- %</b></td>
                                                 @endif
-                                     
+                                                <td>{{ $t_m2 }} DHS</td>
                                                 @if ($societe->is_canceled === 1)
                                                 <td style="color:red;"><i class="fas fa-times"></i> Abondonné</td>
                                                 @else
                                                 <td style="color:green;">
                                                 <b><i class="fas fa-check">Continué</i> </b></td>
                                                 @endif
-                                                
-                                              
                                             </tr>
                                          @endforeach
                                         </table>
