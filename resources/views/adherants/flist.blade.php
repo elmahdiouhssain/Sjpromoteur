@@ -20,7 +20,7 @@
 	<meta name="theme-color" content="#dc3545">
 	<meta name="msapplication-navbutton-color" content="#dc3545">
 	</head>
-	<div class="container">
+	
 		<center><h1>{{$data['title']}}</h1></center>
 						<div class="table-responsive">
                                         <table id="example" class="display" style="width:100%">
@@ -93,7 +93,7 @@
                                         </table>
                                     </div>
                                     <!-- end table-responsive-->
-                                    </div>
+                                  
     <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
 	<script src="{{ asset('static/js/modernizr.min.js') }}"></script>
 	<script src="{{ asset('static/js/jquery.min.js') }}"></script>
