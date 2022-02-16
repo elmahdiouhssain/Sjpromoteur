@@ -44,7 +44,7 @@
                                 </h5>
                             </div>
                             <!-- item-->
-                            <a href="/profile" class="dropdown-item notify-item">
+                            <a href="/profile/{{Auth::user()->name}}" class="dropdown-item notify-item">
                                 <i class="fas fa-user"></i>
                                 <span>Profile</span>
                             </a>
@@ -104,32 +104,13 @@
                                 <span> Fournisseurs </span>
                             </a>
                         </li>
-                        
-                        <li class="submenu">
-                            <a href="">
-                                <i class="fas fa-file-invoice"></i>
-                                <span> B-commandes </span>
-                            </a>
-                        </li>
-                        <li class="submenu">
-                            <a href="">
-                                <i class="fas fa-file-invoice"></i>
-                                <span> B-livraisons </span>
-                            </a>
-                        </li>
+
                         <li class="submenu">
                             <a href="{{ route('factures.index') }}">
                                 <i class="fas fa-file-invoice"></i>
                                 <span> Factures </span>
                             </a>
                         </li>
-                        <li class="submenu">
-                            <a href="">
-                                <i class="fas fa-file-invoice"></i>
-                                <span> B-retour</span>
-                            </a>
-                        </li>
-
                         <center style="color: white;"><hr>----Projects----<hr></center>
                         <li class="submenu">
                             <a href="{{ route('amicals.index') }}">

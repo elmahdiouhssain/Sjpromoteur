@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->text('addresse')->nullable();
             $table->ipAddress('ipaddr')->nullable();
             $table->macAddress('mac_device')->nullable();
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

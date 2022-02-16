@@ -20,7 +20,9 @@ class CreatePaiementemployeesTable extends Migration
             $table->date('debut');
             $table->date('fin');
             $table->text('observation')->nullable();
-            $table->bigInteger('salaire_total')->nullable();
+            $table->bigInteger('n_jours')->nullable();
+            $table->decimal('prix_jour')->nullable();
+            $table->decimal('salaire_total')->nullable();
             $table->string('realise_par');
             $table->boolean('is_payee')->default(False);
             $table->timestamps();

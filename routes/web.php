@@ -35,8 +35,10 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/', [DashboardController::class, 'Showdashboard'])->name('dashboard.index');
-    Route::get('/profile', [DashboardController::class, 'Showprofile'])->name('dashboard.profile');
+    Route::get('/profile/{name}', [DashboardController::class, 'Showprofile'])->name('dashboard.profile');
     Route::post('/changePassword', [DashboardController::class, 'changePasswordPost'])->name('changepasswordpost');
+    Route::post('/profile/{id}', [DashboardController::class, 'UpdateProfile'])->name('updateprofile');
+ 
     
     Route::get('/profile/agenda/{id}', [ReminderController::class, 'indexRend'])->name('calendar');
     Route::post('/profile/agenda/', [ReminderController::class, 'Actionrendez'])->name('add.reminder');

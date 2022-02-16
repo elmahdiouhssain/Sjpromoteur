@@ -37,7 +37,6 @@ class EmployeesController extends Controller
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
-                
                 ->make(true);
         }
  

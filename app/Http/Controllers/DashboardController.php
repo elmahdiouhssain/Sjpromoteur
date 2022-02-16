@@ -52,10 +52,37 @@ class DashboardController extends Controller
     }
 
      //
-    public function Showprofile() {
+    public function Showprofile($name) {
         $data['title'] = "Sjpromoteur Profile";
+        $data['user'] = User::find($name);
         return view('generale.profile',compact('data'));
     }
+
+    public function UpdateProfile(Request $request,$id) {
+   
+        
+        $tele = $request->input('tele');
+        $date_n = $request->input('date_n');
+        $addresse = $request->input('addresse');
+        $rib = $request->input('rib');
+        $cnss = $request->input('cnss');
+
+        if($request->hasfile('imageFile')) {
+            $photo_user = $request->file('imageFile');
+            $name = $photo_user->getClientOriginalName();
+            $photo_user->move(public_path().'/profile/', $name);  
+            $imgData = $name;  
+            $photo = str_replace('"', "", $imgData);
+            Auth()->user()->update(['photo'=>$photo]);
+           // DB::update('update users set tele=?,date_n=?,addresse=?,rib=?,cnss=?,photo? where id = ?',[$tele,$date_n,$addresse,$rib,$cnss,$photo,$id]);
+        }
+        
+        DB::update('update users set tele=?,date_n=?,addresse=?,rib=?,cnss=? where id = ?',[$tele,$date_n,$addresse,$rib,$cnss,$id]);
+
+    return redirect('/profile/'.$id)->with('success', 'Les informations modifier avec succée');
+
+    }
+
 
     public function changePasswordPost(Request $request) {
         if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {

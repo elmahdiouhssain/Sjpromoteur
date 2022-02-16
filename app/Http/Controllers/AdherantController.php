@@ -264,7 +264,7 @@ class AdherantController extends Controller
         $fileModal = new Image();
         $fileModal->adherant_id = $id;
         $fileModal->file_type = $req->input('file_type');
-        $fileModal->name = $req->input('name');;
+        $fileModal->name = $req->input('name');
         $fileModal->image_path = str_replace('"', "", $imgData);
         $fileModal->save();
 

@@ -32,6 +32,7 @@
                         <br>
                         <div class="container">
                            <div class="row">
+                            <div class="col">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Le nom utilisateur:</strong>
@@ -91,6 +92,54 @@
                                     </div>
                                 </div>
                             </div>
+                        
+
+                        <div class="col">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                       
+                                        <center><img src="..." class="rounded float-left" alt="..."></center><br>
+                                    </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Date de naissance:</strong>
+                                        {{ $user->date_n }} 
+                                    </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Addresse:</strong>
+                                        {{ $user->addresse }} 
+                                    </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Rib:</strong>
+                                        {{ $user->rib }} 
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Caise social(cnss):</strong>
+                                        {{ $user->cnss }} 
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Ip Addresse:</strong>
+                                        {{ $user->ipaddr }} 
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Mac addresse:</strong>
+                                        {{ $user->mac_device }} 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
 
 
