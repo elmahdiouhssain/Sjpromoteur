@@ -21,4 +21,9 @@ class P_employees extends Model
         'realise_par',
         'is_payee' => 'boolean',
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo('App\Models\Employees', 'employee_id');
+    }
 }

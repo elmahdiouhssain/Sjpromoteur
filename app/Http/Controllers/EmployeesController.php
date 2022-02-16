@@ -69,9 +69,9 @@ class EmployeesController extends Controller
         $data->addr1 = $request->get('addr1');
         $data->addr2 = $request->get('addr2');
         $data->observation = $request->get('observation');
-        $data->n_jours = $request->get('n_jours'); 
-        $data->prix_jour = $request->get('prix_jour');   
-        $data->salaire_total = $request->get('salaire_total');         
+//      $data->n_jours = $request->get('n_jours'); 
+        //$data->prix_jour = $request->get('prix_jour');   
+        //$data->salaire_total = $request->get('salaire_total');         
         $data->save();
         return redirect()->route('emps.index')
                         ->with('success','Employeé ajouter avec succée');
@@ -104,11 +104,11 @@ class EmployeesController extends Controller
         $addr1 = $request->input('addr1');
         $addr2 = $request->input('addr2');
         $observation = $request->input('observation');
-        $n_jours = $request->input('n_jours');
-        $prix_jour = $request->input('prix_jour');
-        $salaire_total = $request->input('salaire_total');
+        //$n_jours = $request->input('n_jours');
+        //$prix_jour = $request->input('prix_jour');
+        //$salaire_total = $request->input('salaire_total');
 
-        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,observation=?,n_jours=?,prix_jour=?,salaire_total=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$observation,$n_jours,$prix_jour,$salaire_total,$id]);
+        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,observation=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$observation,$id]);
 
     return redirect('/emps/'.$id)->with('success', 'Employeé modifié avec succée');
 
@@ -154,11 +154,50 @@ class EmployeesController extends Controller
     }
   }
 
-  public function destroyEmpDoc($id) {
+    public function destroyEmpDoc($id) {
 
         $pack = EmployeesImg::find($id);
         $pack->delete();
         return back()->with('success', 'Document supprimé avec succée');
+
+    }
+
+
+    public function storePaiementEmployee(Request $request)
+    {
+        $this->validate($request, [
+            'employee_id' => 'required',
+            'debut' => 'required',
+            'fin' => 'required',
+            'n_jours' => 'required',
+            'prix_jour' => 'required',
+            'salaire_total' => 'required',
+            'realise_par' => 'required',
+            'observation' => 'required',
+        ]);
+        $paiement = new P_employees();
+        $paiement->employee_id = $request->get('employee_id');
+        $paiement->debut = $request->input('debut');
+        $paiement->fin = $request->input('fin');
+        $paiement->n_jours = $request->input('n_jours');
+        $paiement->prix_jour = $request->input('prix_jour');
+        $paiement->salaire_total = $request->input('salaire_total');
+        $paiement->realise_par = $request->input('realise_par');
+        $paiement->observation = $request->input('observation');
+        $paiement->save();
+        return response()->json([
+                'status'=>200,
+                'message'=>'Paiement ajouté avec succée',
+            ]);
+    }
+
+    public function destroyPaiement($id) {
+        $paiement = P_employees::find($id);
+        $paiement->delete();
+        return response()->json([
+            'status'=>200,
+            'message'=>"Paiement supprimé avec succée !",
+        ]);
 
     }
 

@@ -18,7 +18,7 @@
                     </div>
                     <!-- end row -->
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                        <div class="container">
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h3><i class="fas fa-dolly"></i> Nouveau employeé</h3>
@@ -168,60 +168,6 @@
                         </div>
                         <!-- end col -->
                         
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <h3><i class="far fa-file-image"></i> Paiement</h3>
-                                </div>
-                                <script>
-                                    function findTotal() {
-                                        var salaire_total = 0;
-                                        var n_jours = document.getElementById("n_jours").value;
-                                        var prix_jour = document.getElementById("prix_jour").value;
-                                        var salaire_total = n_jours * prix_jour;
-                                        document.getElementById("salaire_total").value = salaire_total;
-                                    }
-                                </script>
-
-                                <div class="card-body text-center">
-
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                    <label>N°jours</label>
-                                                    {!! Form::number('n_jours', null, array('placeholder' => '15','class' => 'form-control','id' => 'n_jours')) !!}
-                                                    @if ($errors->has('n_jours'))
-                                                            <span style="color: red;">{{ $errors->first('n_jours') }}</span>
-                                                            @endif
-                                                </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                    <label>Prix/jour(DHS)</label>
-                                                    {!! Form::number('prix_jour', null, array('placeholder' => '150DHS','class' => 'form-control','id' => 'prix_jour')) !!}
-                                                    @if ($errors->has('prix_jour'))
-                                                            <span style="color: red;">{{ $errors->first('prix_jour') }}</span>
-                                                            @endif
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Salaire(DHS)</label>
-                                                    <input placeholder="1000DHS" class="form-control" id="salaire_total" onblur="findTotal()" name="salaire_total" type="number">
-                                                    @if ($errors->has('salaire_total'))
-                                                <span style="color: red;">{{ $errors->first('salaire_total') }}</span>
-                                                            @endif
-                                                </div>
-                                            
-                                        </div>
-                                    </div>
-                                    {!! Form::close() !!}
-                                </div>
-                                <!-- end card-body -->
-                            </div>
-                            <!-- end card -->
-                        </div>
-                        <!-- end col -->
                     </div>
                     <!-- end row -->
                 </div>

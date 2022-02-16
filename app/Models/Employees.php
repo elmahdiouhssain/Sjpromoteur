@@ -29,4 +29,9 @@ class Employees extends Model
         'contract',
         'realise_par',
     ];
+
+    public function paiements()
+    {
+        return $this->hasMany('App\Models\P_employees', 'employee_id');
+    } 
 }
