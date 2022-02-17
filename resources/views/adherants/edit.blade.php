@@ -192,7 +192,7 @@
                                              <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Mètre Carré</label>
-                                                    {!! Form::number('m2', null, array('placeholder' => 'M2','class' => 'form-control')) !!}
+                                                    {!! Form::number('m2', null, array('placeholder' => 'M2','class' => 'form-control', 'step' => 'any')) !!}
                                                     @if ($errors->has('m2'))
                                                             <span style="color: red;">{{ $errors->first('m2') }}</span>
                                                             @endif
