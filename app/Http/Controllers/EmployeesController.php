@@ -9,6 +9,8 @@ use Response;
 use App\Models\Employees;
 use App\Models\EmployeesImg;
 
+use App\Models\P_employees;
+
 use DataTables;
 
 class EmployeesController extends Controller
@@ -20,6 +22,8 @@ class EmployeesController extends Controller
          $this->middleware('permission:employees-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:employees-delete', ['only' => ['destroy']]);
     }
+
+
    
     public function index() {
         $data['title'] = "Sjpromoteur List des employeés";
@@ -163,17 +167,22 @@ class EmployeesController extends Controller
     }
 
 
+    public function showPaiements($id)
+    {
+        $data['paiements_of_emp'] = DB::select('select * from paiementemployees where employee_id ='.$id);
+        return response()->json($data['paiements_of_emp']);
+    }
+
+
     public function storePaiementEmployee(Request $request)
     {
         $this->validate($request, [
             'employee_id' => 'required',
             'debut' => 'required',
             'fin' => 'required',
-            'n_jours' => 'required',
-            'prix_jour' => 'required',
             'salaire_total' => 'required',
-            'realise_par' => 'required',
-            'observation' => 'required',
+
+
         ]);
         $paiement = new P_employees();
         $paiement->employee_id = $request->get('employee_id');
@@ -182,8 +191,9 @@ class EmployeesController extends Controller
         $paiement->n_jours = $request->input('n_jours');
         $paiement->prix_jour = $request->input('prix_jour');
         $paiement->salaire_total = $request->input('salaire_total');
-        $paiement->realise_par = $request->input('realise_par');
+        $paiement->realise_par = \Auth::User()->name;
         $paiement->observation = $request->input('observation');
+        $paiement->is_payee = "1";
         $paiement->save();
         return response()->json([
                 'status'=>200,

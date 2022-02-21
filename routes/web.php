@@ -130,9 +130,9 @@ Route::group(['middleware' => ['auth']], function() {
     /////Destroy Chèque document//////////////
     Route::get('/ch/del/{id}', [ChequesController::class, 'destroyCheque'])->name('delcheque');
 
+    Route::post('/employees/store/paiement', [EmployeesController::class, 'storePaiementEmployee'])->name('storeipaiementforemp');
 
-
-    Route::post('/paiement/employee', [EmployeesController::class, 'storePaiementEmployee'])->name('storeipaiementforemp');
+    Route::get('/employees/paiement/all/{id}', [EmployeesController::class, 'showPaiements'])->name('getpaiements');
 
     Route::get('/logout', [DashboardController::class, 'logout'])->name('log.out');
 

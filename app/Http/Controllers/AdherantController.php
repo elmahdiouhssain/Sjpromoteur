@@ -36,7 +36,7 @@ class AdherantController extends Controller
         return view('adherants.index',compact('data'));
     }
     public function create()
-    {   //dd(\Auth::User()->name);
+    {   
         $data['societes'] = Amical::all();
         return view('adherants.create',compact('data'));
     }
@@ -93,7 +93,6 @@ class AdherantController extends Controller
 
     public function show($id)
     {
-        //dd($ads->tranches);
         $data['ads'] = Adherant::find($id);
         $data['tranches'] =  $data['ads']->tranches;
         /////calculation du montant immobilier///

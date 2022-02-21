@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+<script src="{{ asset('static/js/jquery.min.js') }}"></script>
 <div class="content-page">
             <!-- Start content -->
             <div class="content">
@@ -22,6 +23,7 @@
                             <!-- end card -->
                     </div>
                         <!-- end col -->
+                        <input type="hidden" class="employee_id" name="employee_id" value="{{$data['emp']->id}}">
                         <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -96,55 +98,17 @@
                                     </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="hidden" name="employee_id" value="{{$data['emp']->id}}">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button class="btn btn-danger btn-sm btn-block" type="submit"><i class="fas fa-save"></i> Enregistré</button>
+                                        <button class="add_paiement btn btn-danger btn-sm btn-block" type="submit"><i class="fas fa-save"></i> Enregistré</button>
+                                         <button type="button" class="btn btn-secondary btn-sm btn-block" data-dismiss="modal">Close</button>
+                                        
                                     </div>
                                     </div>
-                                    <script>
-                                    $.ajaxSetup({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    }
-                                });
-                                $.ajax({
-                                    type:"POST",
-                                    url:"/paiement/employee",
-                                    data:data,
-                                    dataType:"json",
-                                    success:function (response){
-                                        //console.log(response);
-                                        if(response.status == 400){
-                                            $('#savedform_errList').html("");
-                                            $('#savedform_errList').addClass('alert alert-danger');
-                                            $.each(response.errors, function (key, err_values){
-                                                $('#savedform_errList').append('<span>'+err_values+'</span>');
-                                            });
-                                        }
-                                        else{
-                                            $('#success_message').addClass('alert alert-success');
-                                            $('#success_message').text(response.message);
-                                            $('#myModal').modal('hide');
-                                            //$('#myModal2').modal('show');
-                                            $("#employee_id").val("");
-                                            $("#debut").val("");
-                                            $("#fin").val("");
-                                            $("#observation").val("");
-                                            $("#n_jours").val("");
-                                            $("#prix_jour").val("");
-                                            $("#salaire_total").val("");
-                                            $("#realise_par").val("");
-                                            console.log(response);
-                                            //fetchinvprod();
-
-                                        }
-                                    }
-                                })
-                                </script>
+                        
                                 </div>
                                 </div>
                         <div class="card-body">
-                            Paiements
+                            
+                            <div class="card-deck"></div>
 
                         </div>
                             </div>
@@ -174,8 +138,6 @@
                                   <option value="Carte national">Carte national</option>
                             <option value="Contract">Contract</option>
                             <option value="Cnss">Cnss</option>
-                               
-                         
                             </select>
 
                           @if ($errors->has('name'))
@@ -188,7 +150,6 @@
                                   <option value="PDF">PDF</option>
                                   <option value="IMAGE">IMAGE</option>
                                   <option value="AUTRE">AUTRE</option>
-                         
                             </select>
 
                           @if ($errors->has('type_op'))
@@ -205,8 +166,6 @@
                                                             @endif
                                                             <br>
                                         <label class="custom-file-label" for="images">Choose image</label>
-
-
                                         <button type="submit" class="btn btn-primary btn-sm btn-block"><i class="fas fa-upload"></i> Upload</button>
                                     </form>
                                     </div>
@@ -215,22 +174,17 @@
 
                         
                         <div class="col-xs-12 ">
-
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h3 style="color:red;"><i class="far fa-user"></i> : {{ $data['emp']->nom_complete }} || ( {{ $data['emp']->cin }} ) || Fonction :  ( {{ $data['emp']->fonction }} ) ||
-
-                                @can('employees-delete')
-                                {!! Form::open(['method' => 'DELETE','route' => ['emps.destroy', $data['emp']->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé l employeé')"]) !!}
-                                {!! Form::close() !!}
-                                @endcan
-                                @can('employees-list')
-                                <a href="{{ route('emps.edit',$data['emp']->id) }}" class="btn btn-dark btn-sm"><i class="fas fa-cog"></i></a>
-                                @endcan
-
-
-
+                                    @can('employees-delete')
+                                    {!! Form::open(['method' => 'DELETE','route' => ['emps.destroy', $data['emp']->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé l employeé')"]) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                    @can('employees-list')
+                                    <a href="{{ route('emps.edit',$data['emp']->id) }}" class="btn btn-dark btn-sm"><i class="fas fa-cog"></i></a>
+                                    @endcan
                                     </h3>
                                 </div>
                                 <div class="card-body">
@@ -337,13 +291,9 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                       
-                            </div>
-                            <!-- end card -->
-
-                        </div>
-                        <!-- end col -->
+                                    </div>
+                                </div>
+                                <!-- end col -->
                       <div class="card mb-3">
                                 <div class="card-header">
                                     <h3 style="color:black;"><i class="fas fa-passport"></i> Employeé documents  : </h3>
@@ -371,18 +321,118 @@
                                             </div>
                                           </div>
                                           </div>
-                                                                                   
                                             @endforeach
-
                                 </div>
                                 <!-- end card-body -->
                             </div>
                             <!-- end card -->
-               
                 </div>
                 <!-- END container-fluid -->
             </div>
             <!-- END content -->
         </div>
-        <!-- END content-page -->
-@endsection
+        <!-- The Modal -->
+          <div class="modal fade" id="myModal2">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container">
+                        <center><i class="fas fa-money-check-alt fa-7x" style="color:green;"></i><br>
+                            <h2  style="color:green;">Paiement Enregistré avec succée!</h2>
+                        </center>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                <script>
+                $(document).ready(function (){
+                fetchpaiements();
+                function fetchpaiements(){
+                    var emp_id = $('.employee_id').val();
+                    $.ajax({
+                        type:"GET",
+                        url:"/employees/paiement/all/"+emp_id,
+                        dataType:"json",
+                        success:function (response){
+                            $('.card-deck').html("");
+                            var i = 0;
+                            $.each(response, function(key, item){
+                                ++i;
+                                $('.card-deck').append('<div class="card">\
+                                    <div class="card-body">\
+                                    <h5 class="card-title">Montant : '+item.salaire_total+'(DHS)</h5>\
+                                    <p>Debut : '+item.debut+'</p>\
+                                    <p>Fin : '+item.fin+'</p>\
+                                    <p>N°jrs : '+item.n_jours+'</p>\
+                                    <p>P/jr : '+item.prix_jour+'(DHS)</p>\
+                                    <p>Realisé par : '+item.realise_par+'</p>\
+                                    <p class="card-text">Observation : '+item.observation+'.</p>\
+                                    <p>Status : <label class="badge badge-success">PAYEE</label></p>\
+                                    </div>\<div class="card-footer">\
+                                    <small class="text-muted">Enregistré à : '+item.created_at+'</small>\
+                                    </div>\
+                                    </div>');
+
+                                });
+                            //console.log(response);
+                                }
+                            });
+                        };
+                    
+
+                    $(document).on('click', '.add_paiement', function (e){
+                    e.preventDefault();
+                    var data = {
+                        'employee_id':$('.employee_id').val(),
+                        'debut':$('.debut').val(),
+                        'fin':$('.fin').val(),
+                        'observation':$('.observation').val(),
+                        'n_jours':$('.n_jours').val(),
+                        'prix_jour':$('.prix_jour').val(),
+                        'salaire_total':$('.salaire_total').val(),
+                    }
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type:"POST",
+                        url:"/employees/store/paiement",
+                        data:data,
+                        dataType:"json",
+                        success:function (response){
+                            if(response.status == 400){
+                                $('#savedform_errList').html("");
+                                $('#savedform_errList').addClass('alert alert-danger');
+                                $.each(response.errors, function (key, err_values){
+                                    $('#savedform_errList').append('<span>'+err_values+'</span>');
+                                });
+                            }
+                            else{
+                                $('#success_message').addClass('alert alert-success');
+                                $('#success_message').text(response.message);
+                                $('#exampleModal').modal('hide');
+                                $('#myModal2').modal('show');
+                                $("#debut").val("");
+                                $("#fin").val("");
+                                $("#observation").val("");
+                                $("#n_jours").val("");
+                                $("#prix_jour").val("");
+                                $("#salaire_total").val("");
+                                fetchpaiements();
+                            }
+                        }
+                    })
+                })
+
+            });
+
+                
+                             
+                    </script>
+        @endsection
+
+        
