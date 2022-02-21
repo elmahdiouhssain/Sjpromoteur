@@ -38,7 +38,6 @@
                                                     <th>Percentage</th>
                                                     <th>Imm.Total</th>
                                                     <th>Status</th>
-
                                                 </tr>
                                             </thead>
                                              <tbody>

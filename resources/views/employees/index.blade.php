@@ -43,7 +43,7 @@
                                     <div class="container">
                                         @can('employees-list')
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="emptableid" width="100%">
+                                        <table class="display" id="example" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>N complèt</th>
@@ -57,7 +57,31 @@
                                                 </tr>
                                             </thead>
                                              <tbody>
+                                                @foreach ($data['employees'] as $emp)
 
+                                                @php
+                                                $ami = DB::select('select * from paiementemployees where id='.$emp->id);
+                                                $sum = 0;
+                                                foreach($ami as $key ) {
+                                                    $sum+= $key->n_jours;
+                                                }
+                                                dd($sum);
+
+                                                @endphp
+                                                <tr>
+                                                <td>{{ $emp->nom_complete }}</td>
+                                                <td>{{ $emp->fonction }}</td>
+
+                                                <td></td>
+                                                <td>0</td>
+                                                <td>0</td>
+
+                                                <td>{{ $emp->realise_par }}</td>
+                                                <td>{{ $emp->created_at }}</td>
+                                                
+                                                <td>x</td>
+                                                </tr>
+                                                @endforeach
                                              </tbody>
                                         
                                         </table>
@@ -66,49 +90,16 @@
                                     <!-- end table-responsive-->
                                     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
                                     <script src="{{ asset('static/js/jquery.dataTables.min.js') }}"></script>
-
                                     <script type="text/javascript">
-                        $(document).ready(function() {
-                     
-                          $("#emptableid").DataTable({
-                                  serverSide: true,
-                                  ajax: {
-                                      url: '{{url('employeesajax')}}',
-                                      data: function (data) {
-                                          data.params = {
-                                              sac: "helo"
-                                          }
-                                      }
-                                  },
-                                  buttons: true,
-                                  searching: true,
-                                  scrollY: 500,
-                                  scrollX: false,
-                                  dom: 'Bfrtip',
-                                  buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
-                                  scrollCollapse: true,
-                                  columns: [
-                                      {data: "nom_complete", className: 'nom_complete'},
-                                      {data: "fonction", className: 'fonction'},
-                                      {data: "prix_jour", className: 'prix_jour'},
-                                      {data: "n_jours", className: 'n_jours'},
-                                      {data: "salaire_total", className: 'salaire_total'},
-                                      {data: "realise_par", className: 'realise_par'},
-                                      {data: "created_at", className: 'created_at'},
-                                      {
-                                    data: 'action', 
-                                    name: 'action', 
-                                    orderable: true, 
-                                    searchable: true
-                                },
-                                   
-                                  ]  
-                            });
-                     
-                        });
-                     
-                      </script>
-                       @else
+                                    $(document).ready(function() {
+                                        $('#example').DataTable( {
+                                            "scrollX": true,
+                                            dom: 'Bfrtip',
+                                            buttons: [
+                                                'copy', 'csv', 'excel', 'pdf', 'print'
+                                            ]} );} );</script>
+                                    @else
+
                                     <center>
                                         <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
                                     <h2>Vous n'êtes pas autorisé à voir les employeés</h2>

@@ -29,9 +29,9 @@ class CreateEmployeesTable extends Migration
             $table->dateTime('c_start')->nullable();
             $table->dateTime('c_end')->nullable();
             $table->boolean('on_conge')->default(False);
-            $table->bigInteger('n_jours')->nullable();
-            $table->bigInteger('prix_jour')->nullable();
-            $table->bigInteger('salaire_total')->nullable();
+            //$table->bigInteger('n_jours')->nullable();
+            //$table->bigInteger('prix_jour')->nullable();
+            //$table->bigInteger('salaire_total')->nullable();
             $table->string('realise_par');
             $table->string('contract')->nullable();
             $table->timestamps();

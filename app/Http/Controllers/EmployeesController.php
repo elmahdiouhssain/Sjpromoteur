@@ -8,31 +8,31 @@ use App\Http\Requests\PostFormRequest;
 use Response;
 use App\Models\Employees;
 use App\Models\EmployeesImg;
-
 use App\Models\P_employees;
-
 use DataTables;
 
 class EmployeesController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:employees-list|employees-create|employees-edit|employees-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:employees-create', ['only' => ['create','store']]);
-         $this->middleware('permission:employees-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:employees-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:employees-list|employees-create|employees-edit|employees-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:employees-create', ['only' => ['create','store']]);
+        $this->middleware('permission:employees-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:employees-delete', ['only' => ['destroy']]);
     }
 
 
    
     public function index() {
         $data['title'] = "Sjpromoteur List des employeés";
+        $data['employees'] = Employees::latest()->get();
+        //dd($data['employees']->paiements);
         return view('employees.index',compact('data'));
     }
 
     public function Employeeslistajax(Request $request){
     if ($request->ajax()) {
-            $employees = Employees::latest()->get();
+            $employees = Employees::with(['paiements']);
             return Datatables::of($employees)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){

@@ -14,7 +14,6 @@
 	<link rel="shortcut icon" href="{{ asset('static/favicon.ico') }}" type="image/x-icon">
 	<link rel="icon" href="{{ asset('static/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{{ asset('static/css/buttons.dataTables.min.css') }}">
-
     <link href="{{ asset('static/calendar/fullcalendar.css') }}" rel="stylesheet" media="screen">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="{{ asset('static/favicon.ico') }}"/>

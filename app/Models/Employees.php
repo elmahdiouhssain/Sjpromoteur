@@ -23,9 +23,6 @@ class Employees extends Model
         'addr1',
         'addr2',
         'observation',
-        'n_jours',
-        'prix_jour',
-        'salaire_total',
         'contract',
         'realise_par',
     ];

@@ -133,6 +133,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/employees/store/paiement', [EmployeesController::class, 'storePaiementEmployee'])->name('storeipaiementforemp');
 
     Route::get('/employees/paiement/all/{id}', [EmployeesController::class, 'showPaiements'])->name('getpaiements');
+    Route::delete('/employees/paiement/del/{id}', [EmployeesController::class, 'destroyPaiement'])->name('delpaiement');
+
 
     Route::get('/logout', [DashboardController::class, 'logout'])->name('log.out');
 

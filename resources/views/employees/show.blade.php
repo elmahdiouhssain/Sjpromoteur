@@ -27,14 +27,14 @@
                         <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Ajouter un paiement
+                                <i class="fas fa-money-check-alt"></i> Ajouter un paiement
                                 </button></div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Nouveau paiement</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-money-check-alt"></i> Nouveau paiement</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -322,7 +322,9 @@
                                           </div>
                                           </div>
                                             @endforeach
+
                                 </div>
+
                                 <!-- end card-body -->
                             </div>
                             <!-- end card -->
@@ -331,6 +333,7 @@
             </div>
             <!-- END content -->
         </div>
+        
         <!-- The Modal -->
           <div class="modal fade" id="myModal2">
             <div class="modal-dialog modal-lg">
@@ -371,7 +374,8 @@
                                     <p class="card-text">Observation : '+item.observation+'.</p>\
                                     <p>Status : <label class="badge badge-success">PAYEE</label></p>\
                                     </div>\<div class="card-footer">\
-                                    <small class="text-muted">Enregistré à : '+item.created_at+'</small>\
+                                    <small class="text-muted">Enregitré à : '+item.created_at+' <button style="color:red;" class="fas fa-trash" data-toggle="modal" data-target="#myModal3"></button></small>\
+                                    <input type="hidden" name="paiement_id" class="paiement_id" id="paiement_id" value="'+item.id+'">\
                                     </div>\
                                     </div>');
 
@@ -381,7 +385,6 @@
                             });
                         };
                     
-
                     $(document).on('click', '.add_paiement', function (e){
                     e.preventDefault();
                     var data = {
@@ -428,11 +431,61 @@
                     })
                 })
 
-            });
 
-                
-                             
-                    </script>
+                    $(document).on('click', '.delete_paiement', function(e){
+                    e.preventDefault();
+                    var paiement_id = $(this).val();
+                    //var paiement_id = $('#paiement_id').val();
+                    $('#delete_paiement_id').val(paiement_id);
+                    $('#myModal3').modal('show');
+
+                });
+                $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                $(document).on('click', '.delete_paiement_btn', function(e){
+                    e.preventDefault();
+                    var paiement_id = $('#paiement_id').val();
+                    $.ajax({
+                        type:"DELETE",
+                        url:"/employees/paiement/del/"+paiement_id,
+                        data: {paiement_id:paiement_id},
+                        success: function (response){
+                            console.log(response);
+                            $('#success_message').addClass('alert alert-success')
+                            $('#success_message').text(response.message);
+                            $('#myModal3').modal('hide');
+                            fetchpaiements();
+                        }
+                    })
+                })
+
+            });
+      
+        </script>
+
+        <!-- The Modal -->
+          <div class="modal fade" id="myModal3">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container">
+                        <center><i class="fas fa-trash fa-7x" style="color:red;"></i><br>
+
+                            <h2  style="color:red;">Vois etes sur supprimé le paiement !</h2>
+                        </center>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                  <button class="delete_paiement_btn btn btn-danger">YES</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+              </div>
+            </div>
+          </div>
+        </div>
         @endsection
 
         
