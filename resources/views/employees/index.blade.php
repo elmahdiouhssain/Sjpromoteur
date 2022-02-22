@@ -48,8 +48,9 @@
                                                 <tr>
                                                     <th>N complèt</th>
                                                     <th>Fonction</th>
+                                                    <th>Date debut</th>
                                                     <th>P/jour(DHS)</th>
-                                                    <th>N°jours</th>
+                                                    <th>Total/jours</th>
                                                     <th>Salaire(DHS)</th>
                                                     <th>Realisé par</th>
                                                     <th>Enregisté le</th>
@@ -57,29 +58,27 @@
                                                 </tr>
                                             </thead>
                                              <tbody>
+                                                
                                                 @foreach ($data['employees'] as $emp)
-
-                                                @php
-                                                $ami = DB::select('select * from paiementemployees where id='.$emp->id);
-                                                $sum = 0;
-                                                foreach($ami as $key ) {
-                                                    $sum+= $key->n_jours;
-                                                }
-                                                dd($sum);
-
-                                                @endphp
+                                                <?php
+                                                $njrs_ouvriers = DB::select('select * from paiementemployees where employee_id='.$emp->id);
+                                                $njrsclc = 0;
+                                                foreach($njrs_ouvriers as $key ) {
+                                                    $njrsclc+= $key->n_jours;}
+              
+                                                ?>
                                                 <tr>
                                                 <td>{{ $emp->nom_complete }}</td>
-                                                <td>{{ $emp->fonction }}</td>
-
-                                                <td></td>
-                                                <td>0</td>
-                                                <td>0</td>
-
+                                                <td><label class="badge badge-warning">{{ $emp->fonction }}</label></td>
+                                                <td>{{ $emp->date_debut }}</td>
+                                                <td>0 (DHS)</td>
+                                                <td>{{$njrsclc}} (jrs)</td>
+                                                <td>000 (DHS)</td>
                                                 <td>{{ $emp->realise_par }}</td>
                                                 <td>{{ $emp->created_at }}</td>
-                                                
-                                                <td>x</td>
+                                                <td>
+                                                <a href='' class='btn btn-success fas fa-save btn-sm'></a>  
+                                                <a href='/emps/{{$emp->id}}/' class='btn btn-primary fas fa-eye btn-sm'></a></td>
                                                 </tr>
                                                 @endforeach
                                              </tbody>

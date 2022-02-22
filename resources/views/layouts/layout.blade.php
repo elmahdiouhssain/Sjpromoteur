@@ -84,6 +84,7 @@
                                 <span> Adhèrant </span>
                             </a>
                         </li>
+
                         <li class="submenu">
                             <a href="{{ route('stats-cheques.index') }}">
                                 <i class="fas fa-money-check-alt"></i>
@@ -93,7 +94,7 @@
                         <li class="submenu">
                             <a href="{{ route('emps.index') }}">
                                 <i class="fas fa-dolly"></i>
-                                <span> Employeés </span>
+                                <span> Ouvrièrs </span>
                             </a>
                         </li>
                         <center style="color: white;"><hr>----ACHATS----<hr></center>
@@ -112,9 +113,15 @@
                         </li>
                         <center style="color: white;"><hr>----Projects----<hr></center>
                         <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-building"></i>
+                                <span> Lots </span>
+                            </a>
+                        </li>
+                        <li class="submenu">
                             <a href="{{ route('amicals.index') }}">
                                 <i class="fas fa-toolbox"></i>
-                                <span> Amicals </span>
+                                <span> Amicaux </span>
                             </a>
                         </li>
                         <li class="submenu">
@@ -140,7 +147,7 @@
                         <li class="submenu">
                             <a href="{{ route('users.index') }}">
                                 <i class="fas fa-users"></i>
-                                <span>Utilisateurs </span>
+                                <span>Employeés </span>
                             </a>
                         </li>
                          <li class="submenu">

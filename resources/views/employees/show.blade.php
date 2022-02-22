@@ -108,7 +108,8 @@
                                 </div>
                         <div class="card-body">
                             
-                            <div class="card-deck"></div>
+                            <div class="card-deck">
+                            </div>
 
                         </div>
                             </div>
@@ -235,21 +236,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Prix/jour (DHS) : </label>
-                                                    <input readonly class="form-control" name="name" type="text" value="{{ $data['emp']->prix_jour }}" required />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>N°Jours : </label>
-                                                    <input readonly class="form-control" name="email" type="email" value="{{ $data['emp']->n_jours }}" required />
-                                                </div>
-                                            </div>
-                                        </div>
+                                      
 
                                         <div class="row">
                                             <div class="col-lg-6">
