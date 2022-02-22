@@ -78,6 +78,27 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                               <div class="form-group">
+                                                    <label>Cin Validation date</label>
+                                                    {!! Form::date('cin_validation', null, array('placeholder' => 'nf555000','class' => 'form-control')) !!}
+                                                    @if ($errors->has('cin_validation'))
+                                                            <span style="color: red;">{{ $errors->first('cin_validation') }}</span>
+                                                            @endif
+                                                </div> 
+                                            </div>
+                                            <div class="col-lg-6">
+                                               <div class="form-group">
+                                                    <label>Date naissance</label>
+                                                    {!! Form::date('date_n', null, array('placeholder' => '','class' => 'form-control')) !!}
+                                                    @if ($errors->has('date_n'))
+                                                            <span style="color: red;">{{ $errors->first('date_n') }}</span>
+                                                            @endif
+                                                </div> 
+                                            </div>
+
+                                        </div>
 
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -115,10 +136,10 @@
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Date debut</label>
-                                                    {!! Form::date('date_debut', null, array('placeholder' => '','class' => 'form-control')) !!}
-                                                    @if ($errors->has('date_debut'))
-                                                            <span style="color: red;">{{ $errors->first('date_debut') }}</span>
+                                                    <label>Addresse 1</label>
+                                                    {!! Form::text('addr1', null, array('placeholder' => '','class' => 'form-control')) !!}
+                                                    @if ($errors->has('addr1'))
+                                                            <span style="color: red;">{{ $errors->first('addr1') }}</span>
                                                             @endif
                                                 </div>
                                             </div>
@@ -128,16 +149,6 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Addresse 1 </label>
-                                                    {!! Form::text('addr1', null, array('placeholder' => '04 alqods ','class' => 'form-control')) !!}
-                                                    @if ($errors->has('addr1'))
-                                                            <span style="color: red;">{{ $errors->first('addr1') }}</span>
-                                                            @endif
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
                                                     <label>Addresse 2 </label>
                                                     {!! Form::text('addr2', null, array('placeholder' => '04 alqods ','class' => 'form-control')) !!}
                                                     @if ($errors->has('addr2'))
@@ -145,7 +156,41 @@
                                                             @endif
                                                 </div>
                                             </div>
-                                            
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Addresse 3 </label>
+                                                    {!! Form::text('addr3', null, array('placeholder' => '04 alqods ','class' => 'form-control')) !!}
+                                                    @if ($errors->has('addr3'))
+                                                            <span style="color: red;">{{ $errors->first('addr3') }}</span>
+                                                            @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                            <div class="form-group">
+                                                    <label>Sociète </label>
+                                                    <select class="form-control" id="company_id" name="company_id">
+                                                    
+                                                    <option value="1">so1</option>
+                                                    <option value="2">so2</option>
+
+                                              </select>
+                                                    @if ($errors->has('company_id'))
+                                                            <span style="color: red;">{{ $errors->first('addr3') }}</span>
+                                                            @endif
+                                                </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                            <div class="form-group">
+                                                    <label>Date debut (travaille)</label>
+                                                    {!! Form::date('date_debut', null, array('placeholder' => ' ','class' => 'form-control')) !!}
+                                                    @if ($errors->has('date_debut'))
+                                                            <span style="color: red;">{{ $errors->first('date_debut') }}</span>
+                                                            @endif
+                                                </div>
+                                                </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12">

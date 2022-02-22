@@ -88,6 +88,27 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                               <div class="form-group">
+                                                    <label>Cin Validation date</label>
+                                                    <input placeholder="" class="form-control" name="cin_validation" type="date" value="{{ Carbon\Carbon::parse($emp->cin_validation)->format('Y-m-d') }}">
+                                                    @if ($errors->has('cin_validation'))
+                                                            <span style="color: red;">{{ $errors->first('cin_validation') }}</span>
+                                                            @endif
+                                                </div> 
+                                            </div>
+                                            <div class="col-lg-6">
+                                               <div class="form-group">
+                                                    <label>Date naissance</label>
+                                                    <input placeholder="" class="form-control" name="date_n" type="date" value="{{ Carbon\Carbon::parse($emp->date_n)->format('Y-m-d') }}">
+                                                    @if ($errors->has('date_n'))
+                                                            <span style="color: red;">{{ $errors->first('date_n') }}</span>
+                                                            @endif
+                                                </div> 
+                                            </div>
+
+                                        </div>
 
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -124,10 +145,10 @@
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Date debut</label>
-                                                    <input placeholder="" class="form-control" name="date_debut" type="date" value="{{ Carbon\Carbon::parse($emp->date_debut)->format('Y-m-d') }}">
-                                                    @if ($errors->has('date_debut'))
-                                                            <span style="color: red;">{{ $errors->first('date_debut') }}</span>
+                                                    <label>Addresse 1</label>
+                                                    {!! Form::text('addr1', null, array('placeholder' => '','class' => 'form-control')) !!}
+                                                    @if ($errors->has('addr1'))
+                                                            <span style="color: red;">{{ $errors->first('addr1') }}</span>
                                                             @endif
                                                 </div>
                                             </div>
@@ -137,16 +158,6 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Addresse 1 </label>
-                                                    {!! Form::text('addr1', null, array('placeholder' => '04 alqods ','class' => 'form-control')) !!}
-                                                    @if ($errors->has('addr1'))
-                                                            <span style="color: red;">{{ $errors->first('addr1') }}</span>
-                                                            @endif
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
                                                     <label>Addresse 2 </label>
                                                     {!! Form::text('addr2', null, array('placeholder' => '04 alqods ','class' => 'form-control')) !!}
                                                     @if ($errors->has('addr2'))
@@ -154,7 +165,43 @@
                                                             @endif
                                                 </div>
                                             </div>
-                                            
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Addresse 3 </label>
+                                                    {!! Form::text('addr3', null, array('placeholder' => '04 alqods ','class' => 'form-control')) !!}
+                                                    @if ($errors->has('addr3'))
+                                                            <span style="color: red;">{{ $errors->first('addr3') }}</span>
+                                                            @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                            <div class="form-group">
+                                                    <label>Sociète </label>
+                                                    <select class="form-control" id="company_id" name="company_id">
+                                                    <option selected>{{$emp->company_id}}</option>
+
+                                                    <option value="1">so1</option>
+                                                    <option value="2">so2</option>
+
+                                              </select>
+                                                    @if ($errors->has('company_id'))
+                                                            <span style="color: red;">{{ $errors->first('addr3') }}</span>
+                                                            @endif
+                                                </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                            <div class="form-group">
+                                                    <label>Date debut (travaille)</label>
+                                                    <input placeholder="" class="form-control" name="date_debut" type="date" value="{{ Carbon\Carbon::parse($emp->date_debut)->format('Y-m-d') }}">
+                                                    @if ($errors->has('date_debut'))
+                                                            <span style="color: red;">{{ $errors->first('date_debut') }}</span>
+                                                            @endif
+                                                </div>
+                                                </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12">

@@ -72,10 +72,12 @@ class EmployeesController extends Controller
         $data->date_debut = $request->get('date_debut');
         $data->addr1 = $request->get('addr1');
         $data->addr2 = $request->get('addr2');
+        $data->addr3 = $request->get('addr3');
         $data->observation = $request->get('observation');
-//      $data->n_jours = $request->get('n_jours'); 
-        //$data->prix_jour = $request->get('prix_jour');   
-        //$data->salaire_total = $request->get('salaire_total');         
+
+        $data->date_n = $request->get('date_n');
+        $data->cin_validation = $request->get('cin_validation');
+        $data->company_id = $request->get('company_id');        
         $data->save();
         return redirect()->route('emps.index')
                         ->with('success','Employeé ajouter avec succée');
@@ -107,15 +109,24 @@ class EmployeesController extends Controller
         $date_debut = $request->input('date_debut');
         $addr1 = $request->input('addr1');
         $addr2 = $request->input('addr2');
-        $observation = $request->input('observation');
-        //$n_jours = $request->input('n_jours');
-        //$prix_jour = $request->input('prix_jour');
-        //$salaire_total = $request->input('salaire_total');
+        $addr3 = $request->input('addr3');
+        
+        $date_n = $request->input('date_n');
+        $cin_validation = $request->input('cin_validation');
+        $company_id = $request->input('company_id');
 
-        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,observation=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$observation,$id]);
+        $observation = $request->input('observation');
+
+        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,addr3=?,date_n=?,cin_validation=?,company_id=?observation=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$addr3,$date_n,$cin_validation,$company_id,$observation,$id]);
 
     return redirect('/emps/'.$id)->with('success', 'Employeé modifié avec succée');
 
+    }
+    public function showContract($id)
+    {
+        $data['emp'] = Employees::find($id);
+        
+        return view('employees.contract',compact('data'));
     }
 
     public function show($id)

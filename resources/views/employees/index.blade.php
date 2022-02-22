@@ -49,9 +49,8 @@
                                                     <th>N complèt</th>
                                                     <th>Fonction</th>
                                                     <th>Date debut</th>
-                                                    <th>P/jour(DHS)</th>
                                                     <th>Total/jours</th>
-                                                    <th>Salaire(DHS)</th>
+                                                    <th>M.global(DHS)</th>
                                                     <th>Realisé par</th>
                                                     <th>Enregisté le</th>
                                                     <th>Action </th>
@@ -63,22 +62,27 @@
                                                 <?php
                                                 $njrs_ouvriers = DB::select('select * from paiementemployees where employee_id='.$emp->id);
                                                 $njrsclc = 0;
+                                                $m_tot = 0;
                                                 foreach($njrs_ouvriers as $key ) {
-                                                    $njrsclc+= $key->n_jours;}
+                                                    $njrsclc+= $key->n_jours;
+                                                    $m_tot+= $key->salaire_total;
+                                                }
               
                                                 ?>
                                                 <tr>
                                                 <td>{{ $emp->nom_complete }}</td>
                                                 <td><label class="badge badge-warning">{{ $emp->fonction }}</label></td>
                                                 <td>{{ $emp->date_debut }}</td>
-                                                <td>0 (DHS)</td>
+
                                                 <td>{{$njrsclc}} (jrs)</td>
-                                                <td>000 (DHS)</td>
+                                                <td>{{$m_tot}} (DHS)</td>
                                                 <td>{{ $emp->realise_par }}</td>
                                                 <td>{{ $emp->created_at }}</td>
                                                 <td>
-                                                <a href='' class='btn btn-success fas fa-save btn-sm'></a>  
-                                                <a href='/emps/{{$emp->id}}/' class='btn btn-primary fas fa-eye btn-sm'></a></td>
+                                                <a href='/emps/{{ $emp->id }}/edit/' class='btn btn-dark fas fa-cog btn-sm'></a> 
+                                                <a href='/emps/{{$emp->id}}/' class='btn btn-primary fas fa-eye btn-sm'></a>
+                                                <a href='/employees/contract/{{$emp->id}}' target="_blank" class='btn btn-success fas fa-save btn-sm'></a>
+                                                </td>
                                                 </tr>
                                                 @endforeach
                                              </tbody>
