@@ -77,40 +77,49 @@
             <div class="sidebar-inner leftscroll">
                 <div id="sidebar-menu">
                     <ul>
+                        
                         <center style="color: white;"><hr>----SITUATIONS----<hr></center>
+                        @can('adherant-list')
                         <li class="submenu">
                             <a href="{{ route('adherants.index') }}">
                                 <i class="fas fa-clipboard-list"></i>
                                 <span> Adhèrant </span>
                             </a>
                         </li>
-
+                        @endcan
+                        @can('cheque-list')
                         <li class="submenu">
                             <a href="{{ route('stats-cheques.index') }}">
                                 <i class="fas fa-money-check-alt"></i>
                                 <span> Chèques </span>
                             </a>
                         </li>
+                        @endcan
+                        @can('employees-list')
                         <li class="submenu">
                             <a href="{{ route('emps.index') }}">
                                 <i class="fas fa-dolly"></i>
                                 <span> Ouvrièrs </span>
                             </a>
                         </li>
+                        @endcan
                         <center style="color: white;"><hr>----ACHATS----<hr></center>
+
                         <li class="submenu">
                             <a href="{{ route('fournisseurs.index') }}">
                             <i class="fas fa-boxes"></i>
                                 <span> Fournisseurs </span>
                             </a>
                         </li>
-
+                        
+                        @can('facture-list')
                         <li class="submenu">
                             <a href="{{ route('factures.index') }}">
                                 <i class="fas fa-file-invoice"></i>
                                 <span> Factures </span>
                             </a>
                         </li>
+                        @endcan
                         <center style="color: white;"><hr>----Projects----<hr></center>
                         <li class="submenu">
                             <a href="#">
@@ -118,45 +127,55 @@
                                 <span> Lots </span>
                             </a>
                         </li>
+                        @can('amical-list')
                         <li class="submenu">
                             <a href="{{ route('amicals.index') }}">
                                 <i class="fas fa-toolbox"></i>
                                 <span> Amicaux </span>
                             </a>
                         </li>
+                        @endcan
+                        @can('societe-list')
                         <li class="submenu">
                             <a href="{{ route('companys.index') }}">
                                 <i class="fas fa-building"></i>
                                 <span> Sociète </span>
                             </a>
                         </li>
-
+                        @endcan
                         <center style="color: white;"><hr>----Administration----<hr></center>
+                        @can('certificat-list')
                         <li class="submenu">
                             <a href="{{ route('certificats.index') }}">
                                 <i class="fas fa-file-word"></i>
                                 <span> Certificats </span>
                             </a>
                         </li>
+                        @endcan
+                        @can('statistiques-list')
                         <li class="submenu">
                             <a href="{{ route('statistiques.index') }}">
                                 <i class="fas fa-chart-pie"></i>
                                 <span> Statistiques </span>
                             </a>
                         </li>
+                        @endcan
+                        @can('users-list')
                         <li class="submenu">
                             <a href="{{ route('users.index') }}">
                                 <i class="fas fa-users"></i>
                                 <span>Employeés </span>
                             </a>
                         </li>
+                        @endcan
+                        @can('role-list')
                          <li class="submenu">
                             <a href="{{ route('roles.index') }}">
                                 <i class="fas fa-users-cog"></i>
                                 <span>Roles & Permissions </span>
                             </a>
                         </li>
-                        
+                        @endcan
                     </ul>
                     <div class="clearfix"></div>
                 </div>

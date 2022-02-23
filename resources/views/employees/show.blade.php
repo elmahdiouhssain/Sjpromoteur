@@ -8,7 +8,6 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -19,16 +18,20 @@
                                         <center>
                                         @include('flash-message')
                                         </center>
-                            </div>
+                                </div>
                             <!-- end card -->
-                    </div>
+                            </div>
                         <!-- end col -->
                         <input type="hidden" class="employee_id" name="employee_id" value="{{$data['emp']->id}}">
                         <div class="col-xs-12 ">
                             <div class="card mb-3">
-                                <div class="card-header"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <div class="card-header">
+                                @can('paiementemp-create')
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-money-check-alt"></i> Ajouter un paiement
-                                </button></div>
+                                </button>
+                                @endcan
+                                </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -106,12 +109,16 @@
                         
                                 </div>
                                 </div>
+                                @can('paiementemp-list')
                         <div class="card-body">
                             
                             <div class="card-deck">
                             </div>
 
                         </div>
+                        @endcan
+
+
                             </div>
                             </div>
                         <div class="col-xs-12 ">
@@ -421,8 +428,9 @@
 
                     $(document).on('click', '.delete_paiement', function(e){
                     e.preventDefault();
-                    var paiement_id = $(this).val();
-                    //var paiement_id = $('#paiement_id').val();
+                    var paiement_id = $(this).data("paiement_id");
+                    //var paiement_id = $(this).data("paiement_id");
+
                     $('#delete_paiement_id').val(paiement_id);
                     $('#myModal3').modal('show');
 
@@ -433,8 +441,10 @@
                         }
                     });
                 $(document).on('click', '.delete_paiement_btn', function(e){
+                  
                     e.preventDefault();
-                    var paiement_id = $('#paiement_id').val();
+                    //var paiement_id = $('#paiement_id').val();
+                    var paiement_id = $(this).data("paiement_id");
                     $.ajax({
                         type:"DELETE",
                         url:"/employees/paiement/del/"+paiement_id,

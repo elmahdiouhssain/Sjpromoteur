@@ -20,8 +20,11 @@ class EmployeesController extends Controller
         $this->middleware('permission:employees-create', ['only' => ['create','store']]);
         $this->middleware('permission:employees-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:employees-delete', ['only' => ['destroy']]);
-    }
 
+        $this->middleware('permission:paiementemp-list|paiementemp-create|paiementemp-delete', ['only' => ['showPaiements','storePaiementEmployee']]);
+        $this->middleware('permission:paiementemp-create', ['only' => ['storePaiementEmployee']]);
+        $this->middleware('permission:paiementemp-delete', ['only' => ['destroyPaiement']]);
+    }
 
    
     public function index() {
@@ -87,7 +90,6 @@ class EmployeesController extends Controller
                         ->with('success','Employeé ajouter avec succée');
     }
 
-
     public function edit($id)
     {
         $emp = Employees::find($id);
@@ -129,7 +131,6 @@ class EmployeesController extends Controller
     public function showContract($id)
     {
         $data['emp'] = Employees::find($id);
-        
         return view('employees.contract',compact('data'));
     }
 
@@ -137,7 +138,6 @@ class EmployeesController extends Controller
     {
         $data['emp'] = Employees::find($id);
         $data['societes'] = Company::all();
-        
         return view('employees.show',compact('data'));
     }
     public function destroy($id) {
@@ -197,8 +197,6 @@ class EmployeesController extends Controller
             'debut' => 'required',
             'fin' => 'required',
             'salaire_total' => 'required',
-
-
         ]);
         $paiement = new P_employees();
         $paiement->employee_id = $request->get('employee_id');
@@ -214,7 +212,7 @@ class EmployeesController extends Controller
         return response()->json([
                 'status'=>200,
                 'message'=>'Paiement ajouté avec succée',
-            ]);
+        ]);
     }
 
     public function destroyPaiement($id) {
@@ -224,7 +222,6 @@ class EmployeesController extends Controller
             'status'=>200,
             'message'=>"Paiement supprimé avec succée !",
         ]);
-
     }
 
 

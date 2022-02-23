@@ -67,10 +67,6 @@ class PermissionTableSeeder extends Seeder
            'scannerPDF-create',
            'scannerPDF-edit',
            'scannerPDF-delete',
-           'contractPDF-list',
-           'contractPDF-create',
-           'contractPDF-edit',
-           'contractPDF-delete',
 
            'paiementemp-list',
            'paiementemp-create',
