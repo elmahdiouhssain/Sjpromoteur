@@ -41,8 +41,28 @@
                                             {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                                         </div>
                                     </div>
+                                    <script type="text/javascript">  
+                                        function selects(){  
+                                            var ele=document.getElementsByName('permission[]');  
+                                            for(var i=0; i<ele.length; i++){  
+                                                if(ele[i].type=='checkbox')  
+                                                    ele[i].checked=true;  
+                                            }  
+                                        }  
+                                        function deSelect(){  
+                                            var ele=document.getElementsByName('permission[]');  
+                                            for(var i=0; i<ele.length; i++){  
+                                                if(ele[i].type=='checkbox')  
+                                                    ele[i].checked=false;  
+                                                  
+                                            }  
+                                        }             
+                                    </script>  
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
+                                            <input type="button" onclick='selects()' value="Select All"/>  
+                                            <input type="button" onclick='deSelect()' value="Deselect All"/> 
+                                            <br>
                                             <strong>Permission:</strong>
                                             <br/>
                                             @foreach($permission as $value)

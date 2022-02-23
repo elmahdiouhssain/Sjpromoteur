@@ -70,9 +70,9 @@
               
                                                 ?>
                                                 <tr>
-                                                <td>{{ $emp->nom_complete }}</td>
+                                                <td style="text-transform:uppercase;">{{ $emp->nom_complete }}</td>
                                                 <td><label class="badge badge-warning">{{ $emp->fonction }}</label></td>
-                                                <td>{{ $emp->date_debut }}</td>
+                                                <td>{{ Carbon\Carbon::parse($emp->date_debut)->format('Y-m-d') }}</td>
 
                                                 <td>{{$njrsclc}} (jrs)</td>
                                                 <td>{{$m_tot}} (DHS)</td>

@@ -43,7 +43,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Nom complèt</label>
-                                                    {!! Form::text('nom_complete', null, array('placeholder' => 'Nom et prénom','class' => 'form-control')) !!}
+                                                    {!! Form::text('nom_complete', null, array('placeholder' => 'Nom et prénom','class' => 'form-control', 'style' => 'text-transform:uppercase;')) !!}
                                                     @if ($errors->has('nom_complete'))
                                                             <span style="color: red;">{{ $errors->first('nom_complete') }}</span>
                                                             @endif
@@ -71,7 +71,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Identité (cin)</label>
-                                                    {!! Form::text('cin', null, array('placeholder' => 'Y80000','class' => 'form-control')) !!}
+                                                    {!! Form::text('cin', null, array('placeholder' => 'Y80000','class' => 'form-control', 'style' => 'text-transform:uppercase;')) !!}
                                                     @if ($errors->has('cin'))
                                                             <span style="color: red;">{{ $errors->first('cin') }}</span>
                                                             @endif
@@ -81,7 +81,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Cnss</label>
-                                                    {!! Form::text('cnss', null, array('placeholder' => 'nf555000','class' => 'form-control')) !!}
+                                                    {!! Form::text('cnss', null, array('placeholder' => 'nf555000','class' => 'form-control', 'style' => 'text-transform:uppercase;')) !!}
                                                     @if ($errors->has('cnss'))
                                                             <span style="color: red;">{{ $errors->first('cnss') }}</span>
                                                             @endif
@@ -136,7 +136,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>N°dossier</label>
-                                                    {!! Form::text('n_dossier', null, array('placeholder' => 'em00001','class' => 'form-control')) !!}
+                                                    {!! Form::text('n_dossier', null, array('placeholder' => 'em00001','class' => 'form-control', 'style' => 'text-transform:uppercase;')) !!}
                                                     @if ($errors->has('n_dossier'))
                                                             <span style="color: red;">{{ $errors->first('n_dossier') }}</span>
                                                             @endif
@@ -181,10 +181,10 @@
                                             <div class="form-group">
                                                     <label>Sociète </label>
                                                     <select class="form-control" id="company_id" name="company_id">
-                                                    <option selected>{{$emp->company_id}}</option>
-
-                                                    <option value="1">so1</option>
-                                                    <option value="2">so2</option>
+                                                    <option value="0">--par default--</option>
+                                                    @foreach ($data['societes'] as $so)
+                                                    <option value="{{$so->id}}">{{$so->raison_social}}</option>
+                                                    @endforeach
 
                                               </select>
                                                     @if ($errors->has('company_id'))
@@ -204,6 +204,15 @@
                                                 </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Prix par jour (DHS) </label>
+                                                    {!! Form::number('prix_jour', null, array('placeholder' => ' ','class' => 'form-control')) !!}
+                                                    @if ($errors->has('prix_jour'))
+                                                            <span style="color: red;">{{ $errors->first('prix_jour') }}</span>
+                                                            @endif
+                                                </div>
+                                            </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Observation </label>

@@ -9,6 +9,7 @@ use Response;
 use App\Models\Employees;
 use App\Models\EmployeesImg;
 use App\Models\P_employees;
+use App\Models\Company;
 use DataTables;
 
 class EmployeesController extends Controller
@@ -50,6 +51,7 @@ class EmployeesController extends Controller
     {   
         //$data['societes'] = Amical::all();
         $data['title'] = "Sjpromoteur Ajouté un employeé";
+        $data['societes'] = Company::all();
         return view('employees.create',compact('data'));
     }
 
@@ -77,7 +79,9 @@ class EmployeesController extends Controller
 
         $data->date_n = $request->get('date_n');
         $data->cin_validation = $request->get('cin_validation');
-        $data->company_id = $request->get('company_id');        
+        $data->company_id = $request->get('company_id');
+
+        $data->prix_jour = $request->get('prix_jour');        
         $data->save();
         return redirect()->route('emps.index')
                         ->with('success','Employeé ajouter avec succée');
@@ -87,8 +91,8 @@ class EmployeesController extends Controller
     public function edit($id)
     {
         $emp = Employees::find($id);
-        //$data['societes'] = Amical::all();
-        return view('employees.edit',compact('emp'));
+        $data['societes'] = Company::all();
+        return view('employees.edit',compact('emp','data'));
     }
 
 
@@ -114,10 +118,10 @@ class EmployeesController extends Controller
         $date_n = $request->input('date_n');
         $cin_validation = $request->input('cin_validation');
         $company_id = $request->input('company_id');
-
         $observation = $request->input('observation');
+        $prix_jour = $request->input('prix_jour');
 
-        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,addr3=?,date_n=?,cin_validation=?,company_id=?observation=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$addr3,$date_n,$cin_validation,$company_id,$observation,$id]);
+        DB::update('update employees set nom_complete=?,cin=?,cnss=?,n_telephone=?,fonction=?,n_banquer=?,n_dossier=?,date_debut=?,addr1=?,addr2=?,addr3=?,date_n=?,cin_validation=?,company_id=?,observation=?,prix_jour=? where id = ?',[$nom_complete,$cin,$cnss,$n_telephone,$fonction,$n_banquer,$n_dossier,$date_debut,$addr1,$addr2,$addr3,$date_n,$cin_validation,$company_id,$observation,$prix_jour,$id]);
 
     return redirect('/emps/'.$id)->with('success', 'Employeé modifié avec succée');
 
@@ -132,6 +136,7 @@ class EmployeesController extends Controller
     public function show($id)
     {
         $data['emp'] = Employees::find($id);
+        $data['societes'] = Company::all();
         
         return view('employees.show',compact('data'));
     }

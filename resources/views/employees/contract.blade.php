@@ -1,3 +1,4 @@
+<title>SJPROMOTEUR - Ouvrier contract</title>
 <p style="text-align:center"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><em><u><span dir="RTL" lang="AR-DZ"><span style="font-family:&quot;Arial&quot;,sans-serif">عقد شغل مطابق لنص العقد المحرر باللغة الفرنسية</span></span></u></em></span></strong></span></p>
 
 <p style="text-align:right">&nbsp;</p>
@@ -16,9 +17,9 @@
 
 <p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">الساكن  ب {{$data['emp']->addr1}}</span></span></strong></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">المزداد بتاريخ{{$data['emp']->يضdate_n}}</span></span></strong></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">المزداد بتاريخ  {{ Carbon\Carbon::parse($data['emp']->date_n)->format('Y-m-d') }}</span></span></strong></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">والحامل للبطاقة رقم </span>&nbsp;<span style="font-family:&quot;Arial&quot;,sans-serif">{{$data['emp']->cin}}</span> <span style="font-family:&quot;Arial&quot;,sans-serif">الصالحة لغاية{{$data['emp']->cin_validation}}</span></span></strong></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">والحامل للبطاقة رقم </span>&nbsp;<span style="font-family:&quot;Arial&quot;,sans-serif">{{$data['emp']->cin}}</span> <span style="font-family:&quot;Arial&quot;,sans-serif">الصالحة لغاية  {{ Carbon\Carbon::parse($data['emp']->cin_validation)->format('Y-m-d') }}</span></span></strong></span></p>
 
 <p dir="RTL" style="text-align:right"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">الجنسية المغربية</span></span></strong></span></p>
 
@@ -35,7 +36,7 @@
 <p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><u><span style="font-family:&quot;Arial&quot;,sans-serif">الفصل 2 مدة عقد الشغل </span></u></span></strong></span></p>
 
 <pre style="text-align:right">
-<span style="font-size:22px"><strong><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif">{{ $data['emp']->date_debut }}قبلت الشركة تشغيل </span></span><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">العامل&nbsp;</span></span><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif"> لفترة محددة في </span><span dir="LTR"><span style="font-family:&quot;Agency FB&quot;,sans-serif">6</span></span><span style="font-family:&quot;Arial&quot;,sans-serif"> شهرا(ستة أشهر) تبتدئ من</span></span></strong></span></pre>
+<span style="font-size:22px"><strong><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif"> {{ Carbon\Carbon::parse($data['emp']->date_debut)->format('Y-m-d') }}قبلت الشركة تشغيل </span></span><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">العامل&nbsp;</span></span><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif"> لفترة محددة في </span><span dir="LTR"><span style="font-family:&quot;Agency FB&quot;,sans-serif">6</span></span><span style="font-family:&quot;Arial&quot;,sans-serif"> شهرا(ستة أشهر) تبتدئ من</span></span></strong></span></pre>
 
 <p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><u><span style="font-family:&quot;Arial&quot;,sans-serif">الفصل 3 سبب إبرام عقد الشغل محدد المدة</span></u></span></strong></span></p>
 
@@ -44,7 +45,7 @@
 <p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif"><u><span style="font-family:&quot;Arial&quot;,sans-serif">الفصل 4 الأجرة</span></u></span></strong></span></p>
 
 <pre style="text-align:right">
-<span style="font-size:22px"><strong><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif">يتقاضى </span></span><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">العامل&nbsp;</span></span><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif">أجرا صافيا شهريا قدره ................................... درهما &nbsp;على أساس معدل 43 ساعة (ثلاث و أربعين ساعة) في الأسبوع</span></span></strong></span></pre>
+<span style="font-size:22px"><strong><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif">يتقاضى </span></span><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">العامل&nbsp;</span></span><span style="font-family:&quot;Courier New&quot;"><span style="font-family:&quot;Arial&quot;,sans-serif">أجرا صافيا شهريا قدره  {{$data['emp']->prix_jour}} درهما &nbsp;على أساس معدل 43 ساعة (ثلاث و أربعين ساعة) في الأسبوع</span></span></strong></span></pre>
 
 <p dir="RTL" style="text-align:justify"><span style="font-size:22px"><strong><span style="font-family:Calibri,sans-serif">&nbsp;<u><span style="font-family:&quot;Arial&quot;,sans-serif">الفصل 5 الإجازات الممنوحة</span></u></span></strong></span></p>
 

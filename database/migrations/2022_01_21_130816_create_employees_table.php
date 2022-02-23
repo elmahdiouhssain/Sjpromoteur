@@ -38,6 +38,7 @@ class CreateEmployeesTable extends Migration
             $table->string('realise_par');
             $table->string('contract')->nullable();
             $table->bigInteger('company_id')->nullable();
+            $table->decimal('prix_jour')->nullable();
             $table->timestamps();
         });
     }
