@@ -25,7 +25,6 @@ class Employees extends Model
         'addr1',
         'addr2',
         'addr3',
-        'ville',
         'prix_jour',
         'company_id',
         'observation',

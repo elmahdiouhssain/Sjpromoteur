@@ -120,6 +120,147 @@
 
 
                             </div>
+
+                             <div class="col-xs-12 ">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3 style="color:red;"><i class="far fa-user"></i> : {{ $data['emp']->nom_complete }} || ( {{ $data['emp']->cin }} ) || Fonction :  ( {{ $data['emp']->fonction }} ) ||
+                                    @can('employees-delete')
+                                    {!! Form::open(['method' => 'DELETE','route' => ['emps.destroy', $data['emp']->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé l employeé')"]) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                    @can('employees-list')
+                                    <a href="{{ route('emps.edit',$data['emp']->id) }}" class="btn btn-dark btn-sm"><i class="fas fa-cog"></i></a>
+                                    @endcan
+                                    <a href="/employees/rapport/{{$data['emp']->id}}" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-file-download"></i> Generé le rapport</a>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Nom complèt</u> : [ {{ $data['emp']->nom_complete }} ]</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Identité</u> : [ {{ $data['emp']->cin }} ]</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Caise sociale</u> : [ {{ $data['emp']->cnss }} ]</h4>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Salaire(DHS)</u> : [ {{ $data['emp']->salaire_total }} ]</h4>
+                                                </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">N°télèphone</u> :  [ {{ $data['emp']->n_telephone }} ]</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">N°compte(rib)</u> :  [ {{ $data['emp']->n_banquer }} ]</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">N°dossier</u> :  [ {{ $data['emp']->n_dossier }} ]</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Date debut</u> :  [ {{ Carbon\Carbon::parse($data['emp']->date_debut)->format('Y-m-d') }} ]</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Address 1</u> :  [ {{ $data['emp']->addr1 }} ]</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Address 2</u> :  [ {{ $data['emp']->addr2 }} ]</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Address 3</u> :  [ {{ $data['emp']->addr3 }} ]</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Date naissance</u> :  [ {{ Carbon\Carbon::parse($data['emp']->date_n)->format('Y-m-d') }} ]</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Address 3</u> :  [ {{ $data['emp']->addr3 }} ]</h4>
+                                                </div>
+                                            </div>
+
+                                          
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Prix/jr</u> :  [ {{ $data['emp']->prix_jour }} (DHS) ]</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <?php $getdata = DB::select('select * from companys where id='.$data['emp']->company_id);?>
+                                                    <h4><u style="color:#dc3545;">Sociétè</u> :  [ {{ $getdata[0]->raison_social }} ]</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Enregistré à</u> :  [ {{ $data['emp']->created_at }} ]</h4>
+                                                </div>
+                                            </div>
+                                            <center>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <h4><u style="color:#dc3545;">Observation</u> :  [ {{ $data['emp']->observation }} ]</h4>
+                                                </div>
+                                            </div>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
                             </div>
                         <div class="col-xs-12 ">
                             <div class="card mb-3">
@@ -180,114 +321,6 @@
                                     </div>
                                     </div>
 
-                        
-                        <div class="col-xs-12 ">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <h3 style="color:red;"><i class="far fa-user"></i> : {{ $data['emp']->nom_complete }} || ( {{ $data['emp']->cin }} ) || Fonction :  ( {{ $data['emp']->fonction }} ) ||
-                                    @can('employees-delete')
-                                    {!! Form::open(['method' => 'DELETE','route' => ['emps.destroy', $data['emp']->id],'style'=>'display:inline']) !!}
-                                    {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé l employeé')"]) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                    @can('employees-list')
-                                    <a href="{{ route('emps.edit',$data['emp']->id) }}" class="btn btn-dark btn-sm"><i class="fas fa-cog"></i></a>
-                                    @endcan
-                                    </h3>
-                                </div>
-                                <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Nom complèt : </label>
-                                                    <input readonly class="form-control" name="name" type="text" value="{{ $data['emp']->nom_complete }}" required />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Identité : </label>
-                                                    <input readonly class="form-control" name="email" type="email" value="{{ $data['emp']->cin }}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Caise sociale : </label>
-                                                    <input readonly class="form-control" name="id_national" type="text" value="{{ $data['emp']->cnss }}" required />
-                                                </div>
-                                            </div>
-                                            
-                                      
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Salaire : (DHS)</label>
-                                                    <input readonly class="form-control" name="name" type="text" value="{{ $data['emp']->salaire_total }}" required />
-                                                </div>
-                                            
-                                                </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>N°télèphone : </label>
-                                                    <input readonly class="form-control" name="name" type="text" value="{{ $data['emp']->n_telephone }}" required />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>N°banquer(rib) : </label>
-                                                    <input readonly class="form-control" name="email" type="email" value="{{ $data['emp']->n_banquer }}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                      
-
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>N°dossier : </label>
-                                                    <input readonly class="form-control" name="n_dossier" type="text" value="{{ $data['emp']->n_dossier }}" required />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Date debut : </label>
-                                                    <input readonly class="form-control" name="date_debut" type="date" value="{{ Carbon\Carbon::parse($data['emp']->date_debut)->format('Y-m-d') }}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Address 1 : </label>
-                                                    <input readonly class="form-control" name="addr1" type="text" value="{{ $data['emp']->addr1 }}" required />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Address 2  : </label>
-                                                    <input readonly class="form-control" name="addr2" type="text" value="{{ $data['emp']->addr2 }}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Observation  : </label>
-                                                    <textarea class="form-control" readonly name="observation" id="observation" cols="30" rows="10">{{ $data['emp']->observation }}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end col -->
                       <div class="card mb-3">
                                 <div class="card-header">
                                     <h3 style="color:black;"><i class="fas fa-passport"></i> Employeé documents  : </h3>
@@ -297,7 +330,6 @@
                                            <?php 
                                            $u_imgs = DB::select('select * from employeesimg where cheque_id='.$data['emp']->id);
                                             ?>
-                                         
                                             @foreach ($u_imgs as $x)
                                             <div class="card-group">
                                           <div class="card">
@@ -315,18 +347,15 @@
                                             </div>
                                           </div>
                                           </div>
-                                            @endforeach
-
+                                        @endforeach
+                                        </div>
+                                        <!-- end card-body -->
+                                    </div>
                                 </div>
-
-                                <!-- end card-body -->
+                                <!-- END container-fluid -->
                             </div>
-                            <!-- end card -->
-                </div>
-                <!-- END container-fluid -->
-            </div>
-            <!-- END content -->
-        </div>
+                            <!-- END content -->
+                        </div>
         
         <!-- The Modal -->
           <div class="modal fade" id="myModal2">
@@ -343,127 +372,7 @@
             </div>
           </div>
         </div>
-                <script>
-                $(document).ready(function (){
-                fetchpaiements();
-                function fetchpaiements(){
-                    var emp_id = $('.employee_id').val();
-                    $.ajax({
-                        type:"GET",
-                        url:"/employees/paiement/all/"+emp_id,
-                        dataType:"json",
-                        success:function (response){
-                            $('.card-deck').html("");
-                            var i = 0;
-                            $.each(response, function(key, item){
-                                ++i;
-                                $('.card-deck').append('<div class="card">\
-                                    <div class="card-body">\
-                                    <h5 class="card-title">Montant : '+item.salaire_total+'(DHS)</h5>\
-                                    <p>Debut : '+item.debut+'</p>\
-                                    <p>Fin : '+item.fin+'</p>\
-                                    <p>N°jrs : '+item.n_jours+'</p>\
-                                    <p>P/jr : '+item.prix_jour+'(DHS)</p>\
-                                    <p>Realisé par : '+item.realise_par+'</p>\
-                                    <p class="card-text">Observation : '+item.observation+'.</p>\
-                                    <p>Status : <label class="badge badge-success">PAYEE</label></p>\
-                                    </div>\<div class="card-footer">\
-                                    <small class="text-muted">Enregitré à : '+item.created_at+' <button style="color:red;" class="fas fa-trash" data-toggle="modal" data-target="#myModal3"></button></small>\
-                                    <input type="hidden" name="paiement_id" class="paiement_id" id="paiement_id" value="'+item.id+'">\
-                                    </div>\
-                                    </div>');
-
-                                });
-                            //console.log(response);
-                                }
-                            });
-                        };
-                    
-                    $(document).on('click', '.add_paiement', function (e){
-                    e.preventDefault();
-                    var data = {
-                        'employee_id':$('.employee_id').val(),
-                        'debut':$('.debut').val(),
-                        'fin':$('.fin').val(),
-                        'observation':$('.observation').val(),
-                        'n_jours':$('.n_jours').val(),
-                        'prix_jour':$('.prix_jour').val(),
-                        'salaire_total':$('.salaire_total').val(),
-                    }
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    $.ajax({
-                        type:"POST",
-                        url:"/employees/store/paiement",
-                        data:data,
-                        dataType:"json",
-                        success:function (response){
-                            if(response.status == 400){
-                                $('#savedform_errList').html("");
-                                $('#savedform_errList').addClass('alert alert-danger');
-                                $.each(response.errors, function (key, err_values){
-                                    $('#savedform_errList').append('<span>'+err_values+'</span>');
-                                });
-                            }
-                            else{
-                                $('#success_message').addClass('alert alert-success');
-                                $('#success_message').text(response.message);
-                                $('#exampleModal').modal('hide');
-                                $('#myModal2').modal('show');
-                                $("#debut").val("");
-                                $("#fin").val("");
-                                $("#observation").val("");
-                                $("#n_jours").val("");
-                                $("#prix_jour").val("");
-                                $("#salaire_total").val("");
-                                fetchpaiements();
-                            }
-                        }
-                    })
-                })
-
-
-                    $(document).on('click', '.delete_paiement', function(e){
-                    e.preventDefault();
-                    var paiement_id = $(this).data("paiement_id");
-                    //var paiement_id = $(this).data("paiement_id");
-
-                    $('#delete_paiement_id').val(paiement_id);
-                    $('#myModal3').modal('show');
-
-                });
-                $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                $(document).on('click', '.delete_paiement_btn', function(e){
-                  
-                    e.preventDefault();
-                    //var paiement_id = $('#paiement_id').val();
-                    var paiement_id = $(this).data("paiement_id");
-                    $.ajax({
-                        type:"DELETE",
-                        url:"/employees/paiement/del/"+paiement_id,
-                        data: {paiement_id:paiement_id},
-                        success: function (response){
-                            console.log(response);
-                            $('#success_message').addClass('alert alert-success')
-                            $('#success_message').text(response.message);
-                            $('#myModal3').modal('hide');
-                            fetchpaiements();
-                        }
-                    })
-                })
-
-            });
-      
-        </script>
-
-        <!-- The Modal -->
+         <!-- The Modal -->
           <div class="modal fade" id="myModal3">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
@@ -471,7 +380,7 @@
                 <div class="modal-body">
                     <div class="container">
                         <center><i class="fas fa-trash fa-7x" style="color:red;"></i><br>
-
+                            <input type="hidden" id="delete_paiement_id">
                             <h2  style="color:red;">Vois etes sur supprimé le paiement !</h2>
                         </center>
                     </div>

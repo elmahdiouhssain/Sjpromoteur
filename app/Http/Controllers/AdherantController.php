@@ -285,13 +285,9 @@ class AdherantController extends Controller
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
-                
                 ->make(true);
         }
- 
 }
-
-
 
 
 }

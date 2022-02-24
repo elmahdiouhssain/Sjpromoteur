@@ -87,14 +87,6 @@
                             </a>
                         </li>
                         @endcan
-                        @can('cheque-list')
-                        <li class="submenu">
-                            <a href="{{ route('stats-cheques.index') }}">
-                                <i class="fas fa-money-check-alt"></i>
-                                <span> Chèques </span>
-                            </a>
-                        </li>
-                        @endcan
                         @can('employees-list')
                         <li class="submenu">
                             <a href="{{ route('emps.index') }}">
@@ -103,8 +95,15 @@
                             </a>
                         </li>
                         @endcan
+                        @can('cheque-list')
+                        <li class="submenu">
+                            <a href="{{ route('stats-cheques.index') }}">
+                                <i class="fas fa-money-check-alt"></i>
+                                <span> Chèques </span>
+                            </a>
+                        </li>
+                        @endcan
                         <center style="color: white;"><hr>----ACHATS----<hr></center>
-
                         <li class="submenu">
                             <a href="{{ route('fournisseurs.index') }}">
                             <i class="fas fa-boxes"></i>

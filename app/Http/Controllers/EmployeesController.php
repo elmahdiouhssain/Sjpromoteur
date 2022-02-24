@@ -128,6 +128,11 @@ class EmployeesController extends Controller
     return redirect('/emps/'.$id)->with('success', 'Employeé modifié avec succée');
 
     }
+    public function showRapport($id)
+    {
+        $data['emp'] = Employees::find($id);
+        return view('employees.rapport',compact('data'));
+    }
     public function showContract($id)
     {
         $data['emp'] = Employees::find($id);

@@ -137,7 +137,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/employees/contract/{id}', [EmployeesController::class, 'showContract'])->name('showcontract');
 
-
+    Route::get('/employees/rapport/{id}', [EmployeesController::class, 'showRapport'])->name('showrapport');
     Route::get('/logout', [DashboardController::class, 'logout'])->name('log.out');
 
 
