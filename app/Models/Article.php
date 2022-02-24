@@ -18,9 +18,5 @@ class Article extends Model
         'observations',
     ];
 
-    // returns the instance of the bc who is owner of that articles
-    public function boncommande()
-    {
-        return $this->belongsTo('App\Models\Boncommande', 'boncommande_id');
-    }
+
 }

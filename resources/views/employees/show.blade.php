@@ -26,11 +26,15 @@
                         <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header">
+                                    <center>
                                 @can('paiementemp-create')
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-money-check-alt"></i> Ajouter un paiement
                                 </button>
                                 @endcan
+                                <a href="/employees/rapport/{{$data['emp']->id}}" target="_blank" class="btn btn-warning btn-sm"><i class="fas fa-file-download"></i> Generé le rapport</a>
+                                    <a href="/employees/contract/{{$data['emp']->id}}" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-file"></i> Imprimer le contract</a>
+                                    </center>
                                 </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,6 +128,7 @@
                              <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header">
+
                                     <h3 style="color:red;"><i class="far fa-user"></i> : {{ $data['emp']->nom_complete }} || ( {{ $data['emp']->cin }} ) || Fonction :  ( {{ $data['emp']->fonction }} ) ||
                                     @can('employees-delete')
                                     {!! Form::open(['method' => 'DELETE','route' => ['emps.destroy', $data['emp']->id],'style'=>'display:inline']) !!}
@@ -133,11 +138,12 @@
                                     @can('employees-list')
                                     <a href="{{ route('emps.edit',$data['emp']->id) }}" class="btn btn-dark btn-sm"><i class="fas fa-cog"></i></a>
                                     @endcan
-                                    <a href="/employees/rapport/{{$data['emp']->id}}" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-file-download"></i> Generé le rapport</a>
+                                    
                                     </h3>
                                 </div>
                                 <div class="card-body">
                                         <div class="row">
+                                            
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <h4><u style="color:#dc3545;">Nom complèt</u> : [ {{ $data['emp']->nom_complete }} ]</h4>
@@ -156,11 +162,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <h4><u style="color:#dc3545;">Salaire(DHS)</u> : [ {{ $data['emp']->salaire_total }} ]</h4>
-                                                </div>
-                                                </div>
+                                           
                                         </div>
 
                                         <div class="row">

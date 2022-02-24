@@ -8,7 +8,6 @@
     <title>Rapport Employeé | <?php echo date("d-m-Y");?></title>
 </head>
 <?php $getdata = DB::select('select * from companys where id='.$data['emp']->company_id);?>
-<center><img style="width: 200px; height: 200px;" src="{{$getdata[0]->logo}}"></center>
 
 <center>
 <table class="minimalistBlack">
@@ -33,10 +32,6 @@
 <td style="font-size:25px;">{{ $data['emp']->cnss }}</td>
 </tr>
 
-<tr>
-<td style="font-size:25px;">Salaire (DHS) : </td>
-<td style="font-size:25px;">{{ $data['emp']->salaire_total }}</td>
-</tr>
 
 <tr>
 <td style="font-size:25px;">N°télèphone : </td>
@@ -101,7 +96,7 @@
 <td style="font-size:25px;">Date debut : {{ $paie->debut }}</td>
 <td style="font-size:25px;">Date fin : {{ $paie->fin }}</td>
 <td style="font-size:25px;">N°jour : {{ $paie->n_jours }}</td>
-<td style="font-size:25px;">Prix/jour : {{ $paie->prix_jour }}</td>
+<td style="font-size:25px;">Prix/jour : {{ $paie->prix_jour }}(DHS)</td>
 </tr>
 @endforeach
 <br>

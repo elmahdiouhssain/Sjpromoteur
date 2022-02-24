@@ -57,8 +57,6 @@
                                                     <th>Nom complèt</th>
                                                     <th>Identifie</th>
                                                     <th>Montant versé(DHS)</th>
-                                                   
-                                                   
                                                     <th>Realisé par</th>
                                                     <th>Date enregisté </th>
                                                     <th>Action </th>

@@ -25,7 +25,7 @@ class Adherant extends Model
         'observation',
         'commerciale',
         'etage',
-        'societe',
+        'societe_id',
         'imm_type',
         ////////certificat section//////
         'ar_name',

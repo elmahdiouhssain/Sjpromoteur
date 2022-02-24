@@ -16,13 +16,10 @@ class Company extends Model
         'details',
         'raison_social_ar',
         'rib',
+        'ice',
+        'fax',
     ];
 
-    // company has many bonscommandes
-    public function bonscommandes()
-    {
-        return $this->hasMany('App\Models\Boncommande', 'boncommande_id');
-    } 
 
     
 }

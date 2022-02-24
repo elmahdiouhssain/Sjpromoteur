@@ -15,8 +15,7 @@ class CreateFournisseursTable extends Migration
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('boncommande_id')->nullable();
-            $table->foreign('boncommande_id')->references('id')->on('boncommandes')->onDelete('cascade');
+            $table->unsignedBigInteger('company_id')->nullable();
             $table->string('raison_s')->nullable();
             $table->string('ice')->nullable();
             $table->text('addr1')->nullable();

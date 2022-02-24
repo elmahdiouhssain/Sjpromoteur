@@ -23,10 +23,4 @@ class Fournisseur extends Model
     ];
 
 
-    // fournisseur has many bonscommandes
-    public function bonscommandes()
-    {
-        return $this->hasMany('App\Models\Boncommande', 'boncommande_id');
-    } 
-    
 }
