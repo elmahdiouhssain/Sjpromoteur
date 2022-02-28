@@ -14,7 +14,6 @@ use App\Models\ProductFacture;
 use DataTables;
 class ArticleController extends Controller
 {
-    //
     public function index() {
         $data['title'] = "Sjpromoteur Articles";
         $data['articles'] = Article::latest()->get();
