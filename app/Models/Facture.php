@@ -11,19 +11,20 @@ class Facture extends Model
     protected $table = 'factures';
     public $timestamps = true;
     protected $fillable = [
-        'user_id',
-        'societe_f',
-        'produit_name',
-        'telephone',
-        'description',
-        'quantite',
-        'prix_u',
-        'total',
-        'status' => 'boolean',
+        'uuid',
+        'company_id',
+        'fournisseurs_id',
+        'reference',
+        'f_libelle',
+        'type_facture',
+        'relase_date',
+        'total_ht',
+        'total_tva',
+        'total_ttc',
+        'pdf_url',
+        'realise_par',
+        'is_paid' => 'boolean',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User', 'user_id');
+
     }
-}

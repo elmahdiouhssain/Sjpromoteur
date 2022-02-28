@@ -181,7 +181,9 @@
                                             <div class="form-group">
                                                     <label>Sociète </label>
                                                     <select class="form-control" id="company_id" name="company_id">
-                                                    <option value="0">--par default--</option>
+                                            <?php $getdata = DB::select('select * from companys where id='.$emp->company_id);  ?>
+                                                <option value="{{$getdata[0]->id}}" selected>{{$getdata[0]->raison_social}}</option>
+
                                                     @foreach ($data['societes'] as $so)
                                                     <option value="{{$so->id}}">{{$so->raison_social}}</option>
                                                     @endforeach

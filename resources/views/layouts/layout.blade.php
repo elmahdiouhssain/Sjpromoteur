@@ -83,7 +83,7 @@
                         <li class="submenu">
                             <a href="{{ route('adherants.index') }}">
                                 <i class="fas fa-clipboard-list"></i>
-                                <span> Adhèrant </span>
+                                <span> Adhèrants </span>
                             </a>
                         </li>
                         @endcan
@@ -99,17 +99,19 @@
                         <li class="submenu">
                             <a href="{{ route('stats-cheques.index') }}">
                                 <i class="fas fa-money-check-alt"></i>
-                                <span> Chèques </span>
+                                <span> Règlements </span>
                             </a>
                         </li>
                         @endcan
                         <center style="color: white;"><hr>----ACHATS----<hr></center>
+                        @can('suppliers-list')
                         <li class="submenu">
                             <a href="{{ route('fournisseurs.index') }}">
                             <i class="fas fa-boxes"></i>
                                 <span> Fournisseurs </span>
                             </a>
                         </li>
+                        @endcan
                         
                         @can('facture-list')
                         <li class="submenu">
@@ -119,6 +121,12 @@
                             </a>
                         </li>
                         @endcan
+                        <li class="submenu">
+                            <a href="{{ route('articles.index') }}">
+                                <i class="fas fa-cube"></i>
+                                <span> Articles </span>
+                            </a>
+                        </li>
                         <center style="color: white;"><hr>----Projects----<hr></center>
                         <li class="submenu">
                             <a href="#">
@@ -197,7 +205,6 @@
     <script src="{{ asset('static/calendar/fullcalendar.js') }}"></script>
     <script src="{{ asset('static/calendar/fr.js') }}"></script>
     <script src="{{ asset('static/calendar/gcal.min.js') }}"></script>
-
 	<script src="{{ asset('static/js/popper.min.js') }}"></script>
 	<script src="{{ asset('static/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('static/js/bootstrap.js') }}"></script>

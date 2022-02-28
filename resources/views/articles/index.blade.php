@@ -7,10 +7,10 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">List des fournisseurs</h1>
+                                <h1 class="main-title float-left">List des articles</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item active">Les fournisseurs</li>
+                                    <li class="breadcrumb-item active">Les articles</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -29,9 +29,9 @@
                                     <center>
                                         @can('suppliers-create')
                                        <a role="button" href=""  data-toggle="modal" data-target="#exampleModal" class="btn btn-dark mb-2" >
-                                        Ajouter un fournisseur
+                                        Ajouter une article
                                              <span class="btn-label btn-label-right">
-                                                <i class="fas fa-boxes"></i>
+                                                <i class="fas fa-cube"></i>
                                             </span>
                                         </a>
                                         @endcan
@@ -40,63 +40,53 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel"> <i class="fas fa-boxes"></i> Ajouter un fournisseur</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel"> <i class="fas fa-cube"></i> Ajouter une article</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>
                                                 </div>
                             <div class="modal-body">
-                             {!! Form::open(array('route' => 'fournisseurs.store','method'=>'POST')) !!}
+                             {!! Form::open(array('route' => 'articles.store','method'=>'POST')) !!}
                               @csrf
-
-
                             <div class="form-group">
-                                                    <label for="name">Raison social :</label>
-                                                    <input type="text" name="raison_s" class="form-control" id="raison_s"required="">
-
-                          @if ($errors->has('raison_s'))
-                                            <span style="color: red;">{{ $errors->first('raison_s') }}</span>
-                                            @endif
-                            </div>
-                            <div class="form-group">
-                                                    <label for="name">Ice:</label>
-                                                    <input type="text" name="ice" class="form-control" id="ice">
-
-                          @if ($errors->has('ice'))
-                                            <span style="color: red;">{{ $errors->first('ice') }}</span>
-                                            @endif
-                            </div>
-                            <div class="form-group">
-                                                    <label for="name">Addresse :</label>
-                                                    <input type="text" name="addr1" class="form-control" id="addr1">
-
-                          @if ($errors->has('addr1'))
-                                            <span style="color: red;">{{ $errors->first('addr1') }}</span>
+                                <label>Nom d'article: </label>
+                                <input style="text-transform:uppercase;" type="text" name="nom" id="nom" class="form-control">
+                                @if ($errors->has('nom'))
+                                            <span style="color: red;">{{ $errors->first('nom') }}</span>
                                             @endif
                             </div>
 
                             <div class="form-group">
-                            <label for="name">Télèphone :</label>
-                            <input type="text" name="n_telephone" class="form-control" id="n_telephone" placeholder="+21260000000">
+                            <label for="unitaire">Unitaire :</label>
+                            <input type="text" name="unitaire" class="form-control" id="unitaire" placeholder="M²,ML,ML">
 
-                          @if ($errors->has('n_telephone'))
-                                            <span style="color: red;">{{ $errors->first('n_telephone') }}</span>
+                          @if ($errors->has('unitaire'))
+                                            <span style="color: red;">{{ $errors->first('unitaire') }}</span>
+                                            @endif
+                            </div>
+
+                            <div class="form-group">
+                            <label for="name">Prix :</label>
+                            <input type=number step=any name="prix" class="form-control" id="prix" placeholder="20.665(DHS)">
+
+                          @if ($errors->has('prix'))
+                                            <span style="color: red;">{{ $errors->first('prix') }}</span>
                                             @endif
                             </div>
                             <div class="form-group">
-                            <label for="name">Email :</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="test@gmail.com">
+                            <label for="tva">Tva :</label>
+                            <input type=number step=any name="tva" class="form-control" id="tva" placeholder="10% (DHS)">
 
-                          @if ($errors->has('email'))
-                                            <span style="color: red;">{{ $errors->first('email') }}</span>
+                          @if ($errors->has('prix'))
+                                            <span style="color: red;">{{ $errors->first('tva') }}</span>
                                             @endif
                             </div>
                             <div class="form-group">
-                            <label for="name">Rib bancaire :</label>
-                            <input type="text" name="c_bancaire" class="form-control" id="c_bancaire" placeholder="02336547889">
+                            <label for="desc">Description :</label>
+                            <textarea class="form-control" name="desc" id="desc"></textarea>
 
-                          @if ($errors->has('c_bancaire'))
-                                            <span style="color: red;">{{ $errors->first('c_bancaire') }}</span>
+                          @if ($errors->has('desc'))
+                                            <span style="color: red;">{{ $errors->first('desc') }}</span>
                                             @endif
                             </div>
                             <div class="form-group">
@@ -114,15 +104,11 @@
                              </div>
 
                                                 </div>
-                                            
                                             </div>
                                         </div>
                                     </div>
                                       {!! Form::close() !!}
-                                      
-         
                                     <br>
-
                                     </center><br>
                                     <div class="container">
                                         @can('suppliers-list')
@@ -130,11 +116,10 @@
                                         <table class="table table-striped" id="emptableid" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Raison social</th>
-                                                    <th>Ice</th>
-                                                    <th>N°télèphone</th>
-                                                    <th>Email</th>
-                                                    <th>Rib bancaire</th>
+                                                    <th>Nom d'article</th>
+                                                    <th>Unitaire</th>
+                                                    <th>Prix (DHS)</th>
+                                                    <th>Tva</th>
                                                     <th>Realisé par</th>
                                                     <th>Enregisté le</th>
                                                     <th>Action </th>
@@ -152,7 +137,7 @@
                                           $("#emptableid").DataTable({
                                                   serverSide: true,
                                                   ajax: {
-                                                      url: '{{url('fournisseursajax')}}',
+                                                      url: '{{url('articlesajax')}}',
                                                       data: function (data) {
                                                           data.params = {
                                                               sac: "helo"
@@ -167,11 +152,10 @@
                                                   buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
                                                   scrollCollapse: true,
                                                   columns: [
-                                                      {data: "raison_s", className: 'raison_s'},
-                                                      {data: "ice", className: 'ice'},
-                                                      {data: "n_telephone", className: 'n_telephone'},
-                                                      {data: "email", className: 'email'},
-                                                      {data: "c_bancaire", className: 'c_bancaire'},
+                                                      {data: "nom", className: 'nom'},
+                                                      {data: "unitaire", className: 'unitaire'},
+                                                      {data: "prix", className: 'prix'},
+                                                      {data: "tva", className: 'tva'},
                                                       {data: "realise_par", className: 'realise_par'},
                                                       {data: "created_at", className: 'created_at'},
                                                       {
@@ -182,13 +166,12 @@
                                                         },
                                                               ]  
                                                         });
-                                                 
                                                     });
-                                  </script>
-                                @else
-                                <center>
+                                                </script>
+                                                @else
+                                                <center>
                                         <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
-                                    <h2>Vous n'êtes pas autorisé à voir les fournisseurs</h2>
+                                    <h2>Vous n'êtes pas autorisé à voir les articles</h2>
                                     </center>
                                     @endcan
                                         </div>

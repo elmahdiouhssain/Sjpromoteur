@@ -34,7 +34,6 @@ class Adherant extends Model
         'ar_immtype',
         'ville',
         'n_dossier',
-
     ];
 
     // adherant has many tranches

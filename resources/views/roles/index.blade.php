@@ -1,12 +1,9 @@
 @extends('layouts.layout')
 @section('content')
  <div class="content-page">
-
             <!-- Start content -->
             <div class="content">
-
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
@@ -20,9 +17,7 @@
                         </div>
                     </div>
                     <!-- end row -->
-
                     <div class="row">
-
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
                                 <div class="card-header">

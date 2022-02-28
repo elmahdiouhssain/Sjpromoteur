@@ -12,6 +12,14 @@ use DataTables;
 
 class FournisseursController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:suppliers-list|suppliers-create|suppliers-edit|suppliers-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:suppliers-create', ['only' => ['create','store']]);
+        $this->middleware('permission:suppliers-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:suppliers-delete', ['only' => ['destroy']]);
+
+    }
     //
     public function index() {
         $data['title'] = "Sjpromoteur List fournisseurs";

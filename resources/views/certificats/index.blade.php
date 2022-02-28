@@ -28,7 +28,9 @@
                                 <div class="card-header">
                                         <center>
                                         @include('flash-message')<br>
+                                        @can('certificat-create')
                                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-file-word"></i> Nouvelle certificat</button>
+                                        @endcan
                                         </center>
                                 </div>
                                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -70,6 +72,7 @@
                                             
                                             </div>
                                         </div>
+                                        @can('certificat-list')
                             <div class="card-body">
                                 <div class="card-deck">
                                 	@foreach ($data['certificats'] as $cert)
@@ -81,17 +84,16 @@
 								      	<i class="fas fa-clock"></i> {{ $cert->created_at }}</small> || 
 								      	{!! Form::open(['method' => 'DELETE','route' => ['certificats.destroy', $cert->id],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé la certificat')"]) !!}
-                                        {!! Form::close() !!}
+                                        {!! Form::close() !!} || <a href="/certificats/{{$cert->id}}" class="btn btn-primary fas fa-eye"></a>
 
 								      </p>
 								    </div>
 								  </div>
 								  @endforeach
-
- 
-									</div>
-                            </div>
+    								</div>
+                                </div>
                                 <!-- end card-body-->
+                                @endcan
 
                         </div>
                             <!-- end card-->

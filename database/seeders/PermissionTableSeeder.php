@@ -67,11 +67,18 @@ class PermissionTableSeeder extends Seeder
            'scannerPDF-create',
            'scannerPDF-edit',
            'scannerPDF-delete',
-
+           'suppliers-list',
+           'suppliers-create',
+           'suppliers-edit',
+           'suppliers-delete',
            'paiementemp-list',
            'paiementemp-create',
            'paiementemp-edit',
            'paiementemp-delete',
+           'produits-list',
+           'produits-create',
+           'produits-edit',
+           'produits-delete',
         ];
    
         foreach ($permissions as $permission) {

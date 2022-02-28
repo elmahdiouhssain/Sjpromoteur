@@ -15,16 +15,23 @@ class CreateFacturesTable extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('societe_f', 255);
-            $table->string('produit_name', 255);
-            $table->string('telephone', 20)->nullable();
-            $table->mediumText('description', 500)->nullable();
-            $table->unsignedInteger('quantity');
-            $table->decimal('prix_u', 8, 3);
-            $table->decimal('total', 8, 3)->nullable();
-            $table->boolean('status')->default(0);
+            $table->string('uuid')->unique();
+
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('fournisseurs_id')->nullable();
+            
+            $table->string('reference')->nullable();
+            $table->string('f_libelle')->nullable();
+            
+            $table->string('type_facture')->nullable();
+            $table->dateTime('relase_date');
+            
+            $table->string('pdf_url')->nullable();
+            $table->string('total_ht')->nullable();
+            $table->string('total_tva')->nullable();
+            $table->string('total_ttc')->nullable();
+            $table->string('realise_par')->nullable();
+            $table->boolean('is_paid')->default(false);
             $table->timestamps();
         });
     }

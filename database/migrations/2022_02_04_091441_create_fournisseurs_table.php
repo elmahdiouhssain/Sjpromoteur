@@ -15,7 +15,6 @@ class CreateFournisseursTable extends Migration
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('company_id')->nullable();
             $table->string('raison_s')->nullable();
             $table->string('ice')->nullable();
             $table->text('addr1')->nullable();

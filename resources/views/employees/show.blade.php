@@ -12,14 +12,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end row -->
                     <div class="col-xs-12 ">
                             <div class="card mb-3">
                                         <center>
                                         @include('flash-message')
                                         </center>
                                 </div>
-                            <!-- end card -->
                             </div>
                         <!-- end col -->
                         <input type="hidden" class="employee_id" name="employee_id" value="{{$data['emp']->id}}">
@@ -36,7 +34,6 @@
                                     <a href="/employees/contract/{{$data['emp']->id}}" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-file"></i> Imprimer le contract</a>
                                     </center>
                                 </div>
-                                <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -55,7 +52,7 @@
                                         var salaire_total = n_jours * prix_jour;
                                         document.getElementById("salaire_total").value = salaire_total;
                                     }
-                                </script>
+                                    </script>
                                     <div class="form-group">
                                                     <label>Date de debut : </label>
                                                     <input type="date" name="debut" id="debut" class="debut form-control"> 
@@ -107,28 +104,20 @@
                                     <div class="modal-footer">
                                         <button class="add_paiement btn btn-danger btn-sm btn-block" type="submit"><i class="fas fa-save"></i> Enregistré</button>
                                          <button type="button" class="btn btn-secondary btn-sm btn-block" data-dismiss="modal">Close</button>
-                                        
                                     </div>
                                     </div>
-                        
-                                </div>
-                                </div>
-                                @can('paiementemp-list')
-                        <div class="card-body">
-                            
-                            <div class="card-deck">
+                                    </div>
+                                    </div>
+                                    @can('paiementemp-list')
+                                    <div class="card-body">
+                                        <div class="card-deck">
+                                        </div>
+                                    </div>
+                                    @endcan
                             </div>
-
-                        </div>
-                        @endcan
-
-
-                            </div>
-
-                             <div class="col-xs-12 ">
+                            <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header">
-
                                     <h3 style="color:red;"><i class="far fa-user"></i> : {{ $data['emp']->nom_complete }} || ( {{ $data['emp']->cin }} ) || Fonction :  ( {{ $data['emp']->fonction }} ) ||
                                     @can('employees-delete')
                                     {!! Form::open(['method' => 'DELETE','route' => ['emps.destroy', $data['emp']->id],'style'=>'display:inline']) !!}
@@ -138,12 +127,10 @@
                                     @can('employees-list')
                                     <a href="{{ route('emps.edit',$data['emp']->id) }}" class="btn btn-dark btn-sm"><i class="fas fa-cog"></i></a>
                                     @endcan
-                                    
                                     </h3>
                                 </div>
                                 <div class="card-body">
                                         <div class="row">
-                                            
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <h4><u style="color:#dc3545;">Nom complèt</u> : [ {{ $data['emp']->nom_complete }} ]</h4>
@@ -161,10 +148,7 @@
                                                     <h4><u style="color:#dc3545;">Caise sociale</u> : [ {{ $data['emp']->cnss }} ]</h4>
                                                 </div>
                                             </div>
-                                            
-                                           
                                         </div>
-
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
@@ -227,8 +211,6 @@
                                                     <h4><u style="color:#dc3545;">Address 3</u> :  [ {{ $data['emp']->addr3 }} ]</h4>
                                                 </div>
                                             </div>
-
-                                          
                                         </div>
 
                                         <div class="row">
@@ -283,7 +265,7 @@
                                             max-width: 100px;
                                         } 
                                     </style>
-                                    <div class="form-group">
+                        <div class="form-group">
                             <label for="name">Nom du fichier :</label>
                             <select class="form-control" name="name" id="name" aria-label="Default select example">
                                   <option value="Carte national">Carte national</option>

@@ -36,6 +36,21 @@ class CertificatController extends Controller
         return redirect('/certificats')->with('success', 'Certificat enregistré avec succeé');
         }
 
+    public function show($id)
+    {
+        $data['cert'] = Certificat::find($id);
+        return view('certificats.show',compact('data'));
+    }
+
+    public function update(Request $request,$id) {
+            $cert_titre = $request->input('cert_titre');
+            $cert_body = $request->input('cert_body');
+            DB::update('update certs set cert_titre=?,cert_body=? where id = ?',[$cert_titre,$cert_body,$id]);
+
+            return redirect('/certificats')->with('success', 'La certifiacat est a jour avec succée');
+
+        }
+
     public function destroy($id) {
 
         $pack = Certificat::find($id);

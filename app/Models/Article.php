@@ -14,8 +14,10 @@ class Article extends Model
         'nom',
         'unitaire',
         'prix',
+        'tva',
         'desc',
         'observations',
+        'realise_par',
     ];
 
 

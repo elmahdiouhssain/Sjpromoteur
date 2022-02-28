@@ -17,12 +17,9 @@ class ReminderController extends Controller
        //$patient_id = $id;
        $find = User::find($id);
        $rends = Reminder::all();
-
        $data['auth_user'] = \Auth::User()->id; 
        $data['rendezvous_user'] = DB::table('reminders')->where('user_id',$data['auth_user'])->get();
-
        $data['rendezvous_count'] = Reminder::all()->count();
-
         if($request->ajax())
         {
             $data = Reminder::whereDate('start', '>=', $request->start)
@@ -64,17 +61,13 @@ class ReminderController extends Controller
             if($request->type == 'delete')
             {
                 if (\Auth::User()->is_admin) {
-
                     $event = Reminder::find($request->id)->delete();
-
                     return response()->json($event);
                 }else{
-
                     return response()->json('Cannot delete this');
                 }
                 
             }
-
     }
     }
 

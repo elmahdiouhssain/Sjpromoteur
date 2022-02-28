@@ -20,9 +20,7 @@
                         </div>
                     </div>
                     <!-- end row -->
-
                     <div class="row">
-
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
                                 <div class="card-header">
@@ -32,10 +30,8 @@
                                 </div>
 
                                 <div class="card-body">
-                                        
                                        <a role="button" href="{{ route('factures.create') }}" class="btn btn-danger mb-2">
                                         Ajouter une facture
-
                                              <span class="btn-label btn-label-right">
                                                 <i class="fas fa-file-invoice"></i>
                                             </span>
@@ -50,13 +46,10 @@
                                                         <span aria-hidden="true">×</span>
                                                     </button>
                                                 </div>
-                               <div class="modal-body">
-                                                     
-                                                   
+                            <div class="modal-body">   
                              {!! Form::open(array('route' => 'factures.store','method'=>'POST')) !!}
                               @csrf
-                                                    
-                                            <div class="form-group">
+                                <div class="form-group">
                                     <label for="name">Nom & Prenom :</label>
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Fullname" required="">
 
