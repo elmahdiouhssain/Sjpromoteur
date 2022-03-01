@@ -29,6 +29,14 @@
                                     <label for="supplier_id">Fournisseur :</label>
                                     <input type="text" class="form-control" name="supplier_id" id="supplier_id" value="{{ $getdata2[0]->raison_s }}">
                                 </div>
+
+                                <div class="form-group">
+                                    <?php $getcomp = DB::select('select * from companys where id='.$data['facture']->id); ?>
+                                    <label for="supplier_id">Societe :</label>
+                                    <select>
+                                        <option selected>0</option>
+                                    </select>
+                                </div>
                                 </div>
                             </div>
                         </form>

@@ -9,19 +9,18 @@
     <?php $get_comp = DB::select('select * from companys where id='.$data['fac']->company_id); ?>
     <header class="clearfix">
       <div id="logo">
-        <img src="http://127.0.0.1:8000/static/images/miralogo.png">
+        <img src="{{$get_comp[0]->logo}}">
       </div>
-      <h1>{{$data['fac']->type_facture}}</h1>
+      <h1>{{$data['fac']->type_facture}} | {{$data['fac']->uuid}}</h1>
       <div id="company" >
         <h3>Pour : {{$get_comp[0]->raison_social}}</h3>
         <h3>Fax : {{$get_comp[0]->fax}}</h3>
-        <h3>Addresse : {{$get_comp[0]->details}}</h3>
+        <h3>Ice : {{$get_comp[0]->ice}}</h3>
       </div>
       <div id="project">
         <h3>Libelle :  {{$data['fac']->f_libelle}}</h3>
         <h3>Facteur :  {{$data['fac']->realise_par}}</h3>
         <h3>Date : {{ Carbon\Carbon::parse($data['fac']->relase_date)->format('Y-m-d') }}</h3>
-
       </div>
     </header>
     <main>
@@ -40,26 +39,25 @@
           <tr>
             <td class="service" style="font-size:20px;">{{$pro->designation}}</td>
             <td class="desc" style="font-size:20px;">{{$pro->uml}}</td>
-            <td class="unit" style="font-size:20px;">{{$pro->p_u}} DHS</td>
+            <td class="unit" style="font-size:20px;">{{$pro->p_u}} (DHS)</td>
             <td class="qty" style="font-size:20px;">{{$pro->qte}}</td>
-            <td class="total" style="font-size:20px;">{{$pro->p_t}} DHS</td>
+            <td class="total" style="font-size:20px;">{{$pro->p_t}} (DHS)</td>
           </tr>
           @endforeach
-         <hr>
+            <hr>
             <td colspan="4" style="font-size:20px;">SUBTOTAL</td>
-            <td class="total" style="font-size:20px;">{{$data['fac']->total_ht}} DHS</td>
-          </tr>
-        <hr>
-          
+            <td class="total" style="font-size:20px;">{{$data['fac']->total_ht}} (DHS)</td>
+            </tr>
+            <hr>
         </tbody>
       </table>
       <div id="notices">
         <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+        <div class="notice">Des frais financiers de 1,5 % seront appliqués sur les soldes impayés après 30 jours.</div>
       </div>
     </main>
     <footer style="font-size:20px;">
-      Ice : {{$get_comp[0]->ice}} ||  Rib : {{$get_comp[0]->rib}}
+      Addresse : {{$get_comp[0]->details}} ||  Rib : {{$get_comp[0]->rib}}
     </footer>
   </body>
 </html>

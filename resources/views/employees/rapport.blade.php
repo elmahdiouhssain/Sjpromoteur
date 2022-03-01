@@ -10,7 +10,11 @@
 <?php $getdata = DB::select('select * from companys where id='.$data['emp']->company_id);?>
 
 <center>
+
 <table class="minimalistBlack">
+  <center>
+  <img src="{{$getdata[0]->logo}}" style="width:900px;height:150px;">
+  </center>
 <tbody>
 <tr>
 <td style="font-size:25px;">Nom complèt : </td>
@@ -103,9 +107,7 @@
 </tbody>
 </table>
 </center>
-
-<center><footer style="font-size:20px;">Copyright {{$getdata[0]->raison_social}} | {{$getdata[0]->ville}} . ICE : xxxxxxx . {{$getdata[0]->details}}</footer></center>
-
+<center><footer style="font-size:20px;">Copyright {{$getdata[0]->raison_social}} | {{$getdata[0]->ville}} . ICE : xxxxxxx . {{$getdata[0]->ice}}</footer></center>
 <style type="text/css">
 	table.minimalistBlack {
   border: 3px solid #000000;
