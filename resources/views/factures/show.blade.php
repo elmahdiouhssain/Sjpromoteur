@@ -26,10 +26,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <?php $getdata2 = DB::select('select * from fournisseurs where id='.$data['facture']->fournisseurs_id); ?>
-                                    <h3 for="supplier_id">Fournisseur :</h3>
-                                    <select readonly class="form-control" name="supplier_id" id="supplier_id">
-                                        <option  value="">{{ $getdata2[0]->raison_s }}</option>
-                                    </select>
+                                    <label for="supplier_id">Fournisseur :</label>
+                                    <input type="text" class="form-control" name="supplier_id" id="supplier_id" value="{{ $getdata2[0]->raison_s }}">
                                 </div>
                                 </div>
                             </div>
@@ -47,6 +45,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container">
+                        <input type="hidden" name="invoice_id" id="invoice_id" value="{{ $data['facture']->id }}">
                         <center>@include('flash-message')</center>
                     <div class="form-group">
                         <label>Article : </label>
@@ -84,18 +83,15 @@
                     <div class="form-group">
                         <button class="btn btn-success btn-sm btn-block add_prod_invoice" id="add_prod_invoice" name="add_prod_invoice">Ajouté</button>
                     </div>
-
-                </div>
-                </div>
-                <!-- Modal footer -->
+                    </div>
+                    </div>
+                    <!-- Modal footer -->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Quitté</button>
                 </div>
-                
               </div>
             </div>
           </div>
-          
 
           <div class="card"><br>
           <table class="table table-bordered table-striped" >
@@ -107,7 +103,7 @@
                     <th>Prix :</th>
                     <th>Total :</th>
                     <button type="button" name="add" id="dynamic-ar" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus"></i> Nouveau produit</button>
-                    <a href="#" onclick="return confirm('Vous etes-sur supprimé la facture !')" class="btn btn-warning btn-sm btn-block"><i class="fas fa-trash"></i> Supprimé la facture</a>
+                    <a href="/factures/del/{{$data['facture']->id}}" onclick="return confirm('Vous etes-sur supprimé la facture !')" class="btn btn-warning btn-sm btn-block"><i class="fas fa-trash"></i> Supprimé la facture</a>
                     <br><center>@include('flash-message')</center><br>
                 </tr>
                 </thead>
@@ -116,8 +112,8 @@
                     <div class="row">
                             <div class="col">
                                 
-                                <form action="/invoices/update/" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="inv_id" id="inv_id" value="#">
+                                <form action="/invoice/save/{{$data['facture']->id}}" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="inv_id" id="inv_id" value="{{$data['facture']->id}}">
                                     @csrf
                                 <div class="form-group">
                                     <label for="total_ht">Facturé par :</label>
@@ -139,19 +135,19 @@
                                     <label for="is_paid">Paiement :</label>
                                     <select class="is_paid form-control" id="is_paid" name="is_paid">
                                         @if ($data['facture']->is_paid)
-                                        <option selected value="1" style="color:green;">PAYE</option>
+                                        <option selected value="1" style="color:green;">Payé</option>
                                         @else
-                                        <option selected value="0" style="red:green;">NONPAYE</option>
+                                        <option selected value="0" style="red:green;">Encours</option>
                                         @endif
-                                    <option value="1">PAYE</option>
-                                    <option value="0">NONPAYE</option>
+                                    <option value="1">Payé</option>
+                                    <option value="0">Encours</option>
                                     </select>
                                     @if ($errors->has('is_paid'))
                                     <span style="color: red;">{{ $errors->first('is_paid') }}</span>
                                     @endif
+                                    </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
                                 <div class="form-group">
                                     <button class="btn btn-danger btn-sm btn-block" type="submit"><i class="fas fa-save"></i> Enregistré</button>
                                 </div>
@@ -194,5 +190,4 @@
               </div>
             </div>
             </div>
-
-@endsection
+        @endsection

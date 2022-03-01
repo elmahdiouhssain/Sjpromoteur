@@ -21,8 +21,8 @@ class FactureController extends Controller
             return Datatables::of($factures)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = "<a href='/factures/$row->id/edit/' class='btn btn-dark btn-sm'><i class='fas fa-cog'></i></a> 
-                    <a href='/factures/$row->id/' class='delete btn btn-primary btn-sm'><i class='fas fa-eye'></i></a>";
+                    $actionBtn = "<a href='/factures/$row->id/' class='fas fa-cog btn btn-primary btn-sm'></a> <a target=__blank href='factures/pdf/$row->id/'class='fas fa-file-download btn btn-success btn-sm'></a> 
+                    ";
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -74,5 +74,35 @@ class FactureController extends Controller
         $data['facture'] = Facture::find($fa_id);
         $data['products'] = Article::latest()->get();
         return view('factures.show',compact('data'));
+    }
+
+    public function createStep3(Request $request, $id){
+        $this->validate($request, [
+            'total_ht' => 'required',
+        ]);
+        $id = $request->input('inv_id');
+        $total_price = $request->input('total_ht');
+        $realise_par = \Auth::User()->name;
+        $is_paid = $request->input('is_paid');
+        DB::update('update factures set total_ht=?,is_paid=?,realise_par=? where id = ?',[$total_price,$is_paid,$realise_par,$id]);
+        
+        return redirect('/factures')->with('success', 'Facture enregistré avec succée');
+    }
+
+    public function showPDF($invoice_id)
+    {
+
+        $data['fac'] = Facture::find($invoice_id);
+        $data['prod'] = DB::select('select * from productsfacture where invoice_id ='.$invoice_id);
+        return view('factures.pdf',compact('data'));
+    }
+
+    
+
+    public function destroy($id) {
+            $pack = Facture::find($id);
+            $pack->delete();
+            return redirect('/factures')->with('success', 'facture supprimé avec succée');
+
     }
 }

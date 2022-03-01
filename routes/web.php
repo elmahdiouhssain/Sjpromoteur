@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/amicals', SocieteController::class);
     Route::resource('/companys', CompanyController::class);
     Route::resource('/certificats', CertificatController::class);
-    //Route::resource('/demandes', DemandeController::class);
+
     Route::resource('/statistiques', StatistiquesController::class);
     Route::resource('/factures', FactureController::class);
     Route::resource('/emps', EmployeesController::class);
@@ -120,8 +120,18 @@ Route::group(['middleware' => ['auth']], function() {
     //////Facturation/////////////
     Route::post('/factures/store/', [FactureController::class, 'store'])->name('newfacture');
     Route::get('/invoicesprod/json/{id}', [ArticleController::class, 'InvoicesProductShowAjax'])->name('invoiceprod');
-    Route::post('/invoices/store/product', [ArticleController::class, 'storeProdforInvoice'])->name('storeprodforinvoice');
+    Route::post('/invoice/store/product', [ArticleController::class, 'storeProdforInvoice'])->name('storeprodforinvoice');
     Route::delete('/invoices/prod/del/{id}', [ArticleController::class, 'destroyProdArticle'])->name('delinvoice');
+
+
+    Route::post('/invoice/save/{id}', [FactureController::class, 'createStep3'])->name('saveinv');
+
+    /////Destroy company ///////
+    Route::get('/factures/del/{id}', [FactureController::class, 'destroy'])->name('dell.fact');
+
+    //////// Generation du facture for print //////
+    Route::get('factures/pdf/{id}', [FactureController::class, 'showPDF'])->name('showfac');
+
 
     
     Route::get('/logout', [DashboardController::class, 'logout'])->name('log.out');

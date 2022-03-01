@@ -68,6 +68,7 @@ class ArticleController extends Controller
 
     public function storeProdforInvoice(Request $request)
         {
+            //dd($request);
             $this->validate($request, [
                 'invoice_id' => 'required',
                 'designation' => 'required',
@@ -77,7 +78,7 @@ class ArticleController extends Controller
                 'p_t' => 'required',
             ]);
             $prod = new ProductFacture();
-            $prod->invoice_id = $request->get('invoice_id');
+            $prod->invoice_id = $request->input('invoice_id');
             $prod->designation = $request->input('designation');
             $prod->uml = $request->input('uml');
             $prod->qte = $request->input('qte');
@@ -90,6 +91,9 @@ class ArticleController extends Controller
                 ]);
         }
 
+
+        
+
         public function destroyProdArticle($id) {
             $product = ProductFacture::find($id);
             $product->delete();
@@ -99,6 +103,5 @@ class ArticleController extends Controller
             ]);
 
         }
-
 
 }

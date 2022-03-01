@@ -24,7 +24,7 @@
                                 <i class="far fa-user float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">Total Adhèrants</h6>
                                 <h1 class="m-b-20 text-white counter">{{$data['adherants']}}</h1>
-                                <span class="text-white">Le dernier : <a href="{{ route('adherants.show',$data['adherants_day']->id) }}" style="color:white;">{{$data['adherants_day']->nom_complete}}</a></span>
+                                <span class="text-white">Le dernier : <a href="" style="color:white;"></a></span>
                             </div>
                         </div>
 

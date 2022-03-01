@@ -114,7 +114,12 @@
                                         <table class="table table-striped" id="emptableid" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Realisé par</th>
+                                                    <th>N°</th>
+                                                    <th>Libelle</th>
+                                                    <th>Type</th>
+                                                    <th>Date</th>
+                                                    <th>Total(DHS)</th>
+                                                    <th>Réalise par</th>
                                                     <th>Status</th>
                                                     <th>Date enregisté </th>
                                                     <th>Action </th>
@@ -149,9 +154,22 @@
                                   scrollX: false,
                                   scrollCollapse: true,
                                   columns: [
-                                      {data: "user_id", className: 'user_id'},
-                                      {data: "status", className: 'status'},
-                                   
+                                      {data: "uuid", className: 'uuid'},
+                                      {data: "f_libelle", className: 'f_libelle'},
+                                      {data: "type_facture", className: 'type_facture'},
+                                      {data: "relase_date", className: 'relase_date'},
+                                      {data: "total_ht", className: 'total_ht'},
+                                      {data: "realise_par", className: 'realise_par'},
+                                      {data: "is_paid", 
+                                       render : function(data,type,row){
+                                                            var label;
+                                                            if(data == "1"){
+                                                                return '<label class="badge badge-success">Payé</label>'
+                                                            }else{
+                                                                return '<label class="badge badge-warning">Encours</label>'
+                                                            }
+                                                        },
+                                      className: 'is_paid'},
                                       {data: "created_at", className: 'created_at'},
                                       {
                                     data: 'action', 

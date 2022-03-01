@@ -74,6 +74,24 @@
                                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong>Fax du sociète:</strong>
+                                            {!! Form::text('fax', null, array('placeholder' => '+212500000000','class' => 'form-control')) !!}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong>Ice du sociète:</strong>
+                                            {!! Form::text('ice', null, array('placeholder' => '05556320000','class' => 'form-control')) !!}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong>Ville du sociète:</strong>
+                                            {!! Form::text('ville', null, array('placeholder' => 'Tiznit','class' => 'form-control')) !!}
+                                        </div>
+                                    </div>
                                   
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary">Enregistré</button>

@@ -21,9 +21,7 @@
                         </div>
                     </div>
                     <!-- end row -->
-
                     <div class="row">
-
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
                                 <div class="card-header">
@@ -41,76 +39,73 @@
                                             </span>
                                         </a>
                                         @endcan
-                                       
-                                
                                 </div>
                                 @can('societe-list')
                                 <div class="container">
-
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="emptableid" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>Raison social</th>
                                                     <th>Raison social AR</th>
+                                                    <th>Ville</th>
                                                     <th>Rib</th>
-                                                  
+                                                    <th>Fax</th>
+                                                    <th>Ice</th>
                                                     <th>Date enregisté </th>
                                                     <th>Action </th>
                                                 </tr>
                                             </thead>
                                              <tbody>
-
                                              </tbody>
-                                        
                                         </table>
                                     </div>
                                     <!-- end table-responsive-->
                                     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
                                     <script src="{{ asset('static/js/jquery.dataTables.min.js') }}"></script>
-
                                     <script type="text/javascript">
-                        $(document).ready(function() {
-                     
-                          $("#emptableid").DataTable({
-                                  serverSide: true,
-                                  ajax: {
-                                      url: '{{url('companyajax')}}',
-                                      data: function (data) {
-                                          data.params = {
-                                              sac: "helo"
-                                          }
-                                      }
-                                  },
-                                  buttons: false,
-                                  searching: true,
-                                  scrollY: 500,
-                                  scrollX: false,
-                                  scrollCollapse: true,
-                                  columns: [
-                                      {data: "raison_social", className: 'raison_social'},
-                                      {data: "raison_social_ar", className: 'raison_social_ar'},
-                                      {data: "rib", className: 'rib'},
-                                      
-                                      {data: "created_at", className: 'created_at'},
-                                      {
-                                    data: 'action', 
-                                    name: 'action', 
-                                    orderable: true, 
-                                    searchable: true
-                                },
-                                   
-                                  ]  
-                            });
-                     
-                        });
-                      </script>
-                      @else
-                                    <center>
-                                        <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
-                                    <h2>Vous n'êtes pas autorisé à voir les sociètes</h2>
-                                    </center>
-                                    @endcan
+                                $(document).ready(function() {
+                                  $("#emptableid").DataTable({
+                                          serverSide: true,
+                                          ajax: {
+                                              url: '{{url('companyajax')}}',
+                                              data: function (data) {
+                                                  data.params = {
+                                                      sac: "helo"
+                                                  }
+                                              }
+                                          },
+                                          buttons: false,
+                                          searching: true,
+                                          scrollY: 500,
+                                          scrollX: false,
+                                          scrollCollapse: true,
+                                          columns: [
+                                              {data: "raison_social", className: 'raison_social'},
+                                              {data: "raison_social_ar", className: 'raison_social_ar'},
+                                              {data: "ville", className: 'ville'},
+                                              {data: "rib", className: 'rib'},
+                                              {data: "fax", className: 'fax'},
+                                              {data: "ice", className: 'ice'},
+                                              {data: "created_at", className: 'created_at'},
+                                              {
+                                            data: 'action', 
+                                            name: 'action', 
+                                            orderable: true, 
+                                                    searchable: true
+                                                },
+                                                   
+                                                  ]  
+                                            });
+                                     
+                                        });
+                                      </script>
+                                        @else
+                                        <center>
+                                            <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
+                                        <h2>Vous n'êtes pas autorisé à voir les sociètes</h2>
+                                        </center>
+                                        @endcan
 
 
 

@@ -24,6 +24,7 @@ class Facture extends Model
         'pdf_url',
         'realise_par',
         'is_paid' => 'boolean',
+        
     ];
 
 

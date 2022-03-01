@@ -58,6 +58,7 @@ class CompanyController extends Controller
             'raison_social_ar' => 'required',
             'rib' => 'required',
             'details' => 'required',
+ 
         ]);
 
         $company = new Company();
@@ -65,6 +66,9 @@ class CompanyController extends Controller
         $company->raison_social_ar = $request->get('raison_social_ar');
         $company->rib = $request->get('rib');
         $company->details = $request->get('details');
+        $company->fax = $request->get('fax');
+        $company->ice = $request->get('ice');
+        $company->ville = $request->get('ville');
         $company->slug = Str::slug($company->raison_social);
         $duplicate = Company::where('slug', $company->slug)->first();
         if ($duplicate) {
@@ -106,9 +110,11 @@ class CompanyController extends Controller
         $societe->raison_social = $request->input('raison_social');
         $societe->logo = $request->input('logo');
         $societe->details = $request->input('details');
-
         $societe->raison_social_ar = $request->input('raison_social_ar');
         $societe->rib = $request->input('rib');
+        $societe->fax = $request->input('fax');
+        $societe->ice = $request->input('ice');
+        $societe->ville = $request->input('ville');
         $societe->save();
         return redirect()->route('companys.index')
                         ->with('success','Sociète modifié avec succée');
