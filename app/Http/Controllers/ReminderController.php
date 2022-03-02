@@ -36,7 +36,6 @@ class ReminderController extends Controller
         {
             if($request->type == 'add')
             {
-                
                 $event = Reminder::create([
                     'user_id'     =>  $request->user_id,
                     'title' =>    $request->title,
@@ -66,7 +65,6 @@ class ReminderController extends Controller
                 }else{
                     return response()->json('Cannot delete this');
                 }
-                
             }
     }
     }

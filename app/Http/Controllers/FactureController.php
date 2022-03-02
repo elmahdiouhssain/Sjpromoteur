@@ -73,6 +73,7 @@ class FactureController extends Controller
     {
         $data['facture'] = Facture::find($fa_id);
         $data['products'] = Article::latest()->get();
+        $data['companys'] = Company::latest()->get();
         return view('factures.show',compact('data'));
     }
 

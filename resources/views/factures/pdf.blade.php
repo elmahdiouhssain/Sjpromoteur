@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Impression | {{$data['fac']->type_facture}}</title>
+    <title>{{$data['fac']->type_facture}} | N° {{$data['fac']->uuid}}</title>
     <link rel="stylesheet" href="style.css" media="all" />
   </head>
   <body>
@@ -51,10 +51,7 @@
             <hr>
         </tbody>
       </table>
-      <div id="notices">
-        <div>NOTICE:</div>
-        <div class="notice">Des frais financiers de 1,5 % seront appliqués sur les soldes impayés après 30 jours.</div>
-      </div>
+
     </main>
     <footer style="font-size:20px;">
       Addresse : {{$get_comp[0]->details}} ||  Rib : {{$get_comp[0]->rib}}

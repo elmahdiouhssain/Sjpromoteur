@@ -40,7 +40,7 @@
                                     @foreach ($data['amicals'] as $am)
                                     <?php $getdata = DB::select('select * from adherants where societe_id='.$am->id); ?>
                                     @can('adherant-list')
-                                    <a href="/fulllist/{{ $am->id }}" target="_blank" class="btn btn-outline-success">{{ $am->raison_social }}</a>
+                                    <a href="/fulllist/{{ $am->slug }}" target="_blank" class="btn btn-outline-success">{{ $am->raison_social }}</a>
                                     @endcan
 
                                     @endforeach
@@ -72,47 +72,45 @@
                                     <!-- end table-responsive-->
                                     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
                                     <script src="{{ asset('static/js/jquery.dataTables.min.js') }}"></script>
-
                                     <script type="text/javascript">
-                        $(document).ready(function() {
-                     
-                          $("#emptableid").DataTable({
-                                  serverSide: true,
-                                  ajax: {
-                                      url: '{{url('adherantsajax')}}',
-                                      data: function (data) {
-                                          data.params = {
-                                              sac: "helo"
-                                          }
-                                      }
-                                  },
-                                  buttons: false,
-                                  searching: true,
-                                  scrollY: 500,
-                                  scrollX: false,
-                                  scrollCollapse: true,
-                                  columns: [
-                                      {data: "n_dossier", className: 'n_dossier'},
-                                      {data: "nom_complete", className: 'nom_complete'},
-                                      {data: "id_national", className: 'id_national'},
-                                      {data: "montant_verse", className: 'montant_verse'},
+                                        $(document).ready(function() {
+                                          $("#emptableid").DataTable({
+                                                  serverSide: true,
+                                                  ajax: {
+                                                      url: '{{url('adherantsajax')}}',
+                                                      data: function (data) {
+                                                          data.params = {
+                                                              sac: "helo"
+                                                          }
+                                                      }
+                                                  },
+                                                  buttons: false,
+                                                  searching: true,
+                                                  scrollY: 500,
+                                                  scrollX: false,
+                                                  scrollCollapse: true,
+                                                  columns: [
+                                                      {data: "n_dossier", className: 'n_dossier'},
+                                                      {data: "nom_complete", className: 'nom_complete'},
+                                                      {data: "id_national", className: 'id_national'},
+                                                      {data: "montant_verse", className: 'montant_verse'},
 
-                                      {data: "realise_par", className: 'realise_par'},
-                                      {data: "created_at", className: 'created_at'},
-                                      {
-                                    data: 'action', 
-                                    name: 'action', 
-                                    orderable: true, 
-                                    searchable: true
-                                },
-                                   
-                                  ]  
-                            });
-                     
-                        });
-                     
-                      </script>
-                       @else
+                                                      {data: "realise_par", className: 'realise_par'},
+                                                      {data: "created_at", className: 'created_at'},
+                                                      {
+                                                    data: 'action', 
+                                                    name: 'action', 
+                                                    orderable: true, 
+                                                    searchable: true
+                                                },
+                                                   
+                                                  ]  
+                                            });
+                                     
+                                        });
+                                     
+                                      </script>
+                                       @else
                                     <center>
                                         <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
                                     <h2>Vous n'êtes pas autorisé à voir les adhèrants</h2>

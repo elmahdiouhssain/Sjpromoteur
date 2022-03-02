@@ -251,7 +251,7 @@
                                                 <option>Appartement</option>
                                                 <option>Bureau</option>
                                                 <option>Magasin</option>
-                                           
+                                                <option>Lot</option>
                                               </select>
                                             </div>
                                         

@@ -31,10 +31,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <?php $getcomp = DB::select('select * from companys where id='.$data['facture']->id); ?>
-                                    <label for="supplier_id">Societe :</label>
-                                    <select>
-                                        <option selected>0</option>
+                                    <?php $getcomp = DB::select('select * from companys where id='.$data['facture']->company_id); ?>
+                                    <label for="supplier_id">Sociète :</label>
+                                    <select class="form-control" name="company_id" id="company_id">
+                                        <option selected>{{ $getcomp[0]->raison_social }}</option>
+                                        @foreach ($data['companys'] as $company)
+                                        <option>{{ $company->raison_social }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 </div>

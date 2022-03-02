@@ -26,7 +26,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nom & prénom</th>
-                                                    <th>N telephone</th>
+                                                    <th>N°dossier</th>
+                                                    <th>N°telephone</th>
                                                     <th>Amical</th>
                                                     <th>Coté</th>
                                                     <th>Bloc</th>
@@ -44,8 +45,9 @@
                                         @foreach ($data['adherants'] as $societe)
                                             <tr>
                                                 <td>{{ $societe->nom_complete }}</td>
+                                                <td>{{ $societe->n_dossier }}</td>
                                                 <td>{{ $societe->gsm }}</td>
-                                       <?php $ami = DB::select('select * from amicals where id='.$societe->societe_id);?>
+                                <?php $ami = DB::select('select * from amicals where id='.$societe->societe_id);?>
                                                 <td>{{ $ami[0]->raison_social }} </td>
                                                 <td>{{ $societe->cote }}</td>
                                                 <td>{{ $societe->bloc }}</td>

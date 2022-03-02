@@ -171,7 +171,7 @@
                                                 <option>Appartement</option>
                                                 <option>Bureau</option>
                                                 <option>Magasin</option>
-                                           
+                                                <option>Lot</option>
                                               </select>
                                             </div>
                                         <div class="form-group">

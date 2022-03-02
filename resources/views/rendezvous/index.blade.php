@@ -25,7 +25,6 @@
                                         @include('flash-message')
                                         </center>
                                 </div>
-
                                         <script src="{{ asset('static/calendar/jquery.js') }}"></script>
                                         <script>
                                         $(document).ready(function () {
@@ -49,8 +48,6 @@
                                             
                                             select:function(start, end, allDay)
                                             {
-                                                //jQuery('#modal-add-envent').modal();
-                                                
                                                 var user_id = document.getElementById('user_id').value;
                                                 var title = prompt('Rendez-vous titre:');
                                                 if(title)
@@ -153,10 +150,8 @@
                                             <a href="{{ route('rcreatesms') }}" class="btn btn-success btn-sm btn-block" >Alert SMS <i class="fas fa-sms"></i>
                                         </a>
                                         <br>
-                                        
                                     <div class="card"><br>
-
-                                            <div class="table-responsive">
+                                        <div class="table-responsive">
                                         <table id="example" class="display" style="width:100%">
                                             <thead>
                                                 <tr>
@@ -174,31 +169,21 @@
                                                 <td>
                                                     <span class="badge badge-success"><i class="fas fa-sms"></i> SMS</span>
                                                 </td>
-                                                
                                                 @else
                                                 <td>
                                                     <span class="badge badge-warning"><i class="fas fa-sms"></i> SMS</span>
                                                 </td>
-
                                             </tr>
                                                     @endif
                                                 @endforeach
                                                 </tbody> 
-                                        </table>
-                                    </div>
-                                    <!-- end table-responsive-->
-
-
-
-
-
+                                                </table>
                                             </div>
+                                        </div>
                                         </div>
                                         <div id="calendar">
                                         <input type="hidden" name="user_id" id="user_id" value="{{ $find->id }}">
                                         </div>
-
-
                                         @csrf
                                         <style>#top {
                                             background: #eee;
@@ -207,7 +192,6 @@
                                             line-height: 40px;
                                             font-size: 12px;
                                         }
-
                                         #calendar {
                                             max-width: 900px;
                                             margin: 40px auto;

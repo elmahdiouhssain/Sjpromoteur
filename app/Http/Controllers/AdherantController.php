@@ -42,9 +42,9 @@ class AdherantController extends Controller
     }
   
 
-    public function GetAll($id) {
+    public function GetAll($slug) {
         $data['title'] = "Amical full list";
-        $data['adherants'] = DB::table('adherants')->where('societe_id',$id)->get();
+        $data['adherants'] = DB::table('adherants')->where('societe_id',$slug)->get();
         
         return view('adherants.flist',compact('data'));
     }

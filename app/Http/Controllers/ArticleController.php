@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,13 +25,13 @@ class ArticleController extends Controller
             return Datatables::of($articles)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = "<a href='/articles/edit/$row->id' class='btn btn-dark fas fa-cog btn-sm'></a> <a href='/articles/del/$row->id' class='btn btn-danger fas fa-trash btn-sm'></a> ";
+                    $actionBtn = "<a href='/articles/$row->id' class='btn btn-dark fas fa-cog btn-sm'></a> <a href='/articles/del/$row->id' class='btn btn-danger fas fa-trash btn-sm'></a> ";
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
+            }
         }
-    }
 
     public function store(Request $request)
         {
@@ -68,7 +67,6 @@ class ArticleController extends Controller
 
     public function storeProdforInvoice(Request $request)
         {
-            //dd($request);
             $this->validate($request, [
                 'invoice_id' => 'required',
                 'designation' => 'required',
@@ -92,9 +90,7 @@ class ArticleController extends Controller
         }
 
 
-        
-
-        public function destroyProdArticle($id) {
+    public function destroyProdArticle($id) {
             $product = ProductFacture::find($id);
             $product->delete();
             return response()->json([
@@ -102,6 +98,32 @@ class ArticleController extends Controller
                 'message'=>"Produit supprimé avec succée !",
             ]);
 
-        }
+    }
+
+
+    public function show($id){
+        $article = DB::select('select * from articles where id ='.$id);
+        return view('articles.edit',['article'=>$article]);
+    }
+    
+
+    public function update(Request $request,$id){
+        //dd($request);
+        $this->validate($request, [
+            'nom' => 'required',
+            'prix' => 'required',
+        ]);
+    
+        $nom = $request->input('nom');
+        $unitaire = $request->input('unitaire');
+        $prix = $request->input('prix');
+        $tva = $request->input('tva');
+        $desc = $request->input('desc');
+        $observations = $request->input('observations');
+
+        DB::update('update articles set nom=?,unitaire=?,prix=?,tva=?,desc=?,observations=? where id = ?',[$nom,$unitaire,$prix,$tva,$desc,$observations,$id]);
+
+        return redirect('/articles')->with('success', 'L Article est Modifier avec succée');
+    }
 
 }

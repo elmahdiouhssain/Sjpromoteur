@@ -45,12 +45,7 @@ class CompanyController extends Controller
         return view('companys.create');
     }
     
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -79,22 +74,13 @@ class CompanyController extends Controller
                         ->with('success','Sociète ajouter avec succée');
     }
 
-
-
-
     public function edit($id)
     {
         $societe = Company::find($id);
         return view('companys.edit',compact('societe'));
     }
     
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [

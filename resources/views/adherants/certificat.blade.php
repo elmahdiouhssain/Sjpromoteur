@@ -103,6 +103,8 @@
                                                     <option class="pull-right">شقة سكنية</option>
                                                     <option class="pull-right">شقة على الشارع</option>
                                                     <option class="pull-right">شقة داخلية</option>
+                                                    <option class="pull-right">بقعة سكنية </option>
+                                                    <option class="pull-right"> بقعة تجارية </option>
                                                     </select>
 
                                                     @if ($errors->has('ar_immtype'))
