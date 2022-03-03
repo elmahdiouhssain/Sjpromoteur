@@ -77,7 +77,6 @@
             <div class="sidebar-inner leftscroll">
                 <div id="sidebar-menu">
                     <ul>
-                        
                         <center style="color: white;"><hr>----SITUATIONS----<hr></center>
                         @can('adherant-list')
                         <li class="submenu">
@@ -112,7 +111,6 @@
                             </a>
                         </li>
                         @endcan
-                        
                         @can('facture-list')
                         <li class="submenu">
                             <a href="{{ route('factures.index') }}">
@@ -129,7 +127,7 @@
                         </li>
                         <center style="color: white;"><hr>----Projects----<hr></center>
                         <li class="submenu">
-                            <a href="#">
+                            <a href="{{ route('lots.index') }}">
                                 <i class="fas fa-building"></i>
                                 <span> Lots </span>
                             </a>
@@ -210,5 +208,19 @@
 	<script src="{{ asset('static/js/bootstrap.js') }}"></script>
 	<script src="{{ asset('static/js/admin.js') }}"></script>
     <script src="{{ asset('static/js/dom.js') }}"></script>
+     <script type="text/javascript">
+        $('input[type="radio"]').click(function(){
+        if($(this).attr("value")=="Amical"){
+            $(".so").show('slow');
+            $(".lo").hide('slow');
+        }
+        if($(this).attr("value")=="Lotissement"){
+            $(".lo").show('slow');
+            $(".so").hide('slow');
+
+        }        
+        });
+        $('input[type="radio"]').trigger('click');
+    </script>
     </body>
     </html>

@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Lot extends Model
 {
     use HasFactory;
-    protected $table = 'articles';
+    protected $table = 'lots';
     public $timestamps = true;
     protected $fillable = [
-        'nom',
-        'unitaire',
-        'prix',
-        'tva',
-        'descrip',
-        'observations',
-        'realise_par',
+        'raison_social',
+        'ville',
+        'color',
+        'raison_social_ar',
     ];
-
-
 }

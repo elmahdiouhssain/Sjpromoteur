@@ -61,10 +61,8 @@
                                   <option value="Carte national">Carte national</option>
                                   <option value="Chèque">Chèque</option>
                                   <option value="Order du virment">Order du virment</option>
-                               
-                         
+                                  <option value="Autre">Autre</option>
                             </select>
-
                           @if ($errors->has('name'))
                                             <span style="color: red;">{{ $errors->first('name') }}</span>
                                             @endif
@@ -130,12 +128,8 @@
                                                             <span style="color: red;">{{ $errors->first('id_national') }}</span>
                                                             @endif
                                                 </div>
-                                               
                                             </div>
                                         
-
-                                            
-
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Telephone (GSM)</label>
@@ -251,7 +245,7 @@
                                                 <option>Appartement</option>
                                                 <option>Bureau</option>
                                                 <option>Magasin</option>
-                                                <option>Lot</option>
+                                                <option>Lotissement</option>
                                               </select>
                                             </div>
                                         
@@ -291,13 +285,11 @@
                                               </select>
                                             </div>
                                              <div class="form-group">
-                                                    <label>Coté</label>
-                                               
+                                                <label>Coté</label>
                                                 <select class="form-control" id="cote" name="cote">
                                                 <option selected>{{ $ads->cote }}</option>
                                                 <option>COTÉ RUE</option>
                                                 <option>COTÉ EST</option>
-                                               
                                               </select>
                                         </div>
                                             <br>
@@ -315,7 +307,7 @@
                                             </div>
                                             <div class="form-group">
                                                     <label>Prix sous sol</label>
-                                                    {!! Form::text('sousol_prix', null, array('placeholder' => '20000','class' => 'form-control')) !!}
+                                                    {!! Form::number('sousol_prix', null, array('placeholder' => '20000','class' => 'form-control')) !!}
                                                     @if ($errors->has('sousol_prix'))
                                                             <span style="color: red;">{{ $errors->first('sousol_prix') }}</span>
                                                             @endif
@@ -327,17 +319,32 @@
                                                 ?>
                                             <select class="form-control" id="societe_id" name="societe_id">
                                                 <option selected value="{{ $getdata[0]->id }}" name="societe_id">{{ $getdata[0]->raison_social }}</option>
+                                                <option value="0"></option>
                                             @foreach ($data['societes'] as $societe)
                                             <option value="{{ $societe->id }}" name="societe_id">{{ $societe->raison_social }}</option>
                                             @endforeach
                                             </select>
-                                            @if ($errors->has('societe'))
-                                                        <span style="color: red;">{{ $errors->first('societe') }}</span>
+                                            @if ($errors->has('societe_id'))
+                                                        <span style="color: red;">{{ $errors->first('societe_id') }}</span>
                                                         @endif
-                                    </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Lotissements</label>
+                                                 <select class="form-control" name="lotisment" id="lotisment">
+                                                    <option selected>{{ $ads->lotisment }}</option>
+                                                    <option value="nolot"></option>
+                                                    @foreach ($data['lots'] as $lot)
+                                                    <option value="{{ $lot->raison_social }}">{{ $lot->raison_social }}</option>
+                                                    @endforeach
+                                                </select>
+                                            @if ($errors->has('lotisment'))
+                                                        <span style="color: red;">{{ $errors->first('lotisment') }}</span>
+                                                        @endif
+                                            </div>
+
                                         <div class="form-group">
-                                                    <label>Situation : </label>
-                                       
+                                                <label>Situation : </label>
                                             <select class="form-control" id="is_canceled" name="is_canceled">
                                                 @if ($ads->is_canceled) === 1)
                                                <option selected value="1"><i class="fas fa-dot-circle"></i> Abondonné</option>
@@ -355,7 +362,7 @@
                                         </div>
                                         <div class="form-group">
                                                     <label>N° appartement</label>
-                                                    {!! Form::text('n_appartement', null, array('placeholder' => 'n 25','class' => 'form-control')) !!}
+                                                    {!! Form::number('n_appartement', null, array('placeholder' => 'n 25','class' => 'form-control')) !!}
                                                     @if ($errors->has('n_appartement'))
                                                             <span style="color: red;">{{ $errors->first('n_appartement') }}</span>
                                                             @endif

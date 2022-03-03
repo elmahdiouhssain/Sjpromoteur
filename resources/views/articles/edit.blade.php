@@ -8,7 +8,7 @@
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
                                 <h1 class="main-title float-left">Edité l'article : 
-                                    <a href='/articles/del/<?php echo$article[0]->id; ?>' class='btn btn-danger fas fa-trash btn-sm'></a></h1>
+                                    <a href='/articles/del/<?php echo$article[0]->id; ?>' onclick="return confirm('Vous etes-sur supprimé l article?')" class='btn btn-danger fas fa-trash btn-sm'></a></h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                              
@@ -30,7 +30,9 @@
                                      <center>
                                         @include('flash-message')
                                         </center>
-                        <form action="/articles/<?php echo$article[0]->id; ?>" method="POST">
+                    
+                            {!! Form::model($article, ['method' => 'PATCH','route' => ['articles.update', $article[0]->id]]) !!}
+                            <input type="hidden" name="getid" value="<?php echo$article[0]->id; ?>">
                                         @csrf
                                         @method('PUT')
 
@@ -62,7 +64,7 @@
                             
                     <div class="form-group">
                     <label for="name">Prix tva (DHS):</label>
-                    <input type="number" name="tva" class="form-control" id="prix" value="<?php echo$article[0]->prix; ?>">
+                    <input type="number" name="tva" class="form-control" id="tva" value="<?php echo$article[0]->prix; ?>">
 
                           @if ($errors->has('prix'))
                                             <span style="color: red;">{{ $errors->first('prix') }}</span>
@@ -70,10 +72,10 @@
                     </div>
                     <div class="form-group">
                     <label for="name">Description :</label>
-                    <textarea class="form-control" id="desc" name="desc"><?php echo$article[0]->desc; ?></textarea>
+                    <textarea class="form-control" id="descrip" name="descrip"><?php echo$article[0]->descrip; ?></textarea>
 
-                          @if ($errors->has('desc'))
-                                            <span style="color: red;">{{ $errors->first('desc') }}</span>
+                          @if ($errors->has('descrip'))
+                                            <span style="color: red;">{{ $errors->first('descrip') }}</span>
                                             @endif
                             </div>
                     <div class="form-group">
@@ -90,7 +92,7 @@
                                 </div>
 
                              </div>
-                             </form>
+                             {!! Form::close() !!}
 
                                                 </div>
                                             </div>

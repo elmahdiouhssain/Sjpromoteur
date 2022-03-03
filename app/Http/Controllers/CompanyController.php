@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Amical;
 use App\Models\Company;
+use App\Models\Lot;
 
 use DataTables;
 
@@ -105,6 +106,7 @@ class CompanyController extends Controller
         return redirect()->route('companys.index')
                         ->with('success','Sociète modifié avec succée');
     }
+
     public function destroy($id)
     {
         Company::find($id)->delete();

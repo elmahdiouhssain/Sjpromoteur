@@ -24,7 +24,7 @@
                                         <center>
                                         @include('flash-message')<br>
                                         @can('certificat-list')
-                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-file-word"></i> List des certificat</button>
+                                        <a  href="{{ route('certificats.index') }}" class="btn btn-warning mb-2"><i class="fas fa-file-word"></i> List des certificats</a>
                                         @endcan
                                         </center>
                                 </div>

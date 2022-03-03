@@ -171,7 +171,7 @@
                                                 <option>Appartement</option>
                                                 <option>Bureau</option>
                                                 <option>Magasin</option>
-                                                <option>Lot</option>
+                                                <option>Lotissement</option>
                                               </select>
                                             </div>
                                         <div class="form-group">
@@ -230,24 +230,40 @@
                                                             <span style="color: red;">{{ $errors->first('sous_sol') }}</span>
                                                             @endif
                                             </div>
-
-                                             <div class="form-group">
-                                                    <label>Amical</label>
-                                       
-                                                <select class="form-control" id="societe_id" name="societe_id">
-
+                                                <hr>
+                                                    <tr>
+                                                        <td align="left" height="45">
+                                                            <label>Type d'engagement : </label><br>
+                                                            <input type="radio" class="radioBtn" name="Radio" id="Radio" value="Lotissement" required > Lotissement |
+                                                            <input class="radioBtn" type="radio" name="Radio" id="Radio" value="Amical" required checked> Amical
+                                                            <div class="Box" style="display:none">Text</div>
+                                                        </td>
+                                                    </tr>
+                                                <hr>
+                                                <div class="so form-group">
+                                                <select class="so form-control" id="societe_id" name="societe_id" style="display:none;">
                                                 @foreach ($data['societes'] as $societe)
-
-                                                <option value="{{ $societe->id }}" name="societe_id">{{ $societe->raison_social }}</option>
+                                                <option value="{{ $societe->id }}" name="societe_id">{{ $societe->raison_social }} | {{ $societe->raison_social_ar }}</option>
                                                 @endforeach
                                                 </select>
-                                                @if ($errors->has('societe'))
-                                                            <span style="color: red;">{{ $errors->first('societe') }}</span>
+                                                @if ($errors->has('societe_id'))
+                                                            <span style="color: red;">{{ $errors->first('societe_id') }}</span>
                                                             @endif
-                                        </div>
+                                                </div>
+                                                <div class="lo form-group">
+                                                <select class="lo form-control" id="lotisment" name="lotisment" style="display:none;">
+                                                @foreach ($data['lots'] as $lot)
+                                                <option value="{{ $lot->id }}" name="lotisment">{{ $lot->raison_social }} | {{ $lot->raison_social_ar }}</option>
+                                                @endforeach
+                                                </select>
+                                                @if ($errors->has('lotisment'))
+                                                            <span style="color: red;">{{ $errors->first('lotisment') }}</span>
+                                                            @endif
+                                                </div>
+
                                          <div class="form-group">
                                                     <label>N° appartement</label>
-                                                    {!! Form::text('n_appartement', null, array('placeholder' => 'n 25','class' => 'form-control')) !!}
+                                                    {!! Form::number('n_appartement', null, array('placeholder' => 'n 25','class' => 'form-control')) !!}
                                                     @if ($errors->has('n_appartement'))
                                                             <span style="color: red;">{{ $errors->first('n_appartement') }}</span>
                                                             @endif
@@ -255,18 +271,14 @@
                                         <div class="form-group">
                                               <label for="ville">Ville:</label>
                                               <select class="form-control" id="ville" name="ville">
-                                                
                                                 <option>Agadir</option>
                                                 <option>Tiznit</option>
                                                 <option>Marakesh</option>
                                                 <option>Rabat</option>
                                                 <option>Tanger</option>
-
                                               </select>
                                             </div>
-                                           
                                     </div>
-
                                 </div>
                                  {!! Form::close() !!}
                                 <!-- end card-body -->

@@ -13,6 +13,7 @@ use App\Models\Tranche;
 use App\Models\Certificat;
 use App\Models\Demande;
 use App\Models\Image;
+use App\Models\Lot;
 
 use DataTables;
 
@@ -38,6 +39,7 @@ class AdherantController extends Controller
     public function create()
     {   
         $data['societes'] = Amical::all();
+        $data['lots'] = Lot::all();
         return view('adherants.create',compact('data'));
     }
   
@@ -82,6 +84,7 @@ class AdherantController extends Controller
         $data->commerciale = $request->get('commerciale'); 
         $data->imm_type = $request->get('imm_type');
         $data->societe_id = $request->get('societe_id');
+        $data->lotisment = $request->get('lotisment');
         $data->ville = $request->input('ville'); 
         $data->n_dossier = $request->input('n_dossier');
         $data->n_appartement = $request->input('n_appartement');
@@ -128,13 +131,10 @@ class AdherantController extends Controller
         $ar_immtype = $request->input('ar_immtype');
         $sous_sol = $request->input('sous_sol');
         $sousol_prix = $request->input('sousol_prix');
-
         $balcon = $request->input('balcon');
         $balcon_prix = $request->input('balcon_prix');
         $balcon_superficier = $request->input('balcon_superficier');
 
-        //$bloc_active = $request->input('bloc');
-        
         DB::update('update adherants set ar_name=?,id_national=?,ar_facade=?,ar_immtype=?,sous_sol=?,sousol_prix=?,balcon=?,balcon_prix=?,balcon_superficier=? where id = ?',[$ar_name,$id_national,$ar_facade,$ar_immtype,$sous_sol,$sousol_prix,$balcon,$balcon_prix,$balcon_superficier,$id]);
 
     return redirect('/doc/authorisation/'.$id)->with('success', 'Authorisation du paiement generé avec succée');
@@ -144,12 +144,10 @@ class AdherantController extends Controller
  
     public function Itbatbidafaa(Request $request,$id)
     {
-
         $data['adherant'] = Adherant::find($id);
         $data['tranches'] = $data['adherant']->tranches;
         $data['t_tranches'] = $data['tranches']->sum('montant_verse');
         $data['m_total1'] = $data['t_tranches'] + $data['adherant']->montant_verse;
-
         return view('adherants.confirmation',compact('data'));
 
     }
@@ -161,11 +159,8 @@ class AdherantController extends Controller
         $data['tranches'] = $data['adherant']->tranches;
         $data['t_tranches'] = $data['tranches']->sum('montant_verse');
         $data['m_total1'] = $data['t_tranches'] + $data['adherant']->montant_verse;
-
         return view('adherants.annulation',compact('data'));
-
     }
-
 
 
     public function InsertTranch(Request $request)
@@ -196,6 +191,7 @@ class AdherantController extends Controller
     {
         $ads = Adherant::find($id);
         $data['societes'] = Amical::all();
+        $data['lots'] = Lot::all();
         return view('adherants.edit',compact('ads','data'));
     }
 
@@ -224,6 +220,7 @@ class AdherantController extends Controller
         $commerciale = $request->input('commerciale');
         $imm_type = $request->input('imm_type');
         $societe_id = $request->input('societe_id');
+        $lotisment = $request->input('lotisment');
         $ville = $request->input('ville');
         $n_dossier = $request->input('n_dossier');
         $n_appartement = $request->input('n_appartement');
@@ -231,7 +228,7 @@ class AdherantController extends Controller
 
         //dd($request->input());
 
-        DB::update('update adherants set nom_complete=?, id_national=?,montant_verse=?,gsm=?,facade=?,cote=?,bloc=?,etage=?,m2=?,pm2=?,sous_sol=?,observation=?,is_canceled=?,commerciale=?,imm_type=?,societe_id=?,ville=?,n_dossier=?,n_appartement=?,sousol_prix=? where id = ?',[$nom_complete,$id_national,$montant_verse,$gsm,$facade,$cote,$bloc,$etage,$m2,$pm2,$sous_sol,$observation,$is_canceled,$commerciale,$imm_type,$societe_id,$ville,$n_dossier,$n_appartement,$sousol_prix,$id]);
+        DB::update('update adherants set nom_complete=?, id_national=?,montant_verse=?,gsm=?,facade=?,cote=?,bloc=?,etage=?,m2=?,pm2=?,sous_sol=?,observation=?,is_canceled=?,commerciale=?,imm_type=?,societe_id=?,lotisment=?,ville=?,n_dossier=?,n_appartement=?,sousol_prix=? where id = ?',[$nom_complete,$id_national,$montant_verse,$gsm,$facade,$cote,$bloc,$etage,$m2,$pm2,$sous_sol,$observation,$is_canceled,$commerciale,$imm_type,$societe_id,$lotisment,$ville,$n_dossier,$n_appartement,$sousol_prix,$id]);
 
     return redirect('/adherants/'.$id)->with('success', 'Client modifié avec succée');
 

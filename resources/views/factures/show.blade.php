@@ -27,7 +27,11 @@
                                 <div class="form-group">
                                     <?php $getdata2 = DB::select('select * from fournisseurs where id='.$data['facture']->fournisseurs_id); ?>
                                     <label for="supplier_id">Fournisseur :</label>
-                                    <input type="text" class="form-control" name="supplier_id" id="supplier_id" value="{{ $getdata2[0]->raison_s }}">
+                                    <input type="text" readonly class="form-control" name="supplier_id" id="supplier_id" value="{{ $getdata2[0]->raison_s }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Facture type :</label>
+                                    <input type="text" readonly class="form-control" name="" id="supplier_id" value="{{ $facture->type_facture }}">
                                 </div>
 
                                 <div class="form-group">

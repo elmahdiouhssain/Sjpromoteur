@@ -70,8 +70,7 @@ class SocieteController extends Controller
           return redirect('/amicals')->withErrors('Raison social déja exists.')->withInput();
         }
         $amical->save();
-        //$input = $request->all();
-        //$user = Amical::create($input);
+
         return redirect()->route('amicals.index')
                         ->with('success','Amical ajouter avec succée');
     }

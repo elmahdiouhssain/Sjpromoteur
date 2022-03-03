@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('unitaire')->nullable();
             $table->decimal('prix')->nullable();
             $table->decimal('tva')->nullable();
-            $table->text('desc')->nullable();
+            $table->text('descrip')->nullable();
             $table->text('observations')->nullable();
             $table->string('realise_par')->nullable();
             $table->timestamps();

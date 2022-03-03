@@ -271,6 +271,7 @@
                                   <option value="Carte national">Carte national</option>
                             <option value="Contract">Contract</option>
                             <option value="Cnss">Cnss</option>
+                            <option value="Autre">Autre</option>
                             </select>
 
                           @if ($errors->has('name'))

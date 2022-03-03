@@ -54,12 +54,8 @@
                                         <li>Montant réste : <i1 style="color:red;">{{$data['m_reste']}} (DHS)</i1></li>   
                                         @endif
 
-
-
-                                        
                                     </div>
                                     <div class="col">
-
                                         <center>
                                             <a href="{{route('newcert', $data['ads']->id )}}" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Authorisation de paiement</b></span><br>
@@ -69,12 +65,9 @@
 
                                             <a href="{{route('annulation', $data['ads']->id )}}" target="_blank" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Demande d'annulation</b></span><br>
-
                                         </center>
                                     </div>
                                     </div>
-                                  
-                                   
                                 </div>
                                 <!-- end card-body -->
                             </div>
@@ -85,23 +78,18 @@
                     <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header">
-
-                                    <?php
-                                    $getdata = DB::select('select * from amicals where id='.$data['ads']->societe_id);
-                                    //dd($getdata);    
-                                    ?>
-                                    <h3 style="color:blue;"><i class="fas fa-money-check"></i> Paiement details [ {{ $data['ads']->nom_complete }} ]  || [ Sociète: {{ $getdata[0]->raison_social }} ] </h3>
-                                    
+                                    <center>
+                                    <h3 style="color:blue;"><i class="fas fa-money-check"></i> Paiement details [ {{ $data['ads']->nom_complete }} ]  
+                                    </h3>
+                                    </center>
                                 </div>
                                 <div class="card-body">
-                                    
                                     <div class="row">
                                 <div class="col">
                                     @can('tranche-create')
                                     <form action="/adherants/inserttranch" method="POST">
                                         @csrf
                                         <input type="hidden" name="adherant_id" value="{{ $data['ads']->id }}">
-                                    
                                         <div class="form-group">
                                                     <label>Observation : </label>
                                                     {!! Form::text('observation', null, array('placeholder' => 'Paiement1','class' => 'form-control')) !!}
@@ -128,19 +116,17 @@
                                    @endcan
                                 </div>
                                  <div class="col">
-                                     <?php $i=0;?>
+                                    <?php $i=0;?>
                                     @foreach ($data['tranches'] as $tr)
                                     <?php $i+=1;?>
                                     <p style="color:red;">Montant {{$i}} 
                                         @can('tranche-delete')
                                         <a href="/adherants/del/tranch/{{ $tr->id }}" class="fas fa-trash" style="color:red;" onclick="return confirm('Vous etez sur supprimé le paiement ?')"></a>
                                         @endcan
-
                                     </p><p>{{ $tr->montant_verse }} (DHS)| à : {{ $tr->created_at }}</p>
                                     @endforeach
                                 </div>
                                 </div>
-                                   
                                 </div>
                                 <!-- end card-body -->
                             </div>
@@ -151,7 +137,9 @@
                         <div class="col-xs-12 ">
                             <div class="card mb-3">
                                 <div class="card-header">
+                                    <center>
                                     <h3 style="color:red;"><i class="far fa-user"></i> : {{ $data['ads']->nom_complete }} || ( {{ $data['ads']->imm_type }} ) || N*Dossier :  ( {{ $data['ads']->n_dossier }} )</h3>
+                                    </center>
                                 </div>
                                 <div class="card-body">
                                         <div class="row">
@@ -169,13 +157,19 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Identité : </label>
                                                     <input readonly class="form-control" name="id_national" type="text" value="{{ $data['ads']->id_national }}" required />
                                                 </div>
-                                            </div>
-                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Lotissement : </label>
+                                                    <input readonly class="form-control" name="id_national" type="text" value="{{ $data['ads']->lotisment }}" required />
+                                                </div>
+                                        </div>
+                                        </div>
 
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -248,30 +242,26 @@
                                                     <label>Observation : </label>
                                                     <textarea class="form-control" readonly>{{ $data['ads']->observation }}</textarea>
                                                 </div>
-
                                         </div>
+                                    </div>
+                                    <!-- end card-body -->
                                 </div>
-                                <!-- end card-body -->
+                                <!-- end card -->
                             </div>
-                            <!-- end card -->
-
-                        </div>
-                        <!-- end col -->
+                            <!-- end col -->
                       <div class="card mb-3">
                                 <div class="card-header">
+                                    <center>
                                     <h3 style="color:black;"><i class="fas fa-passport"></i> Adherant documents  : </h3>
+                                    </center>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                    
-                                    
-                                       
                                            <?php 
                                            $u_imgs = DB::select('select * from images where adherant_id='.$data['ads']->id);
                                             ?>
-                                         
                                             @foreach ($u_imgs as $x)
-                                            <div class="card-group">
+                                        <div class="card-group">
                                           <div class="card">
                                             <center>
                                             <a href="/docs/{{$x->image_path}}" target="_blank" class="fas fa-file fa-7x"></a>
@@ -285,22 +275,15 @@
                                             </div>
                                           </div>
                                           </div>
-                                                                                   
                                             @endforeach
-                                       
-                                   
-                                    
-                                  
-                                   
+                                        </div>
+                                        <!-- end card-body -->
+                                    </div>
+                                    <!-- end card -->
                                 </div>
-                                <!-- end card-body -->
+                                <!-- END container-fluid -->
                             </div>
-                            <!-- end card -->
-               
-                </div>
-                <!-- END container-fluid -->
-            </div>
-            <!-- END content -->
-        </div>
-        <!-- END content-page -->
-@endsection
+                            <!-- END content -->
+                        </div>
+                        <!-- END content-page -->
+                         @endsection

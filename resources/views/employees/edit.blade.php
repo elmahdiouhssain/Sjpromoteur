@@ -58,7 +58,7 @@
                                         <option value="Ouvrier">Ouvrier</option>
                                         <option value="Féreilleur">Féreilleur</option>
                                         <option value="Sécurité">Sécurité</option>
-                                 
+                                        <option value="Autre">Autre</option>
                                         </select>
 
                                                     @if ($errors->has('fonction'))

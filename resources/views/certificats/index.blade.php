@@ -30,6 +30,7 @@
                                         @include('flash-message')<br>
                                         @can('certificat-create')
                                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-file-word"></i> Nouvelle certificat</button>
+
                                         @endcan
                                         </center>
                                 </div>
@@ -84,8 +85,7 @@
 								      	<i class="fas fa-clock"></i> {{ $cert->created_at }}</small> || 
 								      	{!! Form::open(['method' => 'DELETE','route' => ['certificats.destroy', $cert->id],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé la certificat')"]) !!}
-                                        {!! Form::close() !!} || <a href="/certificats/{{$cert->id}}" class="btn btn-primary fas fa-eye"></a>
-
+                                        {!! Form::close() !!} || <a href="/certificats/{{$cert->id}}" target="_blank" class="btn btn-primary fas fa-eye"></a>
 								      </p>
 								    </div>
 								  </div>
@@ -94,22 +94,15 @@
                                 </div>
                                 <!-- end card-body-->
                                 @endcan
-
-                        </div>
+                            </div>
                             <!-- end card-->
-
                         </div>
-
                     </div>
                     <!-- end row-->
-
                 </div>
                 <!-- END container-fluid -->
-
             </div>
             <!-- END content -->
-
         </div>
         <!-- END content-page -->
-
         @endsection

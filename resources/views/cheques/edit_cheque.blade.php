@@ -21,7 +21,7 @@
                     </div>
                     <!-- end row -->
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-12">
+                        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h3><i class="fas fa-money-check-alt"></i> Chèque details : <?php echo$cheque[0]->designation; ?></h3>
@@ -120,13 +120,8 @@
 
                              </div>
                              </form>
-
-                                                </div>
+                              </div>
                                             
-                                            </div>
-
-
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h3><i class="far fa-file-image"></i> Documents (Scan)</h3>
@@ -158,7 +153,7 @@
                             <select class="form-control" name="name" id="name" aria-label="Default select example">
                                   <option value="Chèque">Chèque</option>
                                   <option value="Mise à disposition">Mise à disposition</option>
-                         
+                                  <option value="Autre">Autre</option>
                             </select>
 
                           @if ($errors->has('type_op'))
@@ -221,7 +216,7 @@
                             <!-- end card -->
                         </div>
                         <!-- end col -->
-                                        </div>
+                                       
                                     </div>
                                      
 

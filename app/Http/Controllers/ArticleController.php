@@ -25,7 +25,7 @@ class ArticleController extends Controller
             return Datatables::of($articles)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = "<a href='/articles/$row->id' class='btn btn-dark fas fa-cog btn-sm'></a> <a href='/articles/del/$row->id' class='btn btn-danger fas fa-trash btn-sm'></a> ";
+                    $actionBtn = "<a href='/articles/$row->id' class='btn btn-dark fas fa-cog btn-sm'></a> ";
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -45,7 +45,7 @@ class ArticleController extends Controller
         $post->unitaire = $request->input('unitaire');
         $post->prix = $request->input('prix');
         $post->tva = $request->input('tva');
-        $post->desc = $request->input('desc');
+        $post->descrip = $request->input('descrip');
         $post->observations = $request->input('observations');
         $post->realise_par = \Auth::User()->name;
         $post->save();
@@ -108,20 +108,20 @@ class ArticleController extends Controller
     
 
     public function update(Request $request,$id){
-        //dd($request);
+     
         $this->validate($request, [
             'nom' => 'required',
             'prix' => 'required',
         ]);
-    
+        $id = $request->input('getid');
         $nom = $request->input('nom');
         $unitaire = $request->input('unitaire');
         $prix = $request->input('prix');
         $tva = $request->input('tva');
-        $desc = $request->input('desc');
+        $descrip = $request->input('descrip');
         $observations = $request->input('observations');
 
-        DB::update('update articles set nom=?,unitaire=?,prix=?,tva=?,desc=?,observations=? where id = ?',[$nom,$unitaire,$prix,$tva,$desc,$observations,$id]);
+        DB::update('update articles set nom=?,unitaire=?,prix=?,tva=?,descrip=?,observations=? where id = ?',[$nom,$unitaire,$prix,$tva,$descrip,$observations,$id]);
 
         return redirect('/articles')->with('success', 'L Article est Modifier avec succée');
     }

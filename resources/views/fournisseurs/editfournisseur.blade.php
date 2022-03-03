@@ -21,7 +21,7 @@
                     </div>
                     <!-- end row -->
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-12">
+                        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h3><i class="fas fa-boxes"></i> Fournisseur details : <?php echo$fournisseur[0]->raison_s; ?></h3>

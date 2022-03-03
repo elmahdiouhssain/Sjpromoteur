@@ -1,16 +1,15 @@
 @extends('layouts.layout')
 @section('content')
  <div class="content-page">
-            <!-- Start content -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">List des Sociète</h1>
+                                <h1 class="main-title float-left">List des Lotissements</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item active">Sociètes</li>
+                                    <li class="breadcrumb-item active">Lotissements</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -27,9 +26,8 @@
                                 </div>
                                 <div class="card-body">
                                         @can('societe-create')
-                                       <a role="button" href="{{ route('companys.create') }}" class="btn btn-dark mb-2">
-                                        Ajouter une sociète
-
+                                       <a role="button" href="{{ route('lots.create') }}" class="btn btn-dark mb-2">
+                                        Ajouter Lotissements
                                              <span class="btn-label btn-label-right">
                                                 <i class="fas fa-building"></i>
                                             </span>
@@ -45,9 +43,7 @@
                                                     <th>Raison social</th>
                                                     <th>Raison social AR</th>
                                                     <th>Ville</th>
-                                                    <th>Rib</th>
-                                                    <th>Fax</th>
-                                                    <th>Ice</th>
+                                                    <th>color</th>
                                                     <th>Date enregisté </th>
                                                     <th>Action </th>
                                                 </tr>
@@ -60,51 +56,48 @@
                                     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
                                     <script src="{{ asset('static/js/jquery.dataTables.min.js') }}"></script>
                                     <script type="text/javascript">
-                                $(document).ready(function() {
-                                  $("#emptableid").DataTable({
-                                          serverSide: true,
-                                          ajax: {
-                                              url: '{{url('companyajax')}}',
-                                              data: function (data) {
-                                                  data.params = {
-                                                      sac: "helo"
+                                    $(document).ready(function() {
+                                      $("#emptableid").DataTable({
+                                              serverSide: true,
+                                              ajax: {
+                                                  url: '{{url('lotsajax')}}',
+                                                  data: function (data) {
+                                                      data.params = {
+                                                          sac: "helo"
+                                                      }
                                                   }
-                                              }
-                                          },
-                                          buttons: false,
-                                          searching: true,
-                                          scrollY: 500,
-                                          scrollX: false,
-                                          scrollCollapse: true,
-                                          columns: [
-                                              {data: "raison_social", className: 'raison_social'},
-                                              {data: "raison_social_ar", className: 'raison_social_ar'},
-                                              {data: "ville", className: 'ville'},
-                                              {data: "rib", className: 'rib'},
-                                              {data: "fax", className: 'fax'},
-                                              {data: "ice", className: 'ice'},
-                                              {data: "created_at", className: 'created_at'},
-                                              {
-                                            data: 'action', 
-                                            name: 'action', 
-                                            orderable: true, 
-                                                    searchable: true
-                                                },
-                                                   
-                                                  ]  
+                                              },
+                                              buttons: false,
+                                              searching: true,
+                                              scrollY: 500,
+                                              scrollX: false,
+                                              scrollCollapse: true,
+                                              columns: [
+                                                  {data: "raison_social", className: 'raison_social'},
+                                                  {data: "raison_social_ar", className: 'raison_social_ar'},
+                                                  {data: "ville", className: 'ville'},
+                                                  {data: "color", className: 'color'},
+                                                  {data: "created_at", className: 'created_at'},
+                                                  {
+                                                data: 'action', 
+                                                name: 'action', 
+                                                orderable: true, 
+                                                        searchable: true
+                                                    },
+                                                       
+                                                      ]  
+                                                });
+                                         
                                             });
-                                     
-                                        });
-                                      </script>
+                                          </script>
                                         @else
                                         <center>
                                             <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
-                                        <h2>Vous n'êtes pas autorisé à voir les sociètes</h2>
+                                        <h2>Vous n'êtes pas autorisé à voir les lots</h2>
                                         </center>
                                         @endcan
-
-                                  </div>
-                                  </div>
+                                      </div>
+                                      </div>
                                     <!-- end row-->
                                 </div>
                                 <!-- END container-fluid -->
