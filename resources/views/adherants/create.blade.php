@@ -17,19 +17,16 @@
                         </div>
                     </div>
                     <!-- end row -->
-               
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
                                     <center>
                                         @include('flash-message')
-                                        </center>
-
+                                    </center>
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h3><i class="far fa-user"></i> Ajouter un Adhérant</h3>
                                 </div>
                                 <div class="card-body">
-                                    
                                     {!! Form::open(array('route' => 'adherants.store','method'=>'POST')) !!}
                                         @csrf
                                         <div class="row">
@@ -42,7 +39,6 @@
                                                             @endif
                                                 </div>
                                             </div>
-                                          
                                             <div class="col-lg-6">
                                                  <div class="form-group">
                                                     <label>Identité</label>
@@ -71,7 +67,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
@@ -82,7 +77,6 @@
                                                             @endif
                                               </div>
                                               </div>
-
                                               <div class="col-lg-6">
                                                 <div class="form-group">
                                                 <label>Facade</label>
@@ -120,7 +114,6 @@
                                                             <span style="color: red;">{{ $errors->first('pm2') }}</span>
                                                             @endif
                                                 </div>
-                                               
                                             </div>
                                             <div class="col-lg-12">
                                                  <div class="form-group">
@@ -139,7 +132,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                                 <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Enregisré</button>
                                         </div>
@@ -196,14 +188,14 @@
                                                 <option>في العمارة 09</option>
                                               </select>
                                             </div>
-                                             <div class="form-group">
+                                            <div class="form-group">
                                                 <label>Coté</label>
                                                 <select class="form-control" id="cote" name="cote">
                                                 <option>-----</option>
                                                 <option>COTÉ RUE</option>
                                                 <option>COTÉ EST</option>
                                                 </select>
-                                        </div>
+                                            </div>
                                             <br>
                                             <div class="form-group">
                                                 <label>Sous Sol</label>
@@ -238,33 +230,35 @@
                                                 <div class="lo form-group">
                                                 <select class="lo form-control" id="lotisment" name="lotisment" style="display:none;">
                                                 @foreach ($data['lots'] as $lot)
-                                                <option value="{{ $lot->id }}" name="lotisment">{{ $lot->raison_social }} | {{ $lot->raison_social_ar }}</option>
+                                                <option value="{{ $lot->raison_social }}" name="lotisment">{{ $lot->raison_social }} | {{ $lot->raison_social_ar }}
+
+                                                </option>
                                                 @endforeach
                                                 </select>
                                                 @if ($errors->has('lotisment'))
                                                             <span style="color: red;">{{ $errors->first('lotisment') }}</span>
                                                             @endif
                                                 </div>
-                                         <div class="form-group">
+                                                <div class="form-group">
                                                     <label>N° appartement</label>
                                                     {!! Form::number('n_appartement', null, array('placeholder' => 'n 25','class' => 'form-control')) !!}
                                                     @if ($errors->has('n_appartement'))
                                                             <span style="color: red;">{{ $errors->first('n_appartement') }}</span>
                                                             @endif
                                                 </div>
-                                        <div class="form-group">
-                                              <label for="ville">Ville:</label>
-                                              <select class="form-control" id="ville" name="ville">
-                                                <option>Agadir</option>
-                                                <option>Tiznit</option>
-                                                <option>Marakesh</option>
-                                                <option>Rabat</option>
-                                                <option>Tanger</option>
-                                              </select>
-                                            </div>
-                                    </div>
-                                </div>
-                                 {!! Form::close() !!}
+                                                <div class="form-group">
+                                                <label for="ville">Ville:</label>
+                                                <select class="form-control" id="ville" name="ville">
+                                                    <option>Agadir</option>
+                                                    <option>Tiznit</option>
+                                                    <option>Marakesh</option>
+                                                    <option>Rabat</option>
+                                                    <option>Tanger</option>
+                                                  </select>
+                                                </div>
+                                        </div>
+                                        </div>
+                                    {!! Form::close() !!}
                                 <!-- end card-body -->
                             </div>
                             <!-- end card -->

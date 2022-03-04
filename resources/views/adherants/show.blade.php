@@ -42,21 +42,31 @@
                                 <div class="card-body">
                                     <div class="row">
                                     <div class="col">
-
                                         <li>Montant d'immobilier : <i1 style="color:red;">{{ $data['m_imm'] }} (DHS)</i1></li><br>
                                         <li>Montant versé : <i1 style="color:red;">{{ $data['ads']->montant_verse }} (DHS)</i1></li><br>
                                         <li>Montant du tranches : <i1 style="color:red;">{{ $data['t_tranches'] }} (DHS)</i1></li><br>
-
                                         @if ($data['ads']->pm2 === "0")
                                         <li>Montant réste : <i1 style="color:red;"> ---- (DHS)</i1></li>
-                                                
                                         @else
                                         <li>Montant réste : <i1 style="color:red;">{{$data['m_reste']}} (DHS)</i1></li>   
                                         @endif
-
                                     </div>
                                     <div class="col">
                                         <center>
+                                            <label><u>Lotissements: </u></label><br>
+                                            <a href="#" class="fas fa-file-word fa-2x"></a><br>
+                                            <span><b>Authorisation de paiement</b></span><br>
+
+                                            <a href="#" target="_blank" class="fas fa-file-word fa-2x"></a><br>
+                                            <span><b>Confirmation de paiement</b></span><br>
+
+                                            <a href="#" target="_blank" class="fas fa-file-word fa-2x"></a><br>
+                                            <span><b>Demande d'annulation</b></span><br>
+                                        </center>
+                                    </div>
+                                    <div class="col">
+                                        <center>
+                                            <label><u>Amicals : </u></label><br>
                                             <a href="{{route('newcert', $data['ads']->id )}}" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Authorisation de paiement</b></span><br>
 

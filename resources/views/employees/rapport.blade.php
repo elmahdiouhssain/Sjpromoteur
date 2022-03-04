@@ -10,7 +10,6 @@
 <?php $getdata = DB::select('select * from companys where id='.$data['emp']->company_id);?>
 
 <center>
-
 <table class="minimalistBlack">
   <center>
   @if(isset($getdata[0]))

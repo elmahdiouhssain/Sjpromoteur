@@ -70,6 +70,7 @@ class AdherantController extends Controller
         $data->m2 = $request->get('m2');   
         $data->pm2 = $request->get('pm2');   
         $data->sous_sol = $request->get('sous_sol');  
+        
         $data->observation = $request->get('observation'); 
         $data->is_canceled = "0";  
         $data->commerciale = $request->get('commerciale'); 
