@@ -13,7 +13,11 @@
 
 <table class="minimalistBlack">
   <center>
+  @if(isset($getdata[0]))
   <img src="{{$getdata[0]->logo}}" style="width:900px;height:150px;">
+  @else
+  <h4>Socièté non sélectionné .</h4>
+  @endif
   </center>
 <tbody>
 <tr>
@@ -107,7 +111,20 @@
 </tbody>
 </table>
 </center>
-<center><footer style="font-size:20px;">Copyright {{$getdata[0]->raison_social}} | {{$getdata[0]->ville}} . ICE : xxxxxxx . {{$getdata[0]->ice}}</footer></center>
+
+<center>
+
+
+  <footer style="font-size:20px;">
+      @if(isset($getdata[0]))
+      <u>ADDRESSE</u> : {{$getdata[0]->details}} .  <u>RIB</u> : {{$getdata[0]->rib}} . <u>ICE</u> : {{$getdata[0]->ice}}
+      @else
+      <h4>Socièté non sélectionné .</h4>
+      @endif
+    
+    </footer>
+
+</center>
 <style type="text/css">
 	table.minimalistBlack {
   border: 3px solid #000000;

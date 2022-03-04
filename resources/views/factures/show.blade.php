@@ -30,24 +30,12 @@
                                     <input type="text" readonly class="form-control" name="supplier_id" id="supplier_id" value="{{ $getdata2[0]->raison_s }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Facture type :</label>
-                                    <input type="text" readonly class="form-control" name="" id="supplier_id" value="{{ $facture->type_facture }}">
-                                </div>
-
-                                <div class="form-group">
-                                    <?php $getcomp = DB::select('select * from companys where id='.$data['facture']->company_id); ?>
-                                    <label for="supplier_id">Sociète :</label>
-                                    <select class="form-control" name="company_id" id="company_id">
-                                        <option selected>{{ $getcomp[0]->raison_social }}</option>
-                                        @foreach ($data['companys'] as $company)
-                                        <option>{{ $company->raison_social }}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="">Type :</label>
+                                    <input type="text" readonly class="form-control" name="" id="supplier_id" value="{{ $data['facture']->type_facture }}">
                                 </div>
                                 </div>
                             </div>
                         </form>
-
         <!-- The Modal -->
           <div class="modal fade" id="myModal">
             <div class="modal-dialog modal-lg">

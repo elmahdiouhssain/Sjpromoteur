@@ -152,9 +152,7 @@
                                                             @endif
                                                 </div>
                                             </div>
-                                            
                                         </div>
-
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
@@ -165,7 +163,6 @@
                                                             @endif
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Addresse 3 </label>
@@ -182,7 +179,11 @@
                                                     <label>Sociète </label>
                                                     <select class="form-control" id="company_id" name="company_id">
                                             <?php $getdata = DB::select('select * from companys where id='.$emp->company_id);  ?>
+                                                @if(isset($getdata[0]))
                                                 <option value="{{$getdata[0]->id}}" selected>{{$getdata[0]->raison_social}}</option>
+                                                @else
+                                                <h4>Socièté non sélectionné .</h4>
+                                                @endif
 
                                                     @foreach ($data['societes'] as $so)
                                                     <option value="{{$so->id}}">{{$so->raison_social}}</option>

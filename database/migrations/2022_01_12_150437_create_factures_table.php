@@ -25,6 +25,9 @@ class CreateFacturesTable extends Migration
             
             $table->string('type_facture')->nullable();
             $table->dateTime('relase_date');
+
+            $table->string('lieu_livraison');
+            $table->string('n_tele');
             
             $table->string('pdf_url')->nullable();
             $table->string('total_ht')->nullable();
@@ -32,6 +35,7 @@ class CreateFacturesTable extends Migration
             $table->string('total_ttc')->nullable();
             $table->string('realise_par')->nullable();
             $table->boolean('is_paid')->default(false);
+
             $table->timestamps();
         });
     }

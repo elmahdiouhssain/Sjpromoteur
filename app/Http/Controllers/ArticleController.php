@@ -13,6 +13,15 @@ use App\Models\ProductFacture;
 use DataTables;
 class ArticleController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:produits-list|produits-create|produits-edit|produits-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:produits-create', ['only' => ['create','store']]);
+        $this->middleware('permission:produits-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:produits-delete', ['only' => ['destroy']]);
+    }
+
+
     public function index() {
         $data['title'] = "Sjpromoteur Articles";
         $data['articles'] = Article::latest()->get();
@@ -99,7 +108,6 @@ class ArticleController extends Controller
             ]);
 
     }
-
 
     public function show($id){
         $article = DB::select('select * from articles where id ='.$id);

@@ -119,19 +119,23 @@
                             </a>
                         </li>
                         @endcan
+                        @can('produits-list')
                         <li class="submenu">
                             <a href="{{ route('articles.index') }}">
                                 <i class="fas fa-cube"></i>
                                 <span> Articles </span>
                             </a>
                         </li>
+                        @endcan
                         <center style="color: white;"><hr>----Projects----<hr></center>
+                        @can('lots-list')
                         <li class="submenu">
                             <a href="{{ route('lots.index') }}">
                                 <i class="fas fa-building"></i>
                                 <span> Lots </span>
                             </a>
                         </li>
+                        @endcan
                         @can('amical-list')
                         <li class="submenu">
                             <a href="{{ route('amicals.index') }}">

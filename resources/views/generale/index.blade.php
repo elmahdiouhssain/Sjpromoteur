@@ -33,8 +33,8 @@
                                
                                 <i class="fas fa-money-check-alt float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">Total Chèques</h6>
-                                <h1 class="m-b-20 text-white counter">{{ !empty($data['cheques']) ? $data['cheques']:'' }}</h1>
-                                <span class="text-white">Le dernièr versé par : <a href="{{ route('stats-cheques.show',$data['cheques_day']->id) }}" style="color:white;">{{ !empty($data['cheques_day']->verse_par) ? $data['cheques_day']->verse_par:'' }}</a></span>
+                                <h1 class="m-b-20 text-white counter">x</h1>
+                                <span class="text-white">Le dernièr versé par : <a href="#" style="color:white;">x</a></span>
 
                             </div>
                         </div>
@@ -101,53 +101,7 @@
 
                     <div class="container">
                     <!-- end row -->
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <h3><i class="fas fa-chart-bar"></i> Dernier authentication</h3>
-                                   Le dernier utilisateur connecté.
-                                </div>
-                                <div class="card-body">
-                                    <td>
-                                    <div class="user_avatar_list d-none d-none d-lg-block"><img alt="image" src="{{ asset('static/images/avatars/avatar2.png') }}"></div>
-                                    <h4>Nom : {{$data['lastuser']->name}}</h4>
-                                    <p>Email : {{$data['lastuser']->email}}</p>
-                                    <p>Role : 
-
-                         <label class="badge badge-success">0</label>
-                                          
-                                    </p>
-                                    </td>
-                                </div>
-                            
-                            </div>
-                            <!-- end card-->
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <h3><i class="fas fa-chart-bar"></i> Dernier cheque</h3>
-                                    le dernier cheque realisé .
-                                </div>
-
-                                <div class="card-body">
-                                    <td>
-                                    <div class="user_avatar_list d-none d-none d-lg-block">
-                                       
-                                    <div class="user_avatar_list d-none d-none d-lg-block"><img alt="image" src="{{ asset('static/images/cheque.png') }}"></div>
-                             
-                                    </div>
-                                    <h4>Beneficier : {{ !empty($data['lastpay']->name) ? $data['lastpay']->name:'' }}</h4>
-                                    <p>N chèque : {{ !empty($data['lastpay']->number) ? $data['lastpay']->number:'' }}</p>
-                                    <p>Balance : {{ !empty($data['lastpay']->balance) ? $data['lastpay']->balance:'' }} DHS</p>
-                                    </td>
-                                </div>
-                              
-                            </div>
-                            <!-- end card-->
-                        </div>
-                    </div>
+                 
                     <!-- end row -->
                     </div>
 

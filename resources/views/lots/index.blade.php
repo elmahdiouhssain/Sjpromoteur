@@ -25,7 +25,7 @@
                                         </center>
                                 </div>
                                 <div class="card-body">
-                                        @can('societe-create')
+                                        @can('lots-create')
                                        <a role="button" href="{{ route('lots.create') }}" class="btn btn-dark mb-2">
                                         Ajouter Lotissements
                                              <span class="btn-label btn-label-right">
@@ -34,7 +34,7 @@
                                         </a>
                                         @endcan
                                 </div>
-                                @can('societe-list')
+                                @can('lots-list')
                                 <div class="container">
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="emptableid" width="100%">
@@ -76,7 +76,12 @@
                                                   {data: "raison_social", className: 'raison_social'},
                                                   {data: "raison_social_ar", className: 'raison_social_ar'},
                                                   {data: "ville", className: 'ville'},
-                                                  {data: "color", className: 'color'},
+                                                  {data: "color", 
+                                                  render : function(data,type,row){
+                                                            var col;
+                                                            return '<input placeholder="color" class="form-control" name="color" type="color" value="' + row.color + '">'
+                                                        },
+                                                  className: 'color'},
                                                   {data: "created_at", className: 'created_at'},
                                                   {
                                                 data: 'action', 

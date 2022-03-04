@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <script src="{{ asset('static/js/jquery.min.js') }}"></script>
+<script src="{{ asset('static/js/emp.js') }}"></script>
 <div class="content-page">
             <!-- Start content -->
             <div class="content">
@@ -223,7 +224,11 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <?php $getdata = DB::select('select * from companys where id='.$data['emp']->company_id);?>
+                                                    @if(isset($getdata[0]))
                                                     <h4><u style="color:#dc3545;">Sociétè</u> :  [ {{ $getdata[0]->raison_social }} ]</h4>
+                                                    @else
+                                                    <h4>Socièté non sélectionné .</h4>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

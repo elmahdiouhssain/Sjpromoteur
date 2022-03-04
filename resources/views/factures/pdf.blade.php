@@ -9,17 +9,26 @@
     <?php $get_comp = DB::select('select * from companys where id='.$data['fac']->company_id); ?>
     <header class="clearfix">
       <div id="logo">
+        @if(isset($get_comp[0]))
         <img src="{{$get_comp[0]->logo}}">
+        @else
+        <h4>Socièté non sélectionné .</h4>
+        @endif
       </div>
       <h1>{{$data['fac']->type_facture}} | {{$data['fac']->uuid}}</h1>
       <div id="company" >
+        @if(isset($get_comp[0]))
         <h3>Pour : {{$get_comp[0]->raison_social}}</h3>
         <h3>Fax : {{$get_comp[0]->fax}}</h3>
         <h3>Ice : {{$get_comp[0]->ice}}</h3>
+        @else
+        <h4>Socièté non sélectionné .</h4>
+        @endif
+       
       </div>
       <div id="project">
         <h3>Libelle :  {{$data['fac']->f_libelle}}</h3>
-        <h3>Facteur :  {{$data['fac']->realise_par}}</h3>
+        <h3>Facturé par :  {{$data['fac']->realise_par}}</h3>
         <h3>Date : {{ Carbon\Carbon::parse($data['fac']->relase_date)->format('Y-m-d') }}</h3>
       </div>
     </header>
@@ -54,7 +63,12 @@
 
     </main>
     <footer style="font-size:20px;">
-      Addresse : {{$get_comp[0]->details}} ||  Rib : {{$get_comp[0]->rib}}
+      @if(isset($get_comp[0]))
+      <u>ADDRESSE</u> : {{$get_comp[0]->details}} .  <u>RIB</u> : {{$get_comp[0]->rib}} . <u>ICE</u> : {{$get_comp[0]->ice}}
+      @else
+      <h4>Socièté non sélectionné .</h4>
+      @endif
+    
     </footer>
   </body>
 </html>

@@ -23,6 +23,9 @@ class CreateCompanysTable extends Migration
             $table->string('ville')->nullable();
             $table->string('ice')->nullable();
             $table->string('fax')->nullable();
+            $table->string('n_tele')->nullable();
+            $table->string('capital')->nullable();
+            $table->string('n_if')->nullable();
             $table->string('color')->nullable();
             $table->string('slug')->unique();
             $table->timestamps();

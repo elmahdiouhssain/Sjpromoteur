@@ -51,12 +51,7 @@
                                                             <span style="color: red;">{{ $errors->first('id_national') }}</span>
                                                             @endif
                                                 </div>
-                                               
                                             </div>
-                                       
-
-                                            
-
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Telephone (GSM)</label>
@@ -100,8 +95,6 @@
                                                     <option>5FACADES</option>
                                                     <option>6FACADES</option>
                                               </select>
-
-
                                                 @if ($errors->has('facade'))
                                                             <span style="color: red;">{{ $errors->first('facade') }}</span>
                                                             @endif
@@ -150,8 +143,6 @@
                                         <div class="row">
                                                 <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Enregisré</button>
                                         </div>
-                                    
-
                                 </div>
                                 <!-- end card-body -->
                             </div>
@@ -163,7 +154,6 @@
                                 <div class="card-header">
                                     <h3><i class="far fa-file-image"></i> Superfisièr</h3>
                                 </div>
-
                                 <div class="card-body text-center">
                                     <div class="form-group">
                                               <label for="sel1">Type Imo:</label>
@@ -191,7 +181,6 @@
                                                 <option>في الطابق العاشر</option>
                                               </select>
                                             </div>
-                                       
                                         <div class="form-group">
                                         <label for="sel1">N°IMM:</label>
                                               <select class="form-control" id="bloc" name="bloc">
@@ -208,24 +197,20 @@
                                               </select>
                                             </div>
                                              <div class="form-group">
-                                                    <label>Coté</label>
-                                                    
+                                                <label>Coté</label>
                                                 <select class="form-control" id="cote" name="cote">
                                                 <option>-----</option>
                                                 <option>COTÉ RUE</option>
                                                 <option>COTÉ EST</option>
-                                               
-                                              </select>
+                                                </select>
                                         </div>
                                             <br>
                                             <div class="form-group">
                                                 <label>Sous Sol</label>
                                                 <select class="form-control" id="sous_sol" name="sous_sol">
-                                               
                                                 <option value="1">OUI</option>
                                                 <option value="0">NON</option>
-                                               
-                                              </select>
+                                                </select>
                                                 @if ($errors->has('sous_sol'))
                                                             <span style="color: red;">{{ $errors->first('sous_sol') }}</span>
                                                             @endif
@@ -260,7 +245,6 @@
                                                             <span style="color: red;">{{ $errors->first('lotisment') }}</span>
                                                             @endif
                                                 </div>
-
                                          <div class="form-group">
                                                     <label>N° appartement</label>
                                                     {!! Form::number('n_appartement', null, array('placeholder' => 'n 25','class' => 'form-control')) !!}

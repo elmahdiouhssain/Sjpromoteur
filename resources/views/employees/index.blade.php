@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-
  <div class="content-page">
             <!-- Start content -->
             <div class="content">
@@ -29,7 +28,6 @@
                                 <div class="card-body">
                                     <center>
                                         @can('employees-create')
-                                    
                                        <a role="button" href="{{ route('emps.create') }}" class="btn btn-success mb-2" >
                                         Ajouter un employeé
                                              <span class="btn-label btn-label-right">
@@ -37,7 +35,6 @@
                                             </span>
                                         </a><br>
                                         @endcan
-
                                     <br>
                                     </center><br>
                                     <div class="container">
@@ -57,7 +54,6 @@
                                                 </tr>
                                             </thead>
                                              <tbody>
-                                                
                                                 @foreach ($data['employees'] as $emp)
                                                 <?php
                                                 $njrs_ouvriers = DB::select('select * from paiementemployees where employee_id='.$emp->id);
@@ -67,7 +63,6 @@
                                                     $njrsclc+= $key->n_jours;
                                                     $m_tot+= $key->salaire_total;
                                                 }
-              
                                                 ?>
                                                 <tr>
                                                 <td style="text-transform:uppercase;">{{ $emp->nom_complete }}</td>
@@ -86,9 +81,7 @@
                                                 </tr>
                                                 @endforeach
                                              </tbody>
-                                        
                                         </table>
-                                       
                                     </div>
                                     <!-- end table-responsive-->
                                     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
@@ -102,7 +95,6 @@
                                                 'copy', 'csv', 'excel', 'pdf', 'print'
                                             ]} );} );</script>
                                     @else
-
                                     <center>
                                         <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
                                     <h2>Vous n'êtes pas autorisé à voir les employeés</h2>
@@ -111,22 +103,17 @@
                                     </div>
                                 </div>
                                 <!-- end card-body-->
-
                             </div>
                             <!-- end card-->
-
                         </div>
-
                     </div>
                     <!-- end row-->
-
                 </div>
                 <!-- END container-fluid -->
             </div>
             <!-- END content -->
         </div>
         <!-- END content-page -->
-
 @endsection
 
   

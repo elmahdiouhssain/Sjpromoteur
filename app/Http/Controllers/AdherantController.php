@@ -31,9 +31,7 @@ class AdherantController extends Controller
 
     public function index() {
         $data['title'] = "Sjpromoteur List adherants";
-        //$data['adherants'] = Adherant::all();
         $data['amicals'] = Amical::all();
-        //dd($data['amicals']);
         return view('adherants.index',compact('data'));
     }
     public function create()
@@ -47,16 +45,9 @@ class AdherantController extends Controller
     public function GetAll($slug) {
         $data['title'] = "Amical full list";
         $data['adherants'] = DB::table('adherants')->where('societe_id',$slug)->get();
-        
         return view('adherants.flist',compact('data'));
     }
    
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -84,6 +75,7 @@ class AdherantController extends Controller
         $data->commerciale = $request->get('commerciale'); 
         $data->imm_type = $request->get('imm_type');
         $data->societe_id = $request->get('societe_id');
+        $data->societe_name = $request->get('societe_name');
         $data->lotisment = $request->get('lotisment');
         $data->ville = $request->input('ville'); 
         $data->n_dossier = $request->input('n_dossier');

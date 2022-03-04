@@ -33,8 +33,10 @@ class CreateAdherantsTable extends Migration
             $table->boolean('is_canceled')->default(False);
             $table->string('realise_par');
             $table->string('n_appartement')->nullable();
-            $table->integer('societe_id');
-            $table->integer('lot_id');
+            $table->integer('societe_id')->nullable();
+            $table->string('societe_name')->nullable();
+            $table->string('lotisment')->nullable();
+            $table->integer('lot_id')->nullable();
             $table->string('imm_type')->nullable();
             $table->decimal('m_total')->nullable();
 

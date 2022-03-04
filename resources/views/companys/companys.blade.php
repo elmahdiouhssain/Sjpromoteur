@@ -42,6 +42,8 @@
                                         <table class="table table-striped" id="emptableid" width="100%">
                                             <thead>
                                                 <tr>
+                                                    <th>ID</th>
+                                                    <th>Logo</th>
                                                     <th>Raison social</th>
                                                     <th>Raison social AR</th>
                                                     <th>Ville</th>
@@ -77,6 +79,13 @@
                                           scrollX: false,
                                           scrollCollapse: true,
                                           columns: [
+                                              {data: "id", className: 'id'},
+                                              {data: "logo",
+                                              render : function(data,type,row){
+                                                            var label;
+                                                            return '<img src="' + row.logo + '" class="rounded-circle" style="width: 90px;height: 90px;">'
+                                                        },
+                                               className: 'logo'},
                                               {data: "raison_social", className: 'raison_social'},
                                               {data: "raison_social_ar", className: 'raison_social_ar'},
                                               {data: "ville", className: 'ville'},

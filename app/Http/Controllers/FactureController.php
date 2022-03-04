@@ -14,6 +14,13 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class FactureController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:facture-list|facture-create|facture-edit|facture-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:facture-create', ['only' => ['create','store']]);
+        $this->middleware('permission:facture-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:facture-delete', ['only' => ['destroy']]);
+    }
 
     public function Falistajax(Request $request){
     if ($request->ajax()) {
@@ -27,8 +34,8 @@ class FactureController extends Controller
                 })
                 ->rawColumns(['action'])
                 ->make(true);
-        }
-    }
+                }
+            }
     //
     public function index() {
         $data['title'] = "Sjpromoteur Factures";
@@ -85,6 +92,7 @@ class FactureController extends Controller
         $total_price = $request->input('total_ht');
         $realise_par = \Auth::User()->name;
         $is_paid = $request->input('is_paid');
+
         DB::update('update factures set total_ht=?,is_paid=?,realise_par=? where id = ?',[$total_price,$is_paid,$realise_par,$id]);
         
         return redirect('/factures')->with('success', 'Facture enregistré avec succée');
@@ -92,13 +100,10 @@ class FactureController extends Controller
 
     public function showPDF($invoice_id)
     {
-
         $data['fac'] = Facture::find($invoice_id);
         $data['prod'] = DB::select('select * from productsfacture where invoice_id ='.$invoice_id);
         return view('factures.pdf',compact('data'));
     }
-
-    
 
     public function destroy($id) {
             $pack = Facture::find($id);
