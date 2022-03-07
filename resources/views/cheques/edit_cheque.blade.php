@@ -7,10 +7,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Edité le chèque : 
+                                <h1 class="main-title float-left">Edité le réglement : 
+                                    @can('cheque-delete')
                                     {!! Form::open(['method' => 'DELETE','route' => ['stats-cheques.destroy', $cheque[0]->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé le chèque')"]) !!}
-                                {!! Form::close() !!}</h1>
+                                {!! Form::close() !!}@endcan</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                 </ol>

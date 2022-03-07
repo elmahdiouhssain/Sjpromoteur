@@ -59,7 +59,8 @@
                             <label for="name">Nom du fichier :</label>
                             <select class="form-control" name="name" id="name" aria-label="Default select example">
                                   <option value="Carte national">Carte national</option>
-                                  <option value="Chèque">Chèque</option>
+                                  <option value="Chèque">Chèque (Montant versé)</option>
+                                  <option value="Chèque">Chèque (Montant du tranche)</option>
                                   <option value="Order du virment">Order du virment</option>
                                   <option value="Autre">Autre</option>
                             </select>

@@ -50,8 +50,6 @@ class ChequesController extends Controller
             $this->validate($request, [
             'designation' => 'required|min:3',
             'verse_par' => 'required',
-            'n_marche' => 'required',
-                
         ]);
             
         $post = new Cheque();

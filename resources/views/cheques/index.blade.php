@@ -8,10 +8,10 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Chèques Sorties</h1>
+                                <h1 class="main-title float-left">Réglements</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item active">Chèques Sorties</li>
+                                    <li class="breadcrumb-item active">Réglements</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -33,7 +33,7 @@
                                     <center>
                                         @can('cheque-create')
                                        <a role="button" href="#" class="btn btn-danger mb-2" data-toggle="modal" data-target="#exampleModal">
-                                        Ajouter un chèque
+                                        Effectué un réglement
 
                                              <span class="btn-label btn-label-right">
                                                 <i class="fas fa-money-check-alt"></i>

@@ -148,7 +148,7 @@
                         <li class="submenu">
                             <a href="{{ route('companys.index') }}">
                                 <i class="fas fa-building"></i>
-                                <span> Sociète </span>
+                                <span> Sociètes </span>
                             </a>
                         </li>
                         @endcan

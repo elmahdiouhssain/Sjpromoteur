@@ -172,6 +172,7 @@
             </div>
           </div>
         </div>
+
         <!-- The Modal -->
           <div class="modal fade" id="myModal3">
             <div class="modal-dialog modal-lg">
@@ -179,9 +180,9 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container">
-                        <input type="hidden" id="delete_prod_id" value="#">
+                        <input type="hidden" id="suppr_prod_id" value="#">
                         <center><i class="fas fa-trash fa-7x" style="color:red;"></i><br>
-                            <h2  style="color:red;">Vois etès sur supprimé le produit de cette facture !</h2>
+                            <h2  style="color:red;">Vous etès sur supprimé le produit de cette facture !</h2>
                         </center>
                     </div>
               </div>
