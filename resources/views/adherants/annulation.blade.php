@@ -20,12 +20,9 @@
         }
 
     </style>
-    <div class="container">   
-     
-<?php
-$getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id);
-//dd($getdata);    
-?>
+<div class="container">   
+@if(!$data['adherant']->societe_id == 0)
+<?php $getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id); ?>
 
 <p style="text-align:center"><b>الحمد لله وحده</b></p>
 <p>&nbsp;</p>
@@ -99,6 +96,12 @@ $getdata = DB::select('select * from amicals where id='.$data['adherant']->socie
 
 <div style="page-break-after: always;" ></div>
 
-
+@else
+<center>
+  <br><br>
+  <h4>L'adhèrant assigné sur la partie lotissement. Pour géneré un authorisation du paiement , s'il vous plait choissi l 'icon sous le titre lotissement.</h4><br>
+  <h4>Authorisation du paiement pour lotissment est en development....</h4>
+</center>
+@endif
 </div>
 </body>

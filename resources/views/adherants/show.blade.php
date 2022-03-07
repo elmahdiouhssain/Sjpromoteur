@@ -28,13 +28,7 @@
                                     @endcan
 
                                     </h3>
-                                    <div class="text-right">
-                                                @if ($data['ads']->is_canceled === 0)
-                                                <span style="color:green;">Situation : <i class="fas fa-dot-circle"></i> Continué</span>
-                                                @else
-                                                <span style="color:red;">Situation : <i class="fas fa-dot-circle"></i> Abondonné</span>
-                                                @endif
-                                            </div>
+
                                             <div class="card">
                                             <h5 style="color:red;">S il vous plait avant de selectioné une certificat , completé la premièr étape pour bien imprimé. <a href="{{route('newcert', $data['ads']->id )}}" class="fas fa-edit"></a></h5>
                                         </div>
@@ -48,7 +42,12 @@
                                         @if ($data['ads']->pm2 === "0")
                                         <li>Montant réste : <i1 style="color:red;"> ---- (DHS)</i1></li>
                                         @else
-                                        <li>Montant réste : <i1 style="color:red;">{{$data['m_reste']}} (DHS)</i1></li>   
+                                        <li>Montant réste : <i1 style="color:red;">{{$data['m_reste']}} (DHS)</i1></li> <br>
+                                        @if ($data['ads']->is_canceled === 0)
+                                        <li style="color:green;">Situation : <i class="fas fa-dot-circle"></i> Continué</li>
+                                        @else
+                                        <li style="color:red;">Situation : <i class="fas fa-dot-circle"></i> Abondonné</li>
+                                        @endif  
                                         @endif
                                     </div>
                                     <div class="col">
@@ -57,17 +56,17 @@
                                             <a href="#" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Authorisation de paiement</b></span><br>
 
-                                            <a href="#" target="_blank" class="fas fa-file-word fa-2x"></a><br>
+                                            <a href="#" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Confirmation de paiement</b></span><br>
 
-                                            <a href="#" target="_blank" class="fas fa-file-word fa-2x"></a><br>
+                                            <a href="#" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Demande d'annulation</b></span><br>
                                         </center>
                                     </div>
                                     <div class="col">
                                         <center>
                                             <label><u>Amicals : </u></label><br>
-                                            <a href="{{route('newcert', $data['ads']->id )}}" class="fas fa-file-word fa-2x"></a><br>
+                                            <a href="{{route('newcert', $data['ads']->id )}}" target="_blank" class="fas fa-file-word fa-2x"></a><br>
                                             <span><b>Authorisation de paiement</b></span><br>
 
                                             <a href="{{route('newconfirmation', $data['ads']->id )}}" target="_blank" class="fas fa-file-word fa-2x"></a><br>
@@ -282,6 +281,7 @@
                                            <?php 
                                            $u_imgs = DB::select('select * from images where adherant_id='.$data['ads']->id);
                                             ?>
+                                        @if(!empty($u_imgs))
                                             @foreach ($u_imgs as $x)
                                         <div class="card-group">
                                           <div class="card">
@@ -298,6 +298,11 @@
                                           </div>
                                           </div>
                                             @endforeach
+                                        @else
+                                        <div class="container">
+                                        <center><h4 style="color:red;">Aucun documents pour le moment .</h4></center>
+                                        </div>
+                                          @endif
                                         </div>
                                         <!-- end card-body -->
                                     </div>

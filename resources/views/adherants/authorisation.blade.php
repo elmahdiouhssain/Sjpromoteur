@@ -20,11 +20,12 @@
         }
 
     </style>
-    <div class="container">   
-<?php$getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id);?>
 
-<p style="text-align:center"><b>الحمد لله وحده</b></p>
-<p>&nbsp;</p>
+<div class="container"> 
+@if(!$data['adherant']->societe_id == 0)
+<?php $getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id); ?>
+<p style="text-align:center"><b>الحمد لله وحده </b></p>
+<p>&nbsp;</p> 
 <p style="text-align:right"><strong>{{ $getdata[0]->raison_social_ar }}</strong></p>
 <p dir="RTL" style="text-align:left"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong><strong>في</strong><strong>&nbsp;:</strong><strong>&nbsp;</strong><strong><?php echo date("d-m-Y");?>&nbsp;</strong></p>
 
@@ -157,7 +158,6 @@
 </strong></p>
 
 
-
 <br><br>
 <p dir="RTL" style="font-size:18px";>&nbsp;</p>
 <p dir="RTL" style="text-align:center"><strong>و السلام</strong><strong>&nbsp;&nbsp;</strong></p>
@@ -169,7 +169,6 @@
 <p dir="RTL" style="font-size:18px";>&nbsp;</p>
 
 
-
 <p dir="RTL" style="font-size:18px";>&nbsp;</p>
 <br><br><footer>
 <p><strong>ملاحظة:</strong>في حالة الرغبة في التنازل عن هذا الحق، يجب الحصول على موافقة مكتب الودادية، حماية لحقوق الراغب في الاستفادة من هذا الحق.</p>
@@ -177,5 +176,12 @@
 
 <div style="page-break-after: always;" ></div>
 
+@else
+<center>
+  <br><br>
+  <h4>L'adhèrant assigné sur la partie lotissement. Pour géneré un authorisation du paiement , s'il vous plait choissi l 'icon sous le titre lotissement.</h4><br>
+  <h4>Authorisation du paiement pour lotissment est en development....</h4>
+</center>
+@endif
 </div>
 </body>

@@ -14,15 +14,23 @@
                     <!-- end row -->
                     <div class="col-xs-12 ">
                             <div class="card mb-3">
+                                @if(!$data['adherant']->societe_id == 0)
                                 <div class="card-header">
-                                    <?php
-                                    $getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id);
-                                    //dd($getdata);    
-                                    ?>
+                                    
+                                    <?php $getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id); ?>
                                     <h3 style="color:green;"><i class="fas fa-file-word"></i> Generèr une demande d'authorisation  : <i1 style="color:red;">Mr : {{ $data['adherant']->nom_complete }} </i1> || <ex id="so_details" name="so_details">( {{ $getdata[0]->raison_social }} )</ex></h3>
                                     <input type="hidden" name="so_details" value="{{ $data['adherant']->societe }}" id="so_details">
                                    
                                 </div>
+                                @else
+
+                                <div class="card-header">
+
+                                    <h3 style="color:green;"><i class="fas fa-file-word"></i> Generèr une demande d'authorisation  : <i1 style="color:red;">Mr : {{ $data['adherant']->nom_complete }} </i1> || <ex id="so_details" name="so_details">(Lotissement :  {{ $data['adherant']->lotisment }} )</ex></h3>
+                                    <input type="hidden" name="so_details" value="{{ $data['adherant']->societe }}" id="so_details">
+                                   
+                                </div>
+                                @endif
                                 <div class="card-body">
                                     <div class="row">
                                     <div class="col">
