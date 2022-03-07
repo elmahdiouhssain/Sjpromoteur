@@ -21,12 +21,7 @@
 
     </style>
     <div class="container">   
-     
-<?php
-$getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id);
-//dd($getdata);    
-?>
-
+<?php$getdata = DB::select('select * from amicals where id='.$data['adherant']->societe_id);?>
 
 <p style="text-align:center"><b>الحمد لله وحده</b></p>
 <p>&nbsp;</p>

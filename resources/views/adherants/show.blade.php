@@ -173,12 +173,24 @@
                                                     <input readonly class="form-control" name="id_national" type="text" value="{{ $data['ads']->id_national }}" required />
                                                 </div>
                                         </div>
+                                        @if($data['ads']->societe_id == 0)
                                         <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Lotissement : </label>
                                                     <input readonly class="form-control" name="id_national" type="text" value="{{ $data['ads']->lotisment }}" required />
                                                 </div>
                                         </div>
+                                        @else
+                                        <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <?php $getdata = DB::select('select * from amicals where id='.$data['ads']->societe_id);?>
+                                                    <label>Amical : </label>
+                                                    <input readonly class="form-control" name="id_national" type="text" value="{{ $getdata[0]->raison_social  }}" required />
+                                                </div>
+                                        </div>
+                                        @endif
+
+
                                         </div>
 
                                         <div class="row">

@@ -192,7 +192,7 @@ class AdherantController extends Controller
     public function update(Request $request,$id) {
         $this->validate($request, [
             'nom_complete' => 'required',
-            'societe_id' => 'required',
+
             'montant_verse' => 'required',
         ]);
 

@@ -219,6 +219,7 @@
                                                 <hr>
                                                 <div class="so form-group">
                                                 <select class="so form-control" id="societe_id" name="societe_id" style="display:none;">
+                                                    <option selected value="0" name="societe_id">** Séléctionné une amical **</option>
                                                 @foreach ($data['societes'] as $societe)
                                                 <option value="{{ $societe->id }}" name="societe_id">{{ $societe->raison_social }} | {{ $societe->raison_social_ar }}</option>
                                                 @endforeach
@@ -229,6 +230,7 @@
                                                 </div>
                                                 <div class="lo form-group">
                                                 <select class="lo form-control" id="lotisment" name="lotisment" style="display:none;">
+                                                    <option selected value="0" name="lotisment">** Séléctionné une lotissement **</option>
                                                 @foreach ($data['lots'] as $lot)
                                                 <option value="{{ $lot->raison_social }}" name="lotisment">{{ $lot->raison_social }} | {{ $lot->raison_social_ar }}
 

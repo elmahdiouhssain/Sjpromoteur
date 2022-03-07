@@ -313,12 +313,12 @@
                                                             <span style="color: red;">{{ $errors->first('sousol_prix') }}</span>
                                                             @endif
                                                 </div>
+                                                @if(!$ads->societe_id == 0)
+                                            <?php $getdata = DB::select('select * from amicals where id='.$ads->societe_id);?>
+                                            
                                             <div class="form-group">
                                                 <label>Amical</label>
-                                                <?php
-                                                $getdata = DB::select('select * from amicals where id='.$ads->societe_id);   
-                                                ?>
-                                            <select class="form-control" id="societe_id" name="societe_id">
+                                                <select class="form-control" id="societe_id" name="societe_id">
                                                 <option selected value="{{ $getdata[0]->id }}" name="societe_id">{{ $getdata[0]->raison_social }}</option>
                                                 <option value="0"></option>
                                             @foreach ($data['societes'] as $societe)
@@ -329,7 +329,7 @@
                                                         <span style="color: red;">{{ $errors->first('societe_id') }}</span>
                                                         @endif
                                             </div>
-
+                                            @else
                                             <div class="form-group">
                                                 <label>Lotissements</label>
                                                  <select class="form-control" name="lotisment" id="lotisment">
@@ -343,6 +343,7 @@
                                                         <span style="color: red;">{{ $errors->first('lotisment') }}</span>
                                                         @endif
                                             </div>
+                                            @endif
 
                                         <div class="form-group">
                                                 <label>Situation : </label>
