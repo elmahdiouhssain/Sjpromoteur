@@ -46,7 +46,7 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-money-check-alt"></i> Ajouter un chèque</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-money-check-alt"></i> Effectué un réglement</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>
@@ -223,7 +223,7 @@
                             @else
                                     <center>
                                         <i class="fas fa-exclamation-triangle fa-7x" style="color:red;"></i>
-                                    <h2>Vous n'êtes pas autorisé à voir les chèques</h2>
+                                    <h2>Vous n'êtes pas autorisé à voir les réglement</h2>
                                     </center>
                                     @endcan
                                     </div>

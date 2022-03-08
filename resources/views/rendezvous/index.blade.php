@@ -147,11 +147,13 @@
          
                                         </script>
                                         <div class="container">
-                                            <a href="{{ route('rcreatesms') }}" class="btn btn-success btn-sm btn-block" >Alert SMS <i class="fas fa-sms"></i>
-                                        </a>
+                                            @can('agenda-create')
+                                            <a href="{{ route('rcreatesms') }}" class="btn btn-success btn-sm btn-block" >Alert SMS <i class="fas fa-sms"></i></a>
+                                            @endcan
                                         <br>
                                     <div class="card"><br>
                                         <div class="table-responsive">
+                                            @can('agenda-list')
                                         <table id="example" class="display" style="width:100%">
                                             <thead>
                                                 <tr>
@@ -178,6 +180,7 @@
                                                 @endforeach
                                                 </tbody> 
                                                 </table>
+                                                @endcan
                                             </div>
                                         </div>
                                         </div>

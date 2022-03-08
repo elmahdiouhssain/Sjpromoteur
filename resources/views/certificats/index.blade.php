@@ -82,10 +82,10 @@
 								      <h5 class="card-title">{{ $cert->cert_titre }}</h5>
 								      <p class="card-text"><small class="text-muted">
 
-								      	<i class="fas fa-clock"></i> {{ $cert->created_at }}</small> || 
+								      	<i class="fas fa-clock"></i> {{ $cert->created_at }}</small> ||@can('certificat-delete') 
 								      	{!! Form::open(['method' => 'DELETE','route' => ['certificats.destroy', $cert->id],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Supprimé', ['class' => 'btn btn-danger btn-sm','onclick'=>"return confirm('Vous etes-sur supprimé la certificat')"]) !!}
-                                        {!! Form::close() !!} || <a href="/certificats/{{$cert->id}}" target="_blank" class="btn btn-primary fas fa-eye"></a>
+                                        {!! Form::close() !!} @endcan|| <a href="/certificats/{{$cert->id}}" target="_blank" class="btn btn-primary fas fa-eye"></a>
 								      </p>
 								    </div>
 								  </div>

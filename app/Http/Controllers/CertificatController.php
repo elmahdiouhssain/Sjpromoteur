@@ -12,6 +12,13 @@ use App\Models\Certificat;
 
 class CertificatController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:certificat-list|certificat-create|certificat-edit|certificat-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:certificat-create', ['only' => ['create','store']]);
+        $this->middleware('permission:certificat-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:certificat-delete', ['only' => ['destroy']]);
+    }
     //
     public function index() {
         $data['title'] = "Sjpromoteur Certificats";

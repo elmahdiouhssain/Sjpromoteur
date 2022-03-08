@@ -13,7 +13,13 @@ use Illuminate\Support\Arr;
 use DataTables;
 
 class UserController extends Controller
-{
+{   function __construct()
+    {
+        $this->middleware('permission:users-list|users-create|users-edit|users-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:users-create', ['only' => ['create','store']]);
+        $this->middleware('permission:users-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:users-delete', ['only' => ['destroy']]);
+    }
     public function Userlistajax(Request $request){
     if ($request->ajax()) {
             $users = User::latest()->get();

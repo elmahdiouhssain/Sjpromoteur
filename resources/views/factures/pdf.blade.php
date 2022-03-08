@@ -7,22 +7,25 @@
   </head>
   <body>
     <?php $get_comp = DB::select('select * from companys where id='.$data['fac']->company_id); ?>
+    <?php $get_four = DB::select('select * from fournisseurs where id='.$data['fac']->fournisseurs_id ); ?>
     <header class="clearfix">
       <div id="logo">
         @if(isset($get_comp[0]))
         <img src="{{$get_comp[0]->logo}}">
         @else
-        <h4>Socièté non sélectionné .</h4>
+        <h4>Socièté non sélectionné ou bien pas d informations sur les base de donneés .</h4>
         @endif
       </div>
-      <h1>{{$data['fac']->type_facture}} | {{$data['fac']->uuid}}</h1>
+      <h1>| {{$data['fac']->type_facture}} |</h1>
       <div id="company" >
-        @if(isset($get_comp[0]))
-        <h3>Pour : {{$get_comp[0]->raison_social}}</h3>
-        <h3>Fax : {{$get_comp[0]->fax}}</h3>
-        <h3>Ice : {{$get_comp[0]->ice}}</h3>
+        @if(isset($get_four[0]))
+        <h3>Fournisseur : {{$get_four[0]->raison_s}}</h3>
+        <h3>N°tele : {{$get_four[0]->n_telephone}}</h3>
+        <h3>Service : {{$get_four[0]->service}}</h3>
+        <h3>Email : {{$get_four[0]->email}}</h3>
+        <h3>Addresse : {{$get_four[0]->addr1}}</h3>
         @else
-        <h4>Socièté non sélectionné .</h4>
+        <h4>Socièté non sélectionné ou bien pas d informations sur les base de donneés .</h4>
         @endif
        
       </div>
@@ -30,9 +33,15 @@
         <h3>Libelle :  {{$data['fac']->f_libelle}}</h3>
         <h3>Facturé par :  {{$data['fac']->realise_par}}</h3>
         <h3>Date : {{ Carbon\Carbon::parse($data['fac']->relase_date)->format('Y-m-d') }}</h3>
+        <h3>Lieu livraison : ( {{$data['fac']->lieu_livraison}} )</h3>
+        <h3>N°tele : {{$data['fac']->n_tele}}</h3>
       </div>
     </header>
     <main>
+      <center>
+      <hr>
+      <h3>N° : {{$data['fac']->uuid}}</h3>
+      </center>
       <table>
         <thead>
           <tr>
@@ -66,7 +75,7 @@
       @if(isset($get_comp[0]))
       <u>ADDRESSE</u> : {{$get_comp[0]->details}} .  <u>RIB</u> : {{$get_comp[0]->rib}} . <u>ICE</u> : {{$get_comp[0]->ice}}
       @else
-      <h4>Socièté non sélectionné .</h4>
+      <h4>Socièté non sélectionné ou bien pas d informations sur les base de donneés .</h4>
       @endif
     
     </footer>

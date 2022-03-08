@@ -40,7 +40,7 @@
                                     @foreach ($data['amicals'] as $am)
                                     <?php $getdata = DB::select('select * from adherants where societe_id='.$am->id); ?>
                                     @can('adherant-list')
-                                    <a href="/fulllist/{{ $am->slug }}" target="_blank" class="btn btn-outline-success">{{ $am->raison_social }}</a>
+                                    <a href="/fulllist/{{ $am->id }}" target="_blank" class="btn btn-outline-success">{{ $am->raison_social }}</a>
                                     @endcan
 
                                     @endforeach

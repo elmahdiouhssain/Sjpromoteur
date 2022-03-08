@@ -64,6 +64,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="total_tva">Lieu de livraison :</label>
+                                    <input  type=text name="lieu_livraison" class="form-control" id="lieu_livraison" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="total_tva">N° Tele :</label>
+                                    <input  type=text name="n_tele" class="form-control" id="n_tele" value="">
+                                </div>
+                                <div class="form-group">
                                     <label for="company_id">Sociète :</label>
                                     <select class="form-control" name="company_id" id="company_id">
                                         @foreach ($data['companys'] as $company)

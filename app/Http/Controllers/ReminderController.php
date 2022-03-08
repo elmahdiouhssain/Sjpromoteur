@@ -11,6 +11,13 @@ use Carbon\Carbon;
 
 class ReminderController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:agenda-list|agenda-create|agenda-edit|agenda-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:agenda-create', ['only' => ['createReminder','storeReminder']]);
+        $this->middleware('permission:agenda-edit', ['only' => ['Actionrendez','Actionrendez']]);
+        $this->middleware('permission:agenda-delete', ['only' => ['Actionrendez']]);
+    }
    
     public function indexRend(Request $request, $id)
     {

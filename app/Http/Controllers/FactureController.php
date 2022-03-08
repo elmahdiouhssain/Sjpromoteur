@@ -51,6 +51,7 @@ class FactureController extends Controller
     }
     public function store(Request $request)
     {
+        //dd($request);
         $request->validate([
             'company_id' => 'required',
             'fournisseurs_id' => 'required',
@@ -71,9 +72,11 @@ class FactureController extends Controller
         $post->relase_date = date('Y-m-d H:i:s');
         $post->realise_par = \Auth::User()->name;
         $post->is_paid = $request->input('is_paid');
+        $post->lieu_livraison = $request->input('lieu_livraison');
+        $post->n_tele = $request->input('n_tele');
         $post->save();
         $invoice_id = $post->id;
-        return redirect('/factures/'.$invoice_id)->with('success', 'Etape2 : selection du produits ');
+        return redirect('/factures/'.$invoice_id)->with('success', 'Etape2 : selection du articles ');
     }
 
     public function show($fa_id)

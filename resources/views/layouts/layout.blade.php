@@ -4,7 +4,7 @@
 <head>
 	<html prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @if(isset($title))<title>Sjpromorteur | {{ $title }}</title> @else <title>Sjpromorteur | beta version 2021</title> @endif
+    @if(isset($title))<title>Sjpromorteur V2 | {{ $title }}</title> @else <title>Sjpromorteur V2 | 2022</title> @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link href="{{ asset('static/css/bootstrap.css') }}" rel="stylesheet" media="screen">
 	<link href="{{ asset('static/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
@@ -26,7 +26,7 @@
             <div class="headerbar-left">
                 <a href="{{ route('dashboard.index') }}" class="logo">
                     <img alt="Logo" src="{{ asset('static/images/logo.png') }}" />
-                    <span>SjPromoteur</span>
+                    <span>SjPromoteur V2</span>
                 </a>
             </div>
             <nav class="navbar-custom">
@@ -59,8 +59,8 @@
                             </a>
                         </div>
                     </li>
-
                 </ul>
+
 
                 <ul class="list-inline menu-left mb-0">
                     <li class="float-left">
@@ -185,6 +185,12 @@
                             </a>
                         </li>
                         @endcan
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-book"></i>
+                                <span>Documentation </span>
+                            </a>
+                        </li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>

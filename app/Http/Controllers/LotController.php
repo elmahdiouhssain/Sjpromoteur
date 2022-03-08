@@ -19,7 +19,13 @@ use App\Models\Lot;
 use DataTables;
 
 class LotController extends Controller
-{
+{   function __construct()
+    {
+        $this->middleware('permission:lots-list|lots-create|lots-edit|lots-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:lots-create', ['only' => ['create','store']]);
+        $this->middleware('permission:lots-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:lots-delete', ['only' => ['destroy']]);
+    }
     //
     public function index() {
         $data['title'] = "Sjpromoteur lots";
